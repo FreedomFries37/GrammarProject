@@ -32,28 +32,4 @@ public class Terminal extends SyntacticObject {
         return "" + terminal;
     }
     
-    /**
-     * Assume there are methods: advancePointer() matchChar() matchString() matchPattern() consumeChar() consumeString()
-     * consumePattern()
-     *
-     * @return
-     */
-    @Override
-    public String createParseMethodBody() {
-        return String.format(
-                "if(!consumeChar('%c')) return false;\n",
-                terminal);
-    }
-    
-    @Override
-    public String createParseMethodName() {
-        return null;
-    }
-    
-    @Override
-    public String createParseMethodCall() {
-        return String.format(
-                "consumeChar('%c')",
-                terminal);
-    }
 }

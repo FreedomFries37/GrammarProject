@@ -12,10 +12,32 @@ import java.util.HashMap;
 public class Grammar {
     
     private HashMap<String, SyntacticCategory> hashMap;
-    private SyntacticCategory head;
+    protected SyntacticCategory head;
     
     public Grammar() {
         hashMap = new HashMap<>();
+    }
+    
+    @SuppressWarnings("unchecked")
+    public Grammar(Grammar inherit){
+        hashMap = (HashMap<String, SyntacticCategory>) inherit.hashMap.clone();
+        head = inherit.head;
+    }
+    
+    public void inherit(Grammar g){
+        for (String s: g.hashMap.keySet()) {
+            if(!hashMap.containsKey(s)){
+                hashMap.put(s, g.hashMap.get(s));
+            }
+        }
+    }
+    
+    public void inherit(Grammar g, String... cats){
+        for (String cat: cats) {
+            if(!hashMap.containsKey(cat) && g.containsCategory(cat)){
+                hashMap.put(cat, g.hashMap.get(cat));
+            }
+        }
     }
     
     public static ArrayList<Terminal> createTerminals(String s){
@@ -26,8 +48,14 @@ public class Grammar {
         return output;
     }
     
+    public SyntacticCategory getDefault(){ return head; }
+    
     public boolean containsCategory(String name){
         return hashMap.containsKey(name);
+    }
+    
+    public boolean hasDefault(){
+        return head != null;
     }
     
     public SyntacticCategory getCategory(String name){
@@ -106,6 +134,25 @@ public class Grammar {
         if(!hashMap.containsKey(name)) return;
         for (String s : generateExamples(count, name)) {
             System.out.println(s);
+        }
+    }
+    
+    public String[] getCategoryNames(){
+        return hashMap.keySet().toArray(new String[hashMap.size()]);
+    }
+    
+    public void printCategoryNames(){
+        for (String categoryName: getCategoryNames()) {
+            System.out.println(categoryName);
+        }
+    }
+    
+    public void printGrammar(){
+        for (String categoryName: getCategoryNames()) {
+            System.out.println(categoryName + ":");
+            for (Rule rule: getCategory(categoryName).getRules()) {
+                System.out.println("\t" + rule.toString());
+            }
         }
     }
 }

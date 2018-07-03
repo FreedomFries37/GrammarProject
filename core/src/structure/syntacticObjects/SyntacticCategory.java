@@ -3,8 +3,8 @@ package structure.syntacticObjects;
 import misc.Tools;
 import structure.parse.ParseNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
+import java.util.regex.Pattern;
 
 public class SyntacticCategory extends SyntacticObject {
     
@@ -59,6 +59,20 @@ public class SyntacticCategory extends SyntacticObject {
         for (Rule rule : rules) {
             addRule(rule);
         }
+    }
+    
+    public HashMap<Pattern, Rule> lookAheadToRuleMap(){
+        HashMap<Pattern, Rule> output = new HashMap<>();
+        for (Rule rule: rules) {
+            for (Pattern lookahead: rule.lookaheads()) {
+                output.put(lookahead, rule);
+            }
+        }
+        return output;
+    }
+    
+    public ArrayList<Pattern> allLookAheads(){
+        return new ArrayList<>(lookAheadToRuleMap().keySet());
     }
     
     public boolean isOptional() {
@@ -136,34 +150,12 @@ public class SyntacticCategory extends SyntacticObject {
         
         int ruleIndex = (int) (Math.random() * (double) rules.size());
         StringBuilder single = new StringBuilder();
-        for (SyntacticObject syntacticObject : rules.get(ruleIndex).getSyntacticObjects()) {
-            single.append(syntacticObject.generate());
+        if(rules.size() > 0) {
+            for (SyntacticObject syntacticObject: rules.get(ruleIndex).getSyntacticObjects()) {
+                single.append(syntacticObject.generate());
+            }
         }
-       
         return single.toString();
     }
     
-    /**
-     * Assume there are methods: advancePointer() matchChar() matchString() matchPattern() consumeChar() consumeString()
-     * consumePattern()
-     *
-     * @return
-     */
-    @Override
-    public String createParseMethodBody() {
-        String output = String.format("       ParseNode next = new ParseNode(\"<%s>\");\n", name);
-        for (Rule rule : rules) {
-        
-        }
-    }
-    
-    @Override
-    public String createParseMethodName() {
-        return "parse" + name.substring(0, 1).toUpperCase() + name.substring(1);
-    }
-    
-    @Override
-    public String createParseMethodCall() {
-        return null;
-    }
 }

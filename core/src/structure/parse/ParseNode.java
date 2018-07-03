@@ -1,20 +1,159 @@
 package structure.parse;
 
-import structure.syntacticObjects.SyntacticObject;
+import misc.Tools;
+import structure.syntacticObjects.*;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ParseNode {
     
-    String object;
-    LinkedList<ParseNode> children;
+    private String data;
+    private SyntacticTypes type;
+    private Rule rule;
+    private LinkedList<ParseNode> children;
     
     public ParseNode(String object){
-        this.object = object;
+        this.data = object;
+        children = new LinkedList<>();
+    }
+    
+    public ParseNode(SyntacticObject object, String str){
+        type = SyntacticTypes.getType(object);
+        children = new LinkedList<>();
+        children.add(new ParseNode(str));
+    }
+    
+    public ParseNode(SyntacticCategory category, Rule rule) {
+        type = SyntacticTypes.SYNTACTIC_CATEGORY;
+        data = category.getName();
+        this.rule = rule;
         children = new LinkedList<>();
     }
     
     public void addChild(ParseNode p){
         children.add(p);
+    }
+    
+    public ParseNode getChild(int i){
+        return children.get(i);
+    }
+    public ParseNode getChild(String s){
+        for (ParseNode child: children) {
+            if(child.data.equals(s)) return child;
+        }
+        return null;
+    }
+    
+    
+    public String getData() {
+        return data;
+    }
+    
+    public SyntacticTypes getType() {
+        return type;
+    }
+    
+    public LinkedList<ParseNode> getChildren() {
+        return children;
+    }
+    
+    public ArrayList<ParseNode> getAllChildren(){
+        ArrayList<ParseNode> output = new ArrayList<>();
+        output.add(this);
+        for (ParseNode child: children) {
+            output.addAll(child.getAllChildren());
+        }
+        return output;
+    }
+    
+    public int childCount(){
+        return children.size();
+    }
+    
+    public ParseNode leftMostOpenParseNode(){
+        ParseNode ptr = this;
+        int maxChildren = ptr.getMaxChildren();
+    
+        for (ParseNode child: children) {
+            ParseNode next = child.leftMostOpenParseNode();
+            if(next != null){
+                ptr = next;
+                break;
+            }
+        }
+        
+        if(ptr == this && maxChildren == ptr.childCount()) return null;
+        
+        return ptr;
+    }
+    
+    public int getMaxChildren(){
+        if(type == null) return 0;
+        switch (type){
+            case REGEX_TERMINAL:
+            case TERMINAL:
+                return 1;
+            case SYNTACTIC_CATEGORY:
+                if(rule == null) return 0;
+                return rule.getSyntacticObjects().size();
+        }
+        
+        return -1;
+    }
+    
+    /**
+     * Returns a string representation of the object. In general, the {@code toString} method returns a string that
+     * "textually represents" this object. The result should be a concise but informative representation that is easy
+     * for a person to read. It is recommended that all subclasses override this method.
+     * <p>
+     * The {@code toString} method for class {@code Object} returns a string consisting of the name of the class of
+     * which the object is an instance, the at-sign character `{@code @}', and the unsigned hexadecimal representation
+     * of the hash code of the object. In other words, this method returns a string equal to the value of:
+     * <blockquote>
+     * <pre>
+     * getClass().getName() + '@' + Integer.toHexString(hashCode())
+     * </pre></blockquote>
+     *
+     * @return a string representation of the object.
+     */
+    @Override
+    public String toString() {
+        switch (type){
+            case SYNTACTIC_CATEGORY:
+                return "<" + data + ">";
+            case TERMINAL:
+            case REGEX_TERMINAL:
+                return children.get(0).data;
+            case SPECIAL:
+                return data;
+        }
+        
+        return null;
+    }
+    
+    public void print(int index){
+        if(type == null) return;
+        System.out.println(Tools.indent(index) + toString());
+        for (ParseNode child: children) {
+            child.print(index + 1);
+        }
+    }
+    
+    public void setDataToAllChildTerminals(){
+        
+        ParseNode special = new ParseNode(getChildTerminals());
+        special.type = SyntacticTypes.SPECIAL;
+        children = new LinkedList<>();
+        children.add(special);
+    }
+    
+    public String getChildTerminals(){
+        StringBuilder newData = new StringBuilder();
+        if(type == SyntacticTypes.TERMINAL || type == SyntacticTypes.REGEX_TERMINAL || type == SyntacticTypes.SPECIAL) return toString();
+        for (ParseNode child: children) {
+            newData.append(child.getChildTerminals());
+        }
+        return newData.toString();
     }
 }

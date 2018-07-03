@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class RegexTerminal extends SyntacticObject {
     
     
-    Pattern pattern;
+    private Pattern pattern;
     
     public RegexTerminal(Pattern pattern) {
         this.pattern = pattern;
@@ -15,6 +15,10 @@ public class RegexTerminal extends SyntacticObject {
     
     public RegexTerminal(String s) {
         pattern = Pattern.compile(s);
+    }
+    
+    public Pattern getPattern() {
+        return pattern;
     }
     
     @Override
@@ -36,4 +40,6 @@ public class RegexTerminal extends SyntacticObject {
     public String generate() {
        return getRepresentation();
     }
+    
+   
 }

@@ -4,6 +4,7 @@ import structure.Grammar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class Rule {
     
@@ -52,6 +53,22 @@ public class Rule {
                 throw new IncorrectTypeException();
             }
         }
+    }
+    
+    public ArrayList<Pattern> lookaheads(){
+        ArrayList<Pattern> output = new ArrayList<>();
+        SyntacticObject first = syntacticObjects.get(0);
+        if(first.getClass().equals(SyntacticCategory.class)){
+            SyntacticCategory category = (SyntacticCategory) first;
+            output.addAll(category.allLookAheads());
+        }else if(first.getClass().equals(Terminal.class)){
+            Terminal terminal = (Terminal) first;
+            output.add(Pattern.compile(Pattern.quote("" + terminal.getRepresentation())));
+        }else if(first.getClass().equals(RegexTerminal.class)){
+            RegexTerminal terminal = (RegexTerminal) first;
+            output.add(terminal.getPattern());
+        }
+        return output;
     }
     
     public ArrayList<SyntacticObject> getSyntacticObjects() {
@@ -103,7 +120,7 @@ public class Rule {
     public RegexTerminal specialPatterns(char escapeCharacter){
         switch (escapeCharacter){
             case 'c':
-                return new RegexTerminal("\\w");
+                return new RegexTerminal("[0-9a-zA-Z_]");
             case '.':
                 return new RegexTerminal(".");
             default:
@@ -111,11 +128,4 @@ public class Rule {
         }
     }
     
-    public String toIfStatements(){
-        StringBuilder output = new StringBuilder();
-        output.append(String.format("if (%s){", syntacticObjects.get(0).createParseMethodCall()));
-    
-        output.append("}");
-        return output.toString();
-    }
 }

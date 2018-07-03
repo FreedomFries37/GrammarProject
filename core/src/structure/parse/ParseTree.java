@@ -1,10 +1,43 @@
 package structure.parse;
 
+import structure.syntacticObjects.SyntacticTypes;
+
+import java.util.ArrayList;
+
 public class ParseTree {
     
-    ParseNode head;
+    private ParseNode head;
     
     public ParseTree(ParseNode head) {
         this.head = head;
+    }
+    
+    public ParseTree(ParseNode head, String... clean){
+        this.head = head;
+        for (String s: clean) {
+            clean(s);
+        }
+    }
+    
+    public void clean(String catName){
+        for (ParseNode child: children()) {
+            if(child.getType() == SyntacticTypes.SYNTACTIC_CATEGORY &&
+            catName.equals(child.getData())){
+                child.setDataToAllChildTerminals();
+            }
+        }
+    }
+    
+    public ArrayList<ParseNode> children(){
+        return getHead().getAllChildren();
+    }
+    
+    public void print(){
+        getHead().print(0);
+    }
+    
+    
+    public ParseNode getHead() {
+        return head;
     }
 }

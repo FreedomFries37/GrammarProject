@@ -1,6 +1,7 @@
-package misc;
+package defaultGrammars;
 
 import structure.Grammar;
+import structure.syntacticObjects.RegexTerminal;
 import structure.syntacticObjects.Rule;
 
 public class StandardGrammar extends Grammar {
@@ -14,12 +15,19 @@ public class StandardGrammar extends Grammar {
             
             addCategory("sentence");
             addCategory("sentence'");
-            addCategory("sentence_char", new Rule("\\."));
+            addCategory("sentence''");
+            addCategory("sentence_char", new Rule(new RegexTerminal("[^\"]")));
+            addCategory("sentence_char'", new Rule(new RegexTerminal("[^']")));
             addOptionalCategory("sentence_tail");
+            addOptionalCategory("sentence_tail'");
             getCategory("sentence_tail").addRule(new Rule(getCategory("sentence'")));
+            getCategory("sentence_tail'").addRule(new Rule(getCategory("sentence''")));
             getCategory("sentence'").addRule(new Rule(getCategory("sentence_char"), getCategory("sentence_tail")));
+            getCategory("sentence''").addRule(getCategory("sentence_char'"), getCategory("sentence_tail'"));
             getCategory("sentence").addRule("\"", getCategory("sentence'"), "\"");
-            getCategory("sentence").addRule("'", getCategory("sentence'"), "'");
+            getCategory("sentence").addRule("'", getCategory("sentence''"), "'");
+            
+            addCategory("string_sentence", new Rule(getCategory("string")), new Rule(getCategory("sentence")));
             
             addCategory("digit", new Rule("\\d"));
             
@@ -37,6 +45,11 @@ public class StandardGrammar extends Grammar {
             getCategory("double_first_tail").addRule(".", getCategory("double_decimal"));
             getCategory("double_decimal").addRule(getCategory("digit"), getCategory("double_decimal_tail"));
             getCategory("double_decimal_tail").addRule(getCategory("double_decimal"));
+            
+            addCategory("whitespace", new Rule(new RegexTerminal("\\s+")));
+            addCategory("opt_whitespace", new Rule(new RegexTerminal("\\s*")));
+            
+            inherit(new ListGrammar(getCategory("sentence")));
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }

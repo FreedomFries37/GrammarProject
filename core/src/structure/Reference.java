@@ -8,6 +8,9 @@ public class Reference<T> {
         ref = data;
     }
     
+    public Reference() {
+    }
+    
     public T getRef() {
         return ref;
     }

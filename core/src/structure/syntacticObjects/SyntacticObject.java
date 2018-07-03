@@ -14,18 +14,4 @@ public abstract class SyntacticObject {
     
     public abstract String generate();
     
-    /**
-     * Assume there are methods:
-     *      advancePointer()
-     *      matchChar()
-     *      matchString()
-     *      matchPattern()
-     *      consumeChar()
-     *      consumeString()
-     *      consumePattern()
-     * @return
-     */
-    public abstract String createParseMethodBody();
-    public abstract String createParseMethodName();
-    public abstract String createParseMethodCall();
 }
