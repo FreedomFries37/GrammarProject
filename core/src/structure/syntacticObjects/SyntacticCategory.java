@@ -1,6 +1,7 @@
 package structure.syntacticObjects;
 
 import misc.Tools;
+import structure.parse.ParseNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,6 +45,14 @@ public class SyntacticCategory extends SyntacticObject {
     
     public void addRule(Rule r){
         rules.add(r);
+    }
+    
+    public void addRule(Object... o){
+        try {
+            addRule(new Rule(o));
+        }catch (Rule.IncorrectTypeException e){
+            e.printStackTrace();
+        }
     }
     
     public void addRules(Rule... rules){
@@ -92,16 +101,69 @@ public class SyntacticCategory extends SyntacticObject {
             output.append(Tools.indent(currentLevel));
             output.append("$\n");
         }
+        int ruleIndex = 0;
         for (Rule rule : rules) {
-            output.append(Tools.indent(currentLevel));
-            output.append(rule.toString() + "\n");
-            for (SyntacticObject syntacticObject : rule.getSyntacticObjects()) {
-                output.append(syntacticObject.getFullRepresentation(maxLevels, currentLevel+2));
-                output.append('\n');
+            int modifier = 1;
+            if(rule.syntacticCategoryCount() > 1
+                    || rule.syntacticCategoryCount() > 0 && rule.terminalCount() > 0
+                    || !rule.ruleHasSyntacticCategories()) {
+                output.append(Tools.indent(currentLevel));
+                output.append(rule.toString());
+                modifier = 2;
             }
+            if (rule.ruleHasSyntacticCategories()) {
+                if(!(rule.terminalCount() == 0 && rule.syntacticCategoryCount() == 1)) output.append('\n');
+                
+                int index = 0;
+                for (SyntacticObject syntacticObject : rule.getSyntacticObjects()) {
+                    output.append(syntacticObject.getFullRepresentation(maxLevels, currentLevel + modifier));
+                    if(ruleIndex < rules.size()-1 || index != rule.getSyntacticObjects().size() - 1) output.append('\n');
+                    index++;
+                }
+            }
+            ruleIndex++;
         }
         
     
         return output.toString();
+    }
+    
+    @Override
+    public String generate() {
+        if(isOptional() && Math.random() > .66d){
+            return "";
+        }
+        
+        int ruleIndex = (int) (Math.random() * (double) rules.size());
+        StringBuilder single = new StringBuilder();
+        for (SyntacticObject syntacticObject : rules.get(ruleIndex).getSyntacticObjects()) {
+            single.append(syntacticObject.generate());
+        }
+       
+        return single.toString();
+    }
+    
+    /**
+     * Assume there are methods: advancePointer() matchChar() matchString() matchPattern() consumeChar() consumeString()
+     * consumePattern()
+     *
+     * @return
+     */
+    @Override
+    public String createParseMethodBody() {
+        String output = String.format("       ParseNode next = new ParseNode(\"<%s>\");\n", name);
+        for (Rule rule : rules) {
+        
+        }
+    }
+    
+    @Override
+    public String createParseMethodName() {
+        return "parse" + name.substring(0, 1).toUpperCase() + name.substring(1);
+    }
+    
+    @Override
+    public String createParseMethodCall() {
+        return null;
     }
 }

@@ -1,7 +1,9 @@
 package structure;
 
+import structure.parse.ParseTree;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
+import structure.syntacticObjects.SyntacticObject;
 import structure.syntacticObjects.Terminal;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.HashMap;
 public class Grammar {
     
     private HashMap<String, SyntacticCategory> hashMap;
+    private SyntacticCategory head;
     
     public Grammar() {
         hashMap = new HashMap<>();
@@ -67,5 +70,42 @@ public class Grammar {
         if(!containsCategory(cat)) return false;
         getCategory(cat).addRule(rule);
         return true;
+    }
+    
+    public ArrayList<String> generateExamples(int count){
+        return generateExamples(count, head);
+    }
+    
+    public static ArrayList<String> generateExamples(int count, SyntacticObject object){
+        if(object == null) return null;
+        ArrayList<String> output = new ArrayList<>(count);
+        for (int i = 0; i < count; i++) {
+            output.add(object.generate());
+        }
+        return output;
+    }
+    
+    public ArrayList<String> generateExamples(int count, String name){
+        if(!hashMap.containsKey(name)) return null;
+        return generateExamples(count, getCategory(name));
+    }
+    
+    public void printExamples(int count){
+        for (String s : generateExamples(count)) {
+            System.out.println(s);
+        }
+    }
+    
+    public static void printExamples(int count, SyntacticCategory object){
+        for (String s : generateExamples(count, object)) {
+            System.out.println(s);
+        }
+    }
+    
+    public void printExamples(int count, String name){
+        if(!hashMap.containsKey(name)) return;
+        for (String s : generateExamples(count, name)) {
+            System.out.println(s);
+        }
     }
 }
