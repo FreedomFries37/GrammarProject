@@ -1,6 +1,7 @@
 package main;
 
 import defaultGrammars.CgfFileGrammar;
+import defaultGrammars.GrammarLoader;
 import defaultGrammars.StandardGrammar;
 import defaultGrammars.VarGrammar;
 import misc.Tools;
@@ -10,6 +11,7 @@ import structure.parse.Parser;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
 
+import java.io.File;
 import java.util.regex.Pattern;
 
 public class CommandLineRunner {
@@ -53,8 +55,11 @@ public class CommandLineRunner {
             cfg.printGrammar();
             System.out.println();
             cfg.printExamples(1);
-            
-            
+            GrammarLoader grammarLoader = new GrammarLoader();
+            Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.grammar"));
+            math.printGrammar();
+            Parser mathParser = new Parser(math);
+            mathParser.parse("5+2*4").print();
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }

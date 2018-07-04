@@ -49,6 +49,9 @@ public class Grammar {
     }
     
     public SyntacticCategory getDefault(){ return head; }
+    public void setDefault(SyntacticCategory head){
+        this.head = head;
+    }
     
     public boolean containsCategory(String name){
         return hashMap.containsKey(name);
@@ -149,7 +152,10 @@ public class Grammar {
     
     public void printGrammar(){
         for (String categoryName: getCategoryNames()) {
-            System.out.println(categoryName + ":");
+            String modifierText = "";
+            if(head.getName().equals(categoryName)) modifierText += "head ";
+            if(getCategory(categoryName).isOptional()) modifierText += "optional ";
+            System.out.println(modifierText + categoryName + ":");
             for (Rule rule: getCategory(categoryName).getRules()) {
                 System.out.println("\t" + rule.toString());
             }

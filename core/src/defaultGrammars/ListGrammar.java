@@ -1,7 +1,12 @@
 package defaultGrammars;
 
+import modules.IConvertModule;
 import structure.Grammar;
+import structure.parse.ParseNode;
+import structure.parse.ParseTree;
 import structure.syntacticObjects.SyntacticCategory;
+
+import java.util.ArrayList;
 
 public class ListGrammar extends Grammar {
     
@@ -50,5 +55,27 @@ public class ListGrammar extends Grammar {
         listBase.addRule(lObject, listTail);
         lObject.addRule(listObject);
         listTail.addRule(seperator, listBase);
+    }
+    
+    public static class ListGrammarConverter implements IConvertModule<ArrayList<ParseNode>>{
+    
+        @Override
+        public ArrayList<ParseNode> convertParseNode(ParseNode p) {
+            ArrayList<ParseNode> output = new ArrayList<>();
+            ParseNode ptr =p;
+            while(ptr != null){
+                if(ptr.getData().endsWith("_tail")) ptr = ptr.getChild(ptr.childCount()-1);
+                ParseNode object= ptr.getChild(0).getChild(0);
+                output.add(object);
+                ptr = ptr.getChild(1);
+            }
+            
+            return output;
+        }
+    
+        @Override
+        public ArrayList<ParseNode> convertParseTree(ParseTree p) {
+            return convertParseNode(p.getHead());
+        }
     }
 }

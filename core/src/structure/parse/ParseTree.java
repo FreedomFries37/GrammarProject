@@ -28,8 +28,16 @@ public class ParseTree {
         }
     }
     
+    public void removeEmptyNodes(){
+        head.removeEmptyChildren();
+    }
+    
     public ArrayList<ParseNode> children(){
         return getHead().getAllChildren();
+    }
+    
+    public int childCount(){
+        return children().size();
     }
     
     public void print(){

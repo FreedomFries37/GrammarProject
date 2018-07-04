@@ -36,13 +36,18 @@ public class ParseNode {
     }
     
     public ParseNode getChild(int i){
+        if(i < 0 || i >= children.size()) return null;
         return children.get(i);
     }
     public ParseNode getChild(String s){
         for (ParseNode child: children) {
-            if(child.data.equals(s)) return child;
+            if(child.data != null && child.data.equals(s)) return child;
         }
         return null;
+    }
+    
+    public boolean contains(String s){
+        return getChild(s) != null;
     }
     
     
@@ -102,6 +107,14 @@ public class ParseNode {
         return -1;
     }
     
+    public boolean empty(){
+        return childCount() == 0;
+    }
+    
+    public boolean full(){
+        return getMaxChildren() == childCount();
+    }
+    
     /**
      * Returns a string representation of the object. In general, the {@code toString} method returns a string that
      * "textually represents" this object. The result should be a concise but informative representation that is easy
@@ -155,5 +168,15 @@ public class ParseNode {
             newData.append(child.getChildTerminals());
         }
         return newData.toString();
+    }
+    
+    public void removeEmptyChildren(){
+        for (int i = children.size()-1; i >= 0; i--) {
+            if(children.get(i).children.size() == 0 && children.get(i).type == SyntacticTypes.SYNTACTIC_CATEGORY){
+                children.remove(i);
+            }else{
+                children.get(i).removeEmptyChildren();
+            }
+        }
     }
 }

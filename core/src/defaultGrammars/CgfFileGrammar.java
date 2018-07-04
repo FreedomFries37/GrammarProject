@@ -10,11 +10,17 @@ public class CgfFileGrammar extends Grammar {
     
     public CgfFileGrammar(){
         try {
-            inherit(new StandardGrammar(), "string", "sentence", "whitespace");
+            inherit(new StandardGrammar(), "string", "sentence", "whitespace", "opt_whitespace");
             inherit(new ListGrammar(getCategory("string")));
+            
+            addCategory("import");
+            
             addCategory("category");
             inherit(new ListGrammar(getCategory("category"), getCategory("whitespace")));
             addCategory("grammar");
+            getCategory("grammar").addRule(getCategory("whitespace"),
+                    getCategory("list_category")
+            );
             getCategory("grammar").addRule(
                     getCategory("list_category")
             );
