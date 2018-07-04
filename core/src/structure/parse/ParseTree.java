@@ -36,8 +36,11 @@ public class ParseTree {
         getHead().print(0);
     }
     
-    
     public ParseNode getHead() {
         return head;
+    }
+    
+    public String baseType(){
+        return head.getData();
     }
 }

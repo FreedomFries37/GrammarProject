@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 public class CgfFileGrammar extends Grammar {
     
     public CgfFileGrammar(){
-        super(new StandardGrammar());
         try {
+            inherit(new StandardGrammar(), "string", "sentence", "whitespace");
             inherit(new ListGrammar(getCategory("string")));
             addCategory("category");
             inherit(new ListGrammar(getCategory("category"), getCategory("whitespace")));

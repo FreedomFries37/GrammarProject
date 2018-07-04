@@ -144,7 +144,7 @@ public class SyntacticCategory extends SyntacticObject {
     
     @Override
     public String generate() {
-        if(isOptional() && Math.random() > .66d){
+        if(isOptional() && Math.random() > .55d){
             return "";
         }
         

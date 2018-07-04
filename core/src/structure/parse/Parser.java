@@ -4,6 +4,9 @@ import structure.Grammar;
 import structure.Reference;
 import structure.syntacticObjects.*;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -116,11 +119,24 @@ public class Parser {
         return parse(s, grammar.getDefault());
     }
     
+    public ParseTree parse(File file) throws IOException{
+        if(!grammar.hasDefault()){
+            System.err.println("No Default Grammar Rule");
+            return null;
+        }
+        return parse(new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8));
+    }
+    
+    public ParseTree parse(File file, SyntacticCategory base) throws IOException {
+        return parse(new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8), base);
+    }
+    
     public ParseTree parse(String s, SyntacticCategory base){
         Stack<SyntacticObject> stack = new Stack<>();
         Reference<ParseNode> head = new Reference<>();
         stack.push(base);
         parsableString = s;
+        index = 0;
         
         while(!stack.empty()){
             System.out.print("Lookahead: " + currentChar() + "  Stack: ");

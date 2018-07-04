@@ -38,7 +38,7 @@ public class RegexTerminal extends SyntacticObject {
     
     @Override
     public String generate() {
-       return getRepresentation();
+        return Tools.createMatchingString(pattern);
     }
     
    

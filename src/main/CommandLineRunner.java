@@ -3,11 +3,14 @@ package main;
 import defaultGrammars.CgfFileGrammar;
 import defaultGrammars.StandardGrammar;
 import defaultGrammars.VarGrammar;
+import misc.Tools;
 import structure.Grammar;
 import structure.parse.ParseTree;
 import structure.parse.Parser;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
+
+import java.util.regex.Pattern;
 
 public class CommandLineRunner {
     
@@ -50,10 +53,8 @@ public class CommandLineRunner {
             cfg.printGrammar();
             System.out.println();
             cfg.printExamples(1);
-            Parser p = new Parser(cfg);
-            ParseTree tree = p.parse("h:\n\thello\n\tyeet<b>\n\nb:\n\tn\n\tface\n");
-            if(tree != null) tree.print();
-            if(tree != null) System.out.println(tree.getHead().getChildTerminals());
+            
+            
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }
