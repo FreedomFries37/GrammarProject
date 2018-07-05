@@ -187,8 +187,8 @@ public class Parser {
             
         }
         System.out.println("Lookahead: " + currentChar() + "  Stack: ");
-        //head.getRef().print(0);
         printStack(stack);
+        if(index != parsableString.length()) return null;
         return new ParseTree(head.getRef());
     }
     

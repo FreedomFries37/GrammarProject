@@ -59,7 +59,7 @@ public class CommandLineRunner {
             Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.ccfg"));
             math.printGrammar();
             Parser mathParser = new Parser(math);
-            mathParser.parse("5+2*4").print();
+            mathParser.parse("5+2.354*4").print();
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }
