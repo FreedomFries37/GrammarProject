@@ -72,6 +72,7 @@ public class GrammarLoader {
     
     public Grammar loadGrammar(File f){
         try {
+            if(!f.getName().endsWith(".ccfg")) return null;
             String grammar = new String(Files.readAllBytes(f.toPath()), StandardCharsets.UTF_8);
             return loadGrammar(grammar);
         }catch (IOException e){

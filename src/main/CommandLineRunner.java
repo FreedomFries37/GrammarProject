@@ -56,7 +56,7 @@ public class CommandLineRunner {
             System.out.println();
             cfg.printExamples(1);
             GrammarLoader grammarLoader = new GrammarLoader();
-            Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.grammar"));
+            Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.ccfg"));
             math.printGrammar();
             Parser mathParser = new Parser(math);
             mathParser.parse("5+2*4").print();
