@@ -1,4 +1,4 @@
-package defaultGrammars;
+package main.defaultGrammars;
 
 import modules.IConvertModule;
 import structure.Grammar;

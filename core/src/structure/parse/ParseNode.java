@@ -72,6 +72,17 @@ public class ParseNode {
         return output;
     }
     
+    public ArrayList<ParseNode> syntacticChildren(){
+        ArrayList<ParseNode> output = new ArrayList<>();
+        if(type != SyntacticTypes.SYNTACTIC_CATEGORY) return output;
+        output.add(this);
+        for (ParseNode child: children) {
+            output.addAll(child.syntacticChildren());
+        }
+        return output;
+        
+    }
+    
     public int childCount(){
         return children.size();
     }

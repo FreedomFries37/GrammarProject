@@ -1,65 +1,80 @@
 #import <standard>
+#standard extended
 
-statement(default):
+category statement(default):
 	<expression>
 	.<method>
 
-method:
-	let <binds>
+category method:
+	<method_name><whitespace><binds>
 
-expression:
+category method_name(clean):
+	<named_string>
+
+category expression:
 	<group><expression_tail>
 
-expression_tail(optional):
+category expression_tail(optional):
 	+<expression>
 	-<expression>
 
-group:
+category group:
 	<factor><group_tail>
 
-group_tail(optional):
+category group_tail(optional):
 	*<group>
 	/<group>
 
-factor:
+category factor:
 	(<expression>)
 	<double>
 	<named_action>
 	-<factor>
 
-named_action:
+category named_action:
 	<named_string><function_extension>
 
-array_init:
-	[]<named_string>
+category array_init:
+	[]<named_string_init>
 
-array_size:
+category array_size:
 	new [<integer>]
 
-function_extension(optional):
+category function_extension(optional):
 	(\list(<expression>)\)
 
-named_string:
+category named_string(clean):
 	<named_char><named_string_tail><array_tail>
 
-named_string_tail(optional):
+category named_string_init(clean):
+	<named_char><named_string_tail>
+
+category named_string_tail(optional):
 	<string>
 
-named_char(pattern):
-	[a-zA-Z_]
+category named_char:
+	\regex("[a-zA-Z_]")\
 
-binds:
+category binds:
 	<var_bind>
 	<array_bind>
+	<function_bind>
 
-pre_scope(optional):
+category pre_scope(optional):
 	{\list(<expression>)\}
 
-var_bind:
-	\var(<named_string>,<expression>,":=")\
+category var_bind:
+	\var(<named_string_init>,<expression>,":=")\
 
-array_bind:
+category array_bind:
 	\var(<array_init>,<array_size>,":=")\<pre_scope>
 
-array_tail(optional):
+category array_tail(optional):
 	[<integer>]
+
+category create_function:
+	<named_string>(<named_string>)
+
+category function_bind:
+	\var(<create_function>,<expression>,":=")\
+

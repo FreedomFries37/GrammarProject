@@ -1,0 +1,3 @@
+//use basic cfg grammar for this
+category(override):
+	category <string><options>:<opt_space_and_newline><list_rule>

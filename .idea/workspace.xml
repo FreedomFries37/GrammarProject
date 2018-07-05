@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="Parser now return null if the entire string is not parsed">
+    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="added Math Grammar back">
+      <change afterPath="$PROJECT_DIR$/cfgGrammarExtended.ccfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/gui/Editor.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/gui/Editor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/gui/FileSelector.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gui/src/gui/FileSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/core/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/StandardGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/defaultGrammars/StandardGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/GrammarLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/ListGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/StandardGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/VarGrammar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/structure/Grammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/Grammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/structure/parse/ParseNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/parse/ParseNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/structure/parse/ParseTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/parse/ParseTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/structure/parse/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mathGrammar.ccfg" beforeDir="false" afterPath="$PROJECT_DIR$/mathGrammar.ccfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/CommandLineRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CommandLineRunner.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,27 +45,29 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ccfg" value="539" />
-          <entry key="java" value="10959" />
-          <entry key="txt" value="165" />
+          <entry key="ccfg" value="1408" />
+          <entry key="java" value="12892" />
+          <entry key="txt" value="225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10959" />
-          <entry key="PLAIN_TEXT" value="704" />
+          <entry key="JAVA" value="12892" />
+          <entry key="PLAIN_TEXT" value="1633" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="ccfg" value="1" />
-          <entry key="java" value="45" />
+          <entry key="ccfg" value="2" />
+          <entry key="form" value="3" />
+          <entry key="java" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="45" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="GUI_DESIGNER_FORM" value="3" />
+          <entry key="JAVA" value="57" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -70,8 +77,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+            <state relative-caret-position="460">
+              <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gui/src/gui/Editor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/src/gui/FileSelector.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/src/gui/FileSelector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/src/gui/Editor.form">
+          <provider selected="true" editor-type-id="ui-designer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="768">
+              <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,12 +127,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java">
+        <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.ccfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+            <state relative-caret-position="48">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/GrammarLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-98">
+              <caret line="119" column="57" selection-start-line="119" selection-start-column="57" selection-end-line="119" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1007#1008#0" expanded="true" />
+                <element signature="e#1042#1043#0" expanded="true" />
+                <element signature="e#2699#2700#0" expanded="true" />
+                <element signature="e#2734#2735#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,111 +154,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="154" column="34" lean-forward="true" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
+            <state relative-caret-position="302">
+              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1492#1493#0" expanded="true" />
                 <element signature="e#1524#1525#0" expanded="true" />
                 <element signature="e#1665#1666#0" expanded="true" />
                 <element signature="e#1700#1701#0" expanded="true" />
+                <element signature="e#2906#2907#0" expanded="true" />
+                <element signature="e#2943#2944#0" expanded="true" />
+                <element signature="e#3723#3724#0" expanded="true" />
+                <element signature="e#3756#3757#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/parse/Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="147" selection-start-line="147" selection-end-line="147" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
-              <folding>
-                <element signature="e#1910#1911#0" expanded="true" />
-                <element signature="e#1979#1980#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#531#532#0" expanded="true" />
-                <element signature="e#576#577#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#282#283#0" expanded="true" />
-                <element signature="e#318#319#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#680#681#0" expanded="true" />
-                <element signature="e#757#758#0" expanded="true" />
-                <element signature="e#784#785#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
-                <element signature="e#847#848#0" expanded="true" />
-                <element signature="e#905#906#0" expanded="true" />
-                <element signature="e#982#983#0" expanded="true" />
-                <element signature="e#1009#1010#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mathGrammar.ccfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+            <state relative-caret-position="320">
+              <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -211,6 +188,7 @@
         <option value="package-info" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="GrammarFile" />
         <option value="Class" />
       </list>
     </option>
@@ -230,9 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gui/src/structure/objects/Grammar.java" />
-        <option value="$PROJECT_DIR$/gui/src/Grammar.java" />
-        <option value="$PROJECT_DIR$/gui/src/structure/Grammar.java" />
         <option value="$PROJECT_DIR$/gui/src/structure/objects/Rule.java" />
         <option value="$PROJECT_DIR$/gui/src/structure/objects/SyntacticObject.java" />
         <option value="$PROJECT_DIR$/gui/src/structure/objects/Terminal.java" />
@@ -259,23 +234,31 @@
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticTypes.java" />
         <option value="$PROJECT_DIR$/core/src/misc/Tools.java" />
         <option value="$PROJECT_DIR$/core/src/GrammarLoader.java" />
-        <option value="$PROJECT_DIR$/core/src/structure/parse/ParseTree.java" />
-        <option value="$PROJECT_DIR$/core/src/structure/parse/ParseNode.java" />
         <option value="$PROJECT_DIR$/core/src/defaultGrammars/ListGrammar.java" />
         <option value="$PROJECT_DIR$/mathGrammar.grammar" />
-        <option value="$PROJECT_DIR$/core/src/structure/parse/Parser.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" />
         <option value="$PROJECT_DIR$/core/src/defaultGrammars/StandardGrammar.java" />
-        <option value="$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" />
         <option value="$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java" />
         <option value="$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java" />
-        <option value="$PROJECT_DIR$/core/src/structure/Grammar.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java" />
-        <option value="$PROJECT_DIR$/src/main/CommandLineRunner.java" />
+        <option value="$PROJECT_DIR$/cfgGrammarExtended.ccfg" />
+        <option value="$PROJECT_DIR$/core/src/structure/parse/ParseNode.java" />
+        <option value="$PROJECT_DIR$/core/src/structure/parse/ParseTree.java" />
+        <option value="$PROJECT_DIR$/core/src/structure/parse/Parser.java" />
+        <option value="$PROJECT_DIR$/core/src/main/defaultGrammars/GrammarLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/main/Parser.java" />
+        <option value="$PROJECT_DIR$/core/src/main/GrammarLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/structure/Grammar.java" />
+        <option value="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" />
         <option value="$PROJECT_DIR$/mathGrammar.ccfg" />
+        <option value="$PROJECT_DIR$/src/main/CommandLineRunner.java" />
+        <option value="$PROJECT_DIR$/gui/src/gui/Editor.form" />
+        <option value="$PROJECT_DIR$/gui/src/gui/FileSelector.form" />
+        <option value="$PROJECT_DIR$/gui/src/gui/Editor.java" />
       </list>
     </option>
   </component>
@@ -300,7 +283,7 @@
         <observation name="false" value="1296.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="false" value="273.0" />
+        <observation name="false" value="536.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:liftShorterClasses">
@@ -309,8 +292,8 @@
         <observation name="false" value="1186.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="17.0" />
-        <observation name="false" value="256.0" />
+        <observation name="UNDEFINED" value="40.0" />
+        <observation name="false" value="496.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:middleMatching">
@@ -319,8 +302,8 @@
         <observation name="true" value="8.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="false" value="272.0" />
-        <observation name="true" value="1.0" />
+        <observation name="false" value="533.0" />
+        <observation name="true" value="3.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:nonGeneric">
@@ -329,8 +312,8 @@
         <observation name="UNDEFINED" value="740.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="0" value="140.0" />
-        <observation name="UNDEFINED" value="133.0" />
+        <observation name="0" value="239.0" />
+        <observation name="UNDEFINED" value="297.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_inResolveScope">
@@ -340,9 +323,9 @@
         <observation name="true" value="875.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="false" value="55.0" />
-        <observation name="true" value="210.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="false" value="106.0" />
+        <observation name="true" value="407.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_openedInEditor">
@@ -352,9 +335,9 @@
         <observation name="true" value="660.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="false" value="130.0" />
-        <observation name="true" value="135.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="false" value="232.0" />
+        <observation name="true" value="281.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameDirectory">
@@ -364,9 +347,9 @@
         <observation name="true" value="473.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="false" value="164.0" />
-        <observation name="true" value="101.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="false" value="297.0" />
+        <observation name="true" value="216.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameLogicalRoot">
@@ -376,9 +359,9 @@
         <observation name="true" value="671.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="false" value="98.0" />
-        <observation name="true" value="167.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="false" value="207.0" />
+        <observation name="true" value="306.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sdkOrLibrary">
@@ -388,9 +371,9 @@
         <observation name="true" value="165.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="false" value="230.0" />
-        <observation name="true" value="35.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="false" value="430.0" />
+        <observation name="true" value="83.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:templates">
@@ -399,8 +382,8 @@
         <observation name="true" value="34.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="false" value="269.0" />
-        <observation name="true" value="4.0" />
+        <observation name="false" value="521.0" />
+        <observation name="true" value="15.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:accessible">
@@ -409,8 +392,8 @@
         <observation name="UNDEFINED" value="65.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="NORMAL" value="266.0" />
-        <observation name="UNDEFINED" value="7.0" />
+        <observation name="NORMAL" value="514.0" />
+        <observation name="UNDEFINED" value="22.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:expectedType">
@@ -423,11 +406,12 @@
         <observation name="unexpected" value="3.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="7.0" />
-        <observation name="expected" value="78.0" />
-        <observation name="maybeExpected" value="8.0" />
-        <observation name="normal" value="172.0" />
-        <observation name="ofDefaultType" value="8.0" />
+        <observation name="UNDEFINED" value="22.0" />
+        <observation name="expected" value="136.0" />
+        <observation name="maybeExpected" value="17.0" />
+        <observation name="normal" value="347.0" />
+        <observation name="ofDefaultType" value="13.0" />
+        <observation name="unexpected" value="1.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:kind">
@@ -446,13 +430,15 @@
         <observation name="variable" value="288.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="7.0" />
-        <observation name="classNameOrGlobalStatic" value="33.0" />
-        <observation name="expectedTypeVariable" value="27.0" />
-        <observation name="normal" value="126.0" />
-        <observation name="probableKeyword" value="18.0" />
+        <observation name="UNDEFINED" value="22.0" />
+        <observation name="classNameOrGlobalStatic" value="71.0" />
+        <observation name="expectedTypeConstant" value="2.0" />
+        <observation name="expectedTypeMethod" value="1.0" />
+        <observation name="expectedTypeVariable" value="48.0" />
+        <observation name="normal" value="238.0" />
+        <observation name="probableKeyword" value="22.0" />
         <observation name="superMethodParameters" value="1.0" />
-        <observation name="variable" value="61.0" />
+        <observation name="variable" value="131.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
@@ -461,8 +447,8 @@
         <observation name="unknown" value="1231.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="unknown" value="265.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="unknown" value="513.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_javaInheritance">
@@ -473,9 +459,10 @@
         <observation name="true" value="20.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="false" value="33.0" />
-        <observation name="null" value="232.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="false" value="70.0" />
+        <observation name="null" value="442.0" />
+        <observation name="true" value="1.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_referenceList">
@@ -485,8 +472,8 @@
         <observation name="unknown" value="1228.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="unknown" value="265.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="unknown" value="513.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:recursion">
@@ -497,9 +484,9 @@
         <observation name="recursive" value="2.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="28.0" />
-        <observation name="delegation" value="3.0" />
-        <observation name="normal" value="242.0" />
+        <observation name="UNDEFINED" value="90.0" />
+        <observation name="delegation" value="7.0" />
+        <observation name="normal" value="439.0" />
       </dailyData>
     </factor>
     <factor id="completionFinishedType">
@@ -509,9 +496,9 @@
         <observation name="typedSelect" value="618.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="cancelled" value="1219.0" />
-        <observation name="explicitSelect" value="166.0" />
-        <observation name="typedSelect" value="108.0" />
+        <observation name="cancelled" value="2531.0" />
+        <observation name="explicitSelect" value="327.0" />
+        <observation name="typedSelect" value="218.0" />
       </dailyData>
     </factor>
     <factor id="completionType">
@@ -519,7 +506,7 @@
         <observation name="BASIC" value="1610.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="BASIC" value="325.0" />
+        <observation name="BASIC" value="653.0" />
       </dailyData>
     </factor>
     <factor id="completionUsage">
@@ -527,7 +514,7 @@
         <observation name="count" value="3456.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="count" value="1493.0" />
+        <observation name="count" value="3076.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:explicitProximity">
@@ -539,11 +526,11 @@
         <observation name="variance" value="0.109911" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="average" value="0.242202" />
-        <observation name="count" value="545.0" />
+        <observation name="average" value="0.231559" />
+        <observation name="count" value="1071.0" />
         <observation name="max" value="1.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="0.165402" />
+        <observation name="variance" value="0.167068" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:grouping">
@@ -556,7 +543,7 @@
       </dailyData>
       <dailyData date="5-7-2018">
         <observation name="average" value="0.0" />
-        <observation name="count" value="545.0" />
+        <observation name="count" value="1071.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -567,7 +554,7 @@
         <observation name="UNDEFINED" value="1296.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="273.0" />
+        <observation name="UNDEFINED" value="536.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:nameEnd">
@@ -580,12 +567,12 @@
         <observation name="variance" value="0.06041" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="7.0" />
-        <observation name="average" value="-0.07533" />
-        <observation name="count" value="531.0" />
+        <observation name="UNDEFINED" value="22.0" />
+        <observation name="average" value="-0.064265" />
+        <observation name="count" value="1027.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-3.0" />
-        <observation name="variance" value="0.070715" />
+        <observation name="variance" value="0.072488" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:position">
@@ -597,11 +584,11 @@
         <observation name="variance" value="0.73109" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="average" value="0.39633" />
-        <observation name="count" value="545.0" />
+        <observation name="average" value="0.351074" />
+        <observation name="count" value="1071.0" />
         <observation name="max" value="29.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="11.626133" />
+        <observation name="variance" value="8.867676" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prefix">
@@ -613,11 +600,11 @@
         <observation name="variance" value="69300.925186" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="average" value="-1104.133945" />
-        <observation name="count" value="545.0" />
+        <observation name="average" value="-1088.064426" />
+        <observation name="count" value="1071.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-1203.0" />
-        <observation name="variance" value="46833.137574" />
+        <observation name="variance" value="53811.914373" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:priority">
@@ -629,11 +616,11 @@
         <observation name="variance" value="1600.496943" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="average" value="0.0" />
-        <observation name="count" value="545.0" />
-        <observation name="max" value="0.0" />
-        <observation name="min" value="0.0" />
-        <observation name="variance" value="0.0" />
+        <observation name="average" value="1.858077" />
+        <observation name="count" value="1071.0" />
+        <observation name="max" value="999.0" />
+        <observation name="min" value="-3.0" />
+        <observation name="variance" value="957.337023" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_explicitlyImported">
@@ -646,12 +633,12 @@
         <observation name="variance" value="18134.895698" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="average" value="118.714556" />
-        <observation name="count" value="529.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="average" value="131.902439" />
+        <observation name="count" value="1025.0" />
         <observation name="max" value="300.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="15940.426557" />
+        <observation name="variance" value="16864.595192" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_knownElement">
@@ -664,12 +651,12 @@
         <observation name="variance" value="5.357636" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="average" value="1.020794" />
-        <observation name="count" value="529.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="average" value="1.141463" />
+        <observation name="count" value="1025.0" />
         <observation name="max" value="8.0" />
-        <observation name="min" value="0.0" />
-        <observation name="variance" value="6.162853" />
+        <observation name="min" value="-1.0" />
+        <observation name="variance" value="6.622048" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_sameModule">
@@ -682,12 +669,12 @@
         <observation name="variance" value="0.919592" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="average" value="1.293006" />
-        <observation name="count" value="529.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="average" value="1.229268" />
+        <observation name="count" value="1025.0" />
         <observation name="max" value="2.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="0.808715" />
+        <observation name="variance" value="0.847518" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_samePsiMember">
@@ -700,12 +687,12 @@
         <observation name="variance" value="0.661949" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="8.0" />
-        <observation name="average" value="0.665406" />
-        <observation name="count" value="529.0" />
+        <observation name="UNDEFINED" value="23.0" />
+        <observation name="average" value="0.68878" />
+        <observation name="count" value="1025.0" />
         <observation name="max" value="2.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="0.660996" />
+        <observation name="variance" value="0.703053" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:query_length">
@@ -718,7 +705,7 @@
       </dailyData>
       <dailyData date="5-7-2018">
         <observation name="average" value="0.0" />
-        <observation name="count" value="545.0" />
+        <observation name="count" value="1071.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -733,11 +720,11 @@
         <observation name="variance" value="15.385609" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="average" value="7.185321" />
-        <observation name="count" value="545.0" />
-        <observation name="max" value="20.0" />
+        <observation name="average" value="7.172736" />
+        <observation name="count" value="1071.0" />
+        <observation name="max" value="37.0" />
         <observation name="min" value="1.0" />
-        <observation name="variance" value="14.943733" />
+        <observation name="variance" value="17.363175" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:sameWords">
@@ -750,12 +737,12 @@
         <observation name="variance" value="0.061864" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="7.0" />
-        <observation name="average" value="-0.082863" />
-        <observation name="count" value="531.0" />
+        <observation name="UNDEFINED" value="22.0" />
+        <observation name="average" value="-0.06816" />
+        <observation name="count" value="1027.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-3.0" />
-        <observation name="variance" value="0.089582" />
+        <observation name="variance" value="0.086108" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:shorter">
@@ -768,12 +755,12 @@
         <observation name="variance" value="37214.841782" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="7.0" />
-        <observation name="average" value="-48.870056" />
-        <observation name="count" value="531.0" />
+        <observation name="UNDEFINED" value="22.0" />
+        <observation name="average" value="-44.708861" />
+        <observation name="count" value="1027.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="-999.0" />
-        <observation name="variance" value="26819.962729" />
+        <observation name="variance" value="30788.15968" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:simple">
@@ -786,9 +773,9 @@
         <observation name="variance" value="0.139777" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="7.0" />
+        <observation name="UNDEFINED" value="22.0" />
         <observation name="average" value="0.0" />
-        <observation name="count" value="531.0" />
+        <observation name="count" value="1027.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -804,7 +791,7 @@
       </dailyData>
       <dailyData date="5-7-2018">
         <observation name="average" value="1.0" />
-        <observation name="count" value="545.0" />
+        <observation name="count" value="1071.0" />
         <observation name="max" value="1.0" />
         <observation name="min" value="1.0" />
         <observation name="variance" value="0.0" />
@@ -820,12 +807,12 @@
         <observation name="variance" value="0.058389" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="UNDEFINED" value="242.0" />
-        <observation name="average" value="-3.032787" />
-        <observation name="count" value="61.0" />
+        <observation name="UNDEFINED" value="450.0" />
+        <observation name="average" value="-3.05848" />
+        <observation name="count" value="171.0" />
         <observation name="max" value="-3.0" />
-        <observation name="min" value="-4.0" />
-        <observation name="variance" value="0.019797" />
+        <observation name="min" value="-5.0" />
+        <observation name="variance" value="0.070179" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:stats">
@@ -837,11 +824,11 @@
         <observation name="variance" value="16728030.237731" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="average" value="2931.152294" />
-        <observation name="count" value="545.0" />
+        <observation name="average" value="3243.428571" />
+        <observation name="count" value="1071.0" />
         <observation name="max" value="10000.0" />
         <observation name="min" value="0.0" />
-        <observation name="variance" value="19515366.092354" />
+        <observation name="variance" value="20475892.896305" />
       </dailyData>
     </factor>
     <factor id="itemPosition">
@@ -859,13 +846,17 @@
         <observation name="9" value="2.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="0" value="120.0" />
-        <observation name="1" value="27.0" />
-        <observation name="2" value="10.0" />
+        <observation name="0" value="259.0" />
+        <observation name="1" value="38.0" />
+        <observation name="10" value="1.0" />
+        <observation name="13" value="1.0" />
+        <observation name="2" value="11.0" />
         <observation name="29" value="1.0" />
-        <observation name="3" value="2.0" />
-        <observation name="4" value="4.0" />
+        <observation name="3" value="3.0" />
+        <observation name="4" value="6.0" />
         <observation name="5" value="2.0" />
+        <observation name="6" value="4.0" />
+        <observation name="9" value="1.0" />
       </dailyData>
     </factor>
     <factor id="mnemonicsUsage">
@@ -874,8 +865,8 @@
         <observation name="withMnemonics" value="5.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="total" value="86.0" />
-        <observation name="withMnemonics" value="0.0" />
+        <observation name="total" value="155.0" />
+        <observation name="withMnemonics" value="2.0" />
       </dailyData>
     </factor>
     <factor id="prefixLength">
@@ -893,12 +884,14 @@
         <observation name="9" value="1.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="0" value="10.0" />
-        <observation name="1" value="70.0" />
-        <observation name="2" value="19.0" />
-        <observation name="3" value="48.0" />
-        <observation name="4" value="14.0" />
-        <observation name="5" value="5.0" />
+        <observation name="0" value="32.0" />
+        <observation name="1" value="140.0" />
+        <observation name="2" value="48.0" />
+        <observation name="3" value="72.0" />
+        <observation name="4" value="23.0" />
+        <observation name="5" value="10.0" />
+        <observation name="6" value="1.0" />
+        <observation name="7" value="1.0" />
       </dailyData>
     </factor>
     <factor id="timeBetweenTyping">
@@ -907,8 +900,8 @@
         <observation name="count" value="1921.0" />
       </dailyData>
       <dailyData date="5-7-2018">
-        <observation name="average" value="177.651163" />
-        <observation name="count" value="387.0" />
+        <observation name="average" value="182.447016" />
+        <observation name="count" value="821.0" />
       </dailyData>
     </factor>
   </component>
@@ -941,7 +934,22 @@
               <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="defaultGrammars" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
@@ -969,6 +977,40 @@
             <path>
               <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="Editor" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="FileSelector" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -988,14 +1030,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1530812499012" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1530820450438" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -1060,7 +1102,7 @@
       <workItem from="1530624263995" duration="20473000" />
       <workItem from="1530737019409" duration="9179000" />
       <workItem from="1530795619515" duration="571000" />
-      <workItem from="1530801536245" duration="7969000" />
+      <workItem from="1530801536245" duration="15815000" />
     </task>
     <task id="LOCAL-00001" summary="Added most internal structure">
       <created>1530579847195</created>
@@ -1090,11 +1132,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530796132698</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="expanded on math grammar">
+      <created>1530812574664</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1530812574665</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added Math Grammar back">
+      <created>1530812608060</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1530812608060</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59821000" />
+    <option name="totallyTimeSpent" value="67667000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1840" height="1002" extended-state="6" />
@@ -1126,8 +1182,8 @@
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Run" order="9" sideWeight="0.49946865" visible="true" weight="0.3768279" />
-      <window_info anchor="right" id="Debug" order="10" weight="0.48931384" />
+      <window_info anchor="right" id="Run" order="9" sideWeight="0.49946865" weight="0.3768279" />
+      <window_info anchor="right" id="Debug" order="10" weight="0.38132733" />
       <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5005314" side_tool="true" weight="0.37708333" />
     </layout>
   </component>
@@ -1142,73 +1198,117 @@
     <MESSAGE value="Began work on parseNode to grammar converter" />
     <MESSAGE value="grammar files extension renamed to .ccfg (configurable context free grammar)" />
     <MESSAGE value="Parser now return null if the entire string is not parsed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parser now return null if the entire string is not parsed" />
+    <MESSAGE value="expanded on math grammar" />
+    <MESSAGE value="added Math Grammar back" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Math Grammar back" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="p.pattern.equals(&quot;(\\n*)|( *)&quot;)" language="JAVA" />
-          <url>file://$PROJECT_DIR$/core/src/structure/parse/Parser.java</url>
+          <url>file://$PROJECT_DIR$/core/src/main/Parser.java</url>
           <line>61</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</url>
-          <line>92</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>106</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</url>
-          <line>112</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</url>
-          <line>36</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>41</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</url>
-          <line>47</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>57</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <dependency id="0" />
           <url>file://$PROJECT_DIR$/src/main/CommandLineRunner.java</url>
-          <line>60</line>
+          <line>55</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <dependency master-id="0" />
-          <url>file://$PROJECT_DIR$/core/src/structure/parse/Parser.java</url>
+          <url>file://$PROJECT_DIR$/core/src/main/Parser.java</url>
           <line>147</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</url>
-          <line>164</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>181</line>
           <properties />
           <option name="timeStamp" value="54" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</url>
-          <line>210</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>227</line>
           <properties />
           <option name="timeStamp" value="56" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</url>
-          <line>155</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>172</line>
           <properties />
           <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>125</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/CommandLineRunner.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java</url>
+          <line>55</line>
+          <properties />
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
@@ -1227,6 +1327,12 @@
         </breakpoints-dialog>
       </breakpoints-dialog>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((HashMap.Node)((HashMap)((CgfFileGrammar)cfgGrammar).hashMap).entrySet().toArray()[28]).getValue()" custom="java.util.HashMap.Node,defaultGrammars.CgfFileGrammar,java.util.HashMap" />
+        <watch expression="((java.util.ArrayList)((SyntacticCategory)((ArrayList)((Rule)((ArrayList)((SyntacticCategory)((HashMap.Node)((HashMap)((CgfFileGrammar)cfg).hashMap).entrySet().toArray()[19]).getValue()).rules).get(0)).syntacticObjects).get(0)).rules).get(0)" custom="defaultGrammars.CgfFileGrammar,structure.syntacticObjects.SyntacticCategory,structure.syntacticObjects.Rule,java.util.HashMap,java.util.HashMap.Node,java.util.ArrayList" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -1305,28 +1411,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1166#1167#0" expanded="true" />
-            <element signature="e#1215#1216#0" expanded="true" />
-            <element signature="e#1249#1250#0" expanded="true" />
-            <element signature="e#1289#1290#0" expanded="true" />
-            <element signature="e#1319#1320#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1418#1419#0" expanded="true" />
-            <element signature="e#1453#1454#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/ListGrammar.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="66" selection-start-line="66" selection-end-line="66" />
@@ -1334,23 +1419,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2698#2699#0" expanded="true" />
             <element signature="e#2758#2759#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#1200#1201#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-            <element signature="e#2656#2657#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2732#2733#0" expanded="true" />
-            <element signature="e#2770#2771#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1389,78 +1457,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/StandardGrammar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3051#3052#0" expanded="true" />
-            <element signature="e#3098#3099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="236" selection-start-line="236" selection-end-line="236" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="147" selection-start-line="147" selection-end-line="147" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/VarGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="154" column="34" lean-forward="true" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
-            <element signature="e#1524#1525#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1700#1701#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1496,7 +1498,7 @@
     <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#309#310#0" expanded="true" />
@@ -1509,21 +1511,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+        <state relative-caret-position="592">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
-            <element signature="e#1910#1911#0" expanded="true" />
-            <element signature="e#1979#1980#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="62" column="22" lean-forward="true" selection-start-line="62" selection-start-column="22" selection-end-line="62" selection-end-column="22" />
+        <state relative-caret-position="236">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+          <folding>
+            <element signature="e#1910#1911#0" expanded="true" />
+            <element signature="e#1979#1980#0" expanded="true" />
+            <element signature="e#2250#2251#0" expanded="true" />
+            <element signature="e#2290#2291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1072">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1779#1780#0" expanded="true" />
+            <element signature="e#1800#1801#0" expanded="true" />
+            <element signature="e#1038#1039#0" expanded="true" />
+            <element signature="e#1065#1066#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2354">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/GrammarLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="119" column="57" selection-start-line="119" selection-start-column="57" selection-end-line="119" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1007#1008#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
+            <element signature="e#2699#2700#0" expanded="true" />
+            <element signature="e#2734#2735#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
+            <element signature="e#1524#1525#0" expanded="true" />
+            <element signature="e#1665#1666#0" expanded="true" />
+            <element signature="e#1700#1701#0" expanded="true" />
+            <element signature="e#2906#2907#0" expanded="true" />
+            <element signature="e#2943#2944#0" expanded="true" />
+            <element signature="e#3723#3724#0" expanded="true" />
+            <element signature="e#3756#3757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1532,8 +1621,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mathGrammar.ccfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+        <state relative-caret-position="320">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.ccfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/Editor.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/FileSelector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/FileSelector.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1589,11 +1715,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>gui</last-edited>
+          <last-edited>core</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

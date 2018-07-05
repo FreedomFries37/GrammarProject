@@ -8,20 +8,25 @@ import structure.syntacticObjects.Terminal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Grammar {
     
     private HashMap<String, SyntacticCategory> hashMap;
+    private List<String> autoCleans;
     protected SyntacticCategory head;
     
     public Grammar() {
         hashMap = new HashMap<>();
+        autoCleans = new ArrayList<>();
     }
     
     @SuppressWarnings("unchecked")
     public Grammar(Grammar inherit){
         hashMap = (HashMap<String, SyntacticCategory>) inherit.hashMap.clone();
         head = inherit.head;
+        autoCleans = inherit.autoCleans;
     }
     
     public void inherit(Grammar g){
@@ -30,12 +35,22 @@ public class Grammar {
                 hashMap.put(s, g.hashMap.get(s));
             }
         }
+        for (String autoClean : g.autoCleans) {
+            if(!autoCleans.contains(autoClean)){
+                autoCleans.add(autoClean);
+            }
+        }
     }
     
     public void inherit(Grammar g, String... cats){
         for (String cat: cats) {
             if(!hashMap.containsKey(cat) && g.containsCategory(cat)){
                 hashMap.put(cat, g.hashMap.get(cat));
+            }
+        }
+        for (String cat : cats) {
+            if(g.autoCleans.contains(cat)){
+               autoCleans.add(cat);
             }
         }
     }
@@ -96,12 +111,26 @@ public class Grammar {
         getCategory(category.getName()).addRules(rules);
         return true;
     }
+    public void resetCategory(SyntacticCategory category){
+        category.resetRules();
+    }
     
     public boolean addRule(String cat, Rule rule){
         if(!containsCategory(cat)) return false;
         getCategory(cat).addRule(rule);
         return true;
     }
+    
+    public void addAutoClean(String clean){
+        if(!autoCleans.contains(clean)){
+            autoCleans.add(clean);
+        }
+    }
+    
+    public List<String> getAutoCleans(){
+        return autoCleans;
+    }
+   
     
     public ArrayList<String> generateExamples(int count){
         return generateExamples(count, head);

@@ -1,4 +1,4 @@
-package defaultGrammars;
+package main.defaultGrammars;
 
 import modules.IConvertModule;
 import structure.Grammar;
@@ -52,6 +52,10 @@ public class StandardGrammar extends Grammar {
         addCategory("opt_whitespace", new Rule(new RegexTerminal("\\s*")));
         
         inherit(new ListGrammar(getCategory("sentence")));
+        addAutoClean("double");
+        addAutoClean("string");
+        addAutoClean("sentence");
+        addAutoClean("integer");
     }
     
     public static IConvertModule<String> convertSentence = new IConvertModule<String>() {

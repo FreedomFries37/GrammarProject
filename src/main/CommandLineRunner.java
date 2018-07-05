@@ -1,18 +1,13 @@
 package main;
 
-import defaultGrammars.CgfFileGrammar;
-import defaultGrammars.GrammarLoader;
-import defaultGrammars.StandardGrammar;
-import defaultGrammars.VarGrammar;
-import misc.Tools;
+import main.defaultGrammars.CgfFileGrammar;
+import main.defaultGrammars.StandardGrammar;
 import structure.Grammar;
 import structure.parse.ParseTree;
-import structure.parse.Parser;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
 
 import java.io.File;
-import java.util.regex.Pattern;
 
 public class CommandLineRunner {
     
@@ -58,9 +53,16 @@ public class CommandLineRunner {
             Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.ccfg"));
             math.printGrammar();
             Parser mathParser = new Parser(math);
-            ParseTree v = mathParser.parse(".let a[4] := 5");
+            ParseTree v = mathParser.parse(".let func(x) := x+3");
+            String orginal = v.getHead().getChildTerminals();
+            v.print();
+            v.removeAllTerminalsExceptForChildrenOf("named_string", "named_string_init", "double", "integer",
+                    "method_name","group_tail",
+                    "expression_tail","factor");
             v.removeEmptyNodes();
             v.print();
+            System.out.println(orginal);
+            v.printTerminals();
             math.printExamples(1, 11);
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();

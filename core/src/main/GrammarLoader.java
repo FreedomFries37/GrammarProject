@@ -1,16 +1,16 @@
-package defaultGrammars;
+package main;
 
-import defaultGrammars.CgfFileGrammar;
-import jdk.jfr.Category;
+import main.defaultGrammars.CgfFileGrammar;
+import main.defaultGrammars.ListGrammar;
+import main.defaultGrammars.StandardGrammar;
+import main.defaultGrammars.VarGrammar;
 import modules.IConvertModule;
 import structure.Grammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
-import structure.parse.Parser;
 import structure.syntacticObjects.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -30,18 +30,28 @@ public class GrammarLoader {
         hashMap = new HashMap<>();
         cfgGrammar = new CgfFileGrammar();
         parser = new Parser(cfgGrammar);
+        cfgGrammar = loadGrammar(new File("cfgGrammarExtended.ccfg"),cfgGrammar);
     }
     
     public Grammar loadGrammar(String s){
+        return loadGrammar(s, new Grammar());
+    }
+    
+    public Grammar loadGrammar(String s, Grammar passOff){
         
         String parsableString = s.replaceAll("#\\w* [\\w<>.]*\\s", "")
                 .replaceAll("\r", "")
                 .replaceAll("//.*\\n","");
+        while (parsableString.endsWith("\n")){
+            parsableString = parsableString.substring(0, parsableString.length()-1);
+        }
+        parsableString += "\n";
         ParseTree tree = parser.parse(parsableString);
         if(tree == null) return null;
         Pattern preOptions = Pattern.compile("#\\w* [\\w<>.]*\n");
         
         Grammar output = new Grammar();
+        output.inherit(passOff);
         Matcher matcher = preOptions.matcher(s.replaceAll("\r", ""));
     
         while (matcher.find()) {
@@ -59,7 +69,7 @@ public class GrammarLoader {
                                 break;
                         }
                     }else{
-                        output.inherit(loadGrammar(new File(optionVariables)));
+                        passOff.inherit(loadGrammar(new File(optionVariables), passOff));
                     }
                 }
                     break;
@@ -71,10 +81,14 @@ public class GrammarLoader {
     }
     
     public Grammar loadGrammar(File f){
+        return loadGrammar(f, new Grammar());
+    }
+    
+    public Grammar loadGrammar(File f, Grammar passOff){
         try {
             if(!f.getName().endsWith(".ccfg")) return null;
             String grammar = new String(Files.readAllBytes(f.toPath()), StandardCharsets.UTF_8);
-            return loadGrammar(grammar);
+            return loadGrammar(grammar, passOff);
         }catch (IOException e){
             System.err.println("File not found");
             return null;
@@ -105,6 +119,9 @@ public class GrammarLoader {
                 for (ParseNode option : options) {
                     String optionChildTerminals = option.getChildTerminals().toLowerCase();
                     switch (optionChildTerminals){
+                        case "override":
+                            output.resetCategory(output.getCategory(name));
+                            break;
                         case "optional":
                             output.getCategory(name).setOptional(true);
                             break;
@@ -116,6 +133,8 @@ public class GrammarLoader {
                         case "pattern":
                             useRegex.put(name, true);
                             break;
+                        case "clean":
+                            output.addAutoClean(name);
                     }
                 }
                 
@@ -222,6 +241,17 @@ public class GrammarLoader {
                                 syntacticObjects.add(output.getCategory("set_" + cat1.getName()));
                             }
                                 break;
+                            case "regex":
+                            case "pattern":
+                                ArrayList<ParseNode> params =
+                                        new ListGrammar.ListGrammarConverter().convertParseNode(namedAction.getChild(
+                                                "named_action_parameters").getChild("list_parameter"));
+                                for (ParseNode param : params) {
+                                    String string =
+                                            StandardGrammar.convertSentence.convertParseNode(param.getChild(
+                                                    "sentence"));
+                                    syntacticObjects.add(new RegexTerminal(Pattern.compile(string)));
+                                }
                         }
                     }
                 }

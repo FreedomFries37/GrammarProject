@@ -3,6 +3,8 @@ package structure.parse;
 import structure.syntacticObjects.SyntacticTypes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ParseTree {
     
@@ -28,6 +30,20 @@ public class ParseTree {
         }
     }
     
+    public void removeAllTerminalsExceptForChildrenOf(String... names){
+        List<String> list = Arrays.asList(names);
+        for (ParseNode syntacticChild : syntacticChildren()) {
+            if(!list.contains(syntacticChild.getData())){
+                for (int i = syntacticChild.getChildren().size()-1; i >= 0; i--) {
+                    if(syntacticChild.getChildren().get(i).getType() != SyntacticTypes.SYNTACTIC_CATEGORY){
+                        syntacticChild.getChildren().remove(i);
+                    }
+                }
+            }
+        }
+        
+    }
+    
     public void removeEmptyNodes(){
         head.removeEmptyChildren();
     }
@@ -36,12 +52,20 @@ public class ParseTree {
         return getHead().getAllChildren();
     }
     
+    public ArrayList<ParseNode> syntacticChildren(){
+        return getHead().syntacticChildren();
+    }
+    
     public int childCount(){
         return children().size();
     }
     
     public void print(){
         getHead().print(0);
+    }
+    
+    public void printTerminals(){
+        System.out.println(getHead().getChildTerminals());
     }
     
     public ParseNode getHead() {

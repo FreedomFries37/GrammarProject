@@ -1,17 +1,18 @@
-package structure.parse;
+package main;
 
 import structure.Grammar;
 import structure.Reference;
+import structure.parse.ParseNode;
+import structure.parse.ParseTree;
 import structure.syntacticObjects.*;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Stack;
-import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -189,7 +190,11 @@ public class Parser {
         System.out.println("Lookahead: " + currentChar() + "  Stack: ");
         printStack(stack);
         if(index != parsableString.length()) return null;
-        return new ParseTree(head.getRef());
+        ParseTree output = new ParseTree(head.getRef());
+        for (String autoClean : grammar.getAutoCleans()) {
+            output.clean(autoClean);
+        }
+        return output;
     }
     
     private static void printStack(Stack<SyntacticObject> stack){

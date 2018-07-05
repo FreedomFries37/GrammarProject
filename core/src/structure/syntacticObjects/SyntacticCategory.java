@@ -87,6 +87,10 @@ public class SyntacticCategory extends SyntacticObject {
         return rules;
     }
     
+    public void resetRules(){
+        rules = new ArrayList<>();
+    }
+    
     public String getName() {
         return name;
     }

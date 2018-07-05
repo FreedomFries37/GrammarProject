@@ -1,4 +1,4 @@
-package defaultGrammars;
+package main.defaultGrammars;
 
 import structure.Grammar;
 import structure.syntacticObjects.SyntacticCategory;
