@@ -2,7 +2,7 @@
 Universal context free grammar parser
 
 ## Grammar example
- #import <standard>
+    #import <standard>
 
     expression(default):
         <group><expression_tail>
