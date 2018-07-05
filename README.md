@@ -2,7 +2,7 @@
 Universal context free grammar parser
 
 ## Grammar examples
-	#basic math grammar
+#####**Basic math grammar**
     #import <standard>
 
     expression(default):
