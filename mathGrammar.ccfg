@@ -1,0 +1,65 @@
+#import <standard>
+
+statement(default):
+	<expression>
+	.<method>
+
+method:
+	let <binds>
+
+expression:
+	<group><expression_tail>
+
+expression_tail(optional):
+	+<expression>
+	-<expression>
+
+group:
+	<factor><group_tail>
+
+group_tail(optional):
+	*<group>
+	/<group>
+
+factor:
+	(<expression>)
+	<double>
+	<named_action>
+	-<factor>
+
+named_action:
+	<named_string><function_extension>
+
+array_init:
+	[]<named_string>
+
+array_size:
+	new [<integer>]
+
+function_extension(optional):
+	(\list(<expression>)\)
+
+named_string:
+	<named_char><named_string_tail><array_tail>
+
+named_string_tail(optional):
+	<string>
+
+named_char(pattern):
+	[a-zA-Z_]
+
+binds:
+	<var_bind>
+	<array_bind>
+
+pre_scope(optional):
+	{\list(<expression>)\}
+
+var_bind:
+	\var(<named_string>,<expression>,":=")\
+
+array_bind:
+	\var(<array_init>,<array_size>,":=")\<pre_scope>
+
+array_tail(optional):
+	[<integer>]
