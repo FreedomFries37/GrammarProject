@@ -1,7 +1,8 @@
 # GrammarProject
 Universal context free grammar parser
 
-## Grammar example
+## Grammar examples
+#basic math grammar
     #import <standard>
 
     expression(default):

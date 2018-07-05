@@ -158,4 +158,20 @@ public class SyntacticCategory extends SyntacticObject {
         return single.toString();
     }
     
+    @Override
+    protected String generate(int max_depth, int level) {
+        if(max_depth == level) return getRepresentation();
+        if (isOptional() && Math.random() > .7d*(1-(level/max_depth))) {
+            return "";
+        }
+    
+        int ruleIndex = (int) (Math.random() * (double) rules.size());
+        StringBuilder single = new StringBuilder();
+        if (rules.size() > 0) {
+            for (SyntacticObject syntacticObject : rules.get(ruleIndex).getSyntacticObjects()) {
+                single.append(syntacticObject.generate(max_depth, level + 1));
+            }
+        }
+        return single.toString();
+    }
 }

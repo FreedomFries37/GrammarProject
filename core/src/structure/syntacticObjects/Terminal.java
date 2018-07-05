@@ -32,4 +32,8 @@ public class Terminal extends SyntacticObject {
         return "" + terminal;
     }
     
+    @Override
+    protected String generate(int max_depth, int level) {
+        return generate();
+    }
 }

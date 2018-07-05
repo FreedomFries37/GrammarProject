@@ -41,5 +41,8 @@ public class RegexTerminal extends SyntacticObject {
         return Tools.createMatchingString(pattern);
     }
     
-   
+    @Override
+    protected String generate(int max_depth, int level) {
+        return generate();
+    }
 }

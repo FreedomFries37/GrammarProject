@@ -9,11 +9,19 @@ public class VarGrammar extends Grammar {
     
     public VarGrammar(SyntacticCategory set, SyntacticCategory get, String setString) {
         setName = "set_" + set.getName();
-        inherit(new StandardGrammar(), "opt_whitespace");
+        inherit(new StandardGrammar(), "whitespace");
         addCategory(set);
         addCategory(get);
         addCategory(setName);
-        getCategory(setName).addRule(set, getCategory("opt_whitespace"), setString, getCategory("opt_whitespace"), get);
+        addCategory(setName + "_tail");
+        addCategory(setName + "_tail_tail");
+        getCategory(setName).addRule(set, getCategory(setName + "_tail"));
+        getCategory(setName + "_tail").addRule(getCategory("whitespace"), setString,  getCategory(setName +
+                "_tail_tail"));
+        getCategory(setName + "_tail").addRule(setString, getCategory(setName +
+                "_tail_tail"));
+        getCategory(setName + "_tail_tail").addRule(getCategory("whitespace"), get);
+        getCategory(setName + "_tail_tail").addRule(get);
     }
     public VarGrammar(SyntacticCategory set, SyntacticCategory get) {
         this(set, get, "=");

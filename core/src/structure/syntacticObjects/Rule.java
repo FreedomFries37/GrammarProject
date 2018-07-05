@@ -27,22 +27,8 @@ public class Rule {
                 else{
                     for (int i = 0; i < s.toCharArray().length; i++) {
                         char c = s.charAt(i);
-                        if(c == '\\'){
-                            char escapeCharacter = s.charAt(++i);
-                            if(escapeCharacter == 'p'){
-                                if(s.charAt(i++) != '=') throw new IncorrectTypeException();
-                                if(s.charAt(i++) != '"') throw new IncorrectTypeException();
-                                StringBuilder pattern = new StringBuilder();
-                                while(s.charAt(i) != '"'){
-                                    pattern.append(s.charAt(i++));
-                                }
-                                syntacticObjects.add(new RegexTerminal(pattern.toString()));
-                            }else{
-                                syntacticObjects.add(specialPatterns(escapeCharacter));
-                            }
-                        }else{
-                            syntacticObjects.add(new Terminal(c));
-                        }
+                        syntacticObjects.add(new Terminal(c));
+                        
                     }
                 }
             }else if(object.getClass().equals(char.class)){

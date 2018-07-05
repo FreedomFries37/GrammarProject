@@ -28,12 +28,24 @@ public class CgfFileGrammar extends Grammar {
             
             addCategory("rule_head");
             addCategory("rule_reference");
-            addCategory("rule_char", new Rule(new RegexTerminal(Pattern.compile("[^\\s<>]|(\\\\<)|(\\\\>)"))));
+            addCategory("rule_char", new Rule(new RegexTerminal(Pattern.compile("[^\\s<>\\\\]|(\\\\<)|(\\\\>)| "))));
+            addCategory("rule_escape");
+            addCategory("named_action");
+            addOptionalCategory("named_action_parameters");
+            addCategory("parameter");
+            getCategory("parameter").addRules(new Rule(getCategory("rule_reference")), new Rule(getCategory("sentence")));
             addOptionalCategory("rule_tail");
+            inherit(new ListGrammar(getCategory("parameter")));
+            getCategory("named_action_parameters").addRule("(", getCategory("list_parameter"), ")");
+            getCategory("named_action").addRule(getCategory("string"), getCategory("named_action_parameters"));
+            getCategory("rule_escape").addRule("\\", getCategory("named_action"), "\\");
+            
+            
             addCategory("rule_part", new Rule(getCategory("rule_head"), getCategory("rule_tail")));
             getCategory("rule_reference").addRule("<", getCategory("string"), ">");
             getCategory("rule_head").addRule(getCategory("rule_reference"));
             getCategory("rule_head").addRule(getCategory("rule_char"));
+            getCategory("rule_head").addRule(getCategory("rule_escape"));
             getCategory("rule_tail").addRule(getCategory("rule_part"));
     
             addOptionalCategory("opt_space_and_newline");

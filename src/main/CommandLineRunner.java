@@ -54,12 +54,14 @@ public class CommandLineRunner {
             Grammar cfg = new CgfFileGrammar();
             cfg.printGrammar();
             System.out.println();
-            cfg.printExamples(1);
             GrammarLoader grammarLoader = new GrammarLoader();
             Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.ccfg"));
             math.printGrammar();
             Parser mathParser = new Parser(math);
-            mathParser.parse("5+2.354*4").print();
+            ParseTree v = mathParser.parse(".let a[4] := 5");
+            v.removeEmptyNodes();
+            v.print();
+            math.printExamples(1, 11);
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }

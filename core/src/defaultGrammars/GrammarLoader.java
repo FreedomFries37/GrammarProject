@@ -152,6 +152,77 @@ public class GrammarLoader {
                         
                         String catName = rulePart.getChild("string").getChildTerminals();
                         syntacticObjects.add(output.getCategory(catName));
+                    }else if(rulePart.getData().equals("rule_escape")){
+                        String builtRegex = regex.toString();
+                        if(builtRegex.length() > 0) {
+                            RegexTerminal regexTerminal = new RegexTerminal(builtRegex);
+                            regex = new StringBuilder();
+                            syntacticObjects.add(regexTerminal);
+                        }
+                        
+                        
+                        ParseNode namedAction = rulePart.getChild("named_action");
+                        String namedActionName = namedAction.getChild("string").getChildTerminals();
+                        switch (namedActionName){
+                            case "list":{
+                                ArrayList<ParseNode> params =
+                                        new ListGrammar.ListGrammarConverter().convertParseNode(namedAction.getChild(
+                                                "named_action_parameters").getChild("list_parameter"));
+                                if(params.size() == 1 || params.size() == 2){
+                                    List<String> objects = new ArrayList<>();
+                                    for (ParseNode param :
+                                            params) {
+                                        if(param.contains("rule_reference")){
+                                            String catName = param.getChild("rule_reference").getChild(
+                                                    "string").getChildTerminals();
+                                            objects.add(catName);
+                                        }else if(param.contains("sentence")){
+                                            String string = param.getChild("sentence").getChildTerminals();
+                                            objects.add(string);
+                                        }
+                                    }
+                                    if(objects.size() == 1) {
+                                        output.inherit(new ListGrammar(output.getCategory(objects.get(0))));
+                                    }else if(objects.size() == 2){
+                                        output.inherit(new ListGrammar(output.getCategory(objects.get(0)),
+                                                objects.get(1)));
+                                    }
+                                    SyntacticCategory list = output.getCategory("list_" + objects.get(0));
+                                    syntacticObjects.add(list);
+                                   
+                                } else{
+                                    System.err.println("Incorrect amount of parameters");
+                                }
+                            }
+                            break;
+                            case "var": {
+                                ArrayList<ParseNode> params =
+                                        new ListGrammar.ListGrammarConverter().convertParseNode(namedAction.getChild(
+                                                "named_action_parameters").getChild("list_parameter"));
+                                SyntacticCategory cat1 = output.getCategory(params.get(0).getChild("rule_reference").getChild(
+                                        "string").getChildTerminals());
+                                
+                                if(params.size() == 2){
+                                    SyntacticCategory cat2 = output.getCategory(params.get(1).getChild(
+                                            "rule_reference").getChild(
+                                            "string").getChildTerminals());
+                                    output.inherit(new VarGrammar(cat1,cat2));
+                                }else if(params.size() == 3){
+                                    String string =
+                                            StandardGrammar.convertSentence.convertParseNode(params.get(2).getChild(
+                                                    "sentence"));
+    
+                                    SyntacticCategory cat2 = output.getCategory(params.get(1).getChild(
+                                            "rule_reference").getChild(
+                                            "string").getChildTerminals());
+                                    output.inherit(new VarGrammar(cat1,cat2,string));
+                                }else{
+                                    System.err.println("Incorrect amount of parameters");
+                                }
+                                syntacticObjects.add(output.getCategory("set_" + cat1.getName()));
+                            }
+                                break;
+                        }
                     }
                 }
     

@@ -116,11 +116,27 @@ public class Grammar {
         return output;
     }
     
+    public ArrayList<String> generateExamples(int count, String name, int maxDepth){
+        if(!hashMap.containsKey(name)) return null;
+        return generateExamples(count, getCategory(name), maxDepth);
+    }
+    public ArrayList<String> generateExamples(int count, int maxDepth){
+        return generateExamples(count, head, maxDepth);
+    }
+    
+    public static ArrayList<String> generateExamples(int count, SyntacticObject object, int maxDepth){
+        if(object == null) return null;
+        ArrayList<String> output = new ArrayList<>(count);
+        for (int i = 0; i < count; i++) {
+            output.add(object.generate(maxDepth));
+        }
+        return output;
+    }
+    
     public ArrayList<String> generateExamples(int count, String name){
         if(!hashMap.containsKey(name)) return null;
         return generateExamples(count, getCategory(name));
     }
-    
     public void printExamples(int count){
         for (String s : generateExamples(count)) {
             System.out.println(s);
@@ -136,6 +152,25 @@ public class Grammar {
     public void printExamples(int count, String name){
         if(!hashMap.containsKey(name)) return;
         for (String s : generateExamples(count, name)) {
+            System.out.println(s);
+        }
+    }
+    
+    public void printExamples(int count, int maxDepth){
+        for (String s : generateExamples(count,maxDepth)) {
+            System.out.println(s);
+        }
+    }
+    
+    public static void printExamples(int count, SyntacticCategory object, int maxDepth){
+        for (String s : generateExamples(count, object, maxDepth)) {
+            System.out.println(s);
+        }
+    }
+    
+    public void printExamples(int count, String name, int maxDepth){
+        if(!hashMap.containsKey(name)) return;
+        for (String s : generateExamples(count, name, maxDepth)) {
             System.out.println(s);
         }
     }
