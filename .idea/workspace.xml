@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/TokenParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/structure/TokenGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="Started Ideas">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/GrammarLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/GrammarLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/Grammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/Grammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfgGrammarExtended.ccfg" beforeDir="false" afterPath="$PROJECT_DIR$/cfgGrammarExtended.ccfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/TokenParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/TokenParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/src/gui/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/gui/Editor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/src/gui/FileSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/gui/src/gui/FileSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mathGrammar.ccfg" beforeDir="false" afterPath="$PROJECT_DIR$/mathGrammar.ccfg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,150 +29,149 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="8777" />
+          <entry key="java" value="9327" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8777" />
+          <entry key="JAVA" value="9327" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="39" />
+          <entry key="ccfg" value="1" />
+          <entry key="java" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="39" />
+          <entry key="JAVA" value="46" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommandLineRunner.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Grammar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+            <state relative-caret-position="428">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#635#665#0" expanded="true" />
-                <element signature="e#1694#1695#0" expanded="true" />
-                <element signature="e#1757#1758#0" expanded="true" />
-                <element signature="e#1972#1973#0" expanded="true" />
-                <element signature="e#2004#2005#0" expanded="true" />
-                <element signature="e#2059#2060#0" expanded="true" />
-                <element signature="e#2107#2108#0" expanded="true" />
-                <element signature="e#2145#2146#0" expanded="true" />
-                <element signature="e#2180#2181#0" expanded="true" />
-                <element signature="e#3383#3384#0" expanded="true" />
-                <element signature="e#3420#3421#0" expanded="true" />
-                <element signature="e#3779#3780#0" expanded="true" />
-                <element signature="e#3812#3813#0" expanded="true" />
-                <element signature="e#3879#3880#0" expanded="true" />
-                <element signature="e#3931#3932#0" expanded="true" />
-                <element signature="e#6350#6351#0" expanded="true" />
-                <element signature="e#6425#6426#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TokenParser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/main/TokenParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="98" column="47" lean-forward="true" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#792#793#0" expanded="true" />
-                <element signature="e#862#863#0" expanded="true" />
-                <element signature="e#1534#1535#0" expanded="true" />
-                <element signature="e#1571#1572#0" expanded="true" />
-                <element signature="e#3046#3047#0" expanded="true" />
-                <element signature="e#3083#3084#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TokenGrammar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/TokenGrammar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#482#483#0" expanded="true" />
-                <element signature="e#515#516#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mathGrammar.ccfg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mathGrammar.ccfg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GrammarLoader.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/GrammarLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
+            <state relative-caret-position="357">
               <caret line="108" selection-start-line="108" selection-end-line="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/TokenParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="173" selection-start-line="173" selection-end-line="173" />
               <folding>
-                <element signature="e#1318#1319#0" expanded="true" />
-                <element signature="e#1370#1371#0" expanded="true" />
-                <element signature="e#3800#3801#0" expanded="true" />
-                <element signature="e#3852#3853#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#824#825#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
+                <element signature="e#3544#3545#0" expanded="true" />
+                <element signature="e#3581#3582#0" expanded="true" />
+                <element signature="e#6789#6819#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParseNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseNode.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structure/Reference.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+            <state relative-caret-position="224">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#97#98#0" expanded="true" />
+                <element signature="e#123#124#0" expanded="true" />
+                <element signature="e#214#215#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SyntacticCategory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+            <state relative-caret-position="288">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#422#423#0" expanded="true" />
+                <element signature="e#847#848#0" expanded="true" />
+                <element signature="e#905#906#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cfgGrammarExtended.ccfg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.ccfg">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#644#645#0" expanded="true" />
+                <element signature="e#680#681#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="87" column="21" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="87" selection-end-column="21" />
+            <state relative-caret-position="270">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
+              <folding>
+                <element signature="e#1013#1014#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mathGrammar.ccfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.ccfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -260,6 +254,7 @@
         <option value="$PROJECT_DIR$/core/src/structure/Grammar.java" />
         <option value="$PROJECT_DIR$/core/src/main/GrammarLoader.java" />
         <option value="$PROJECT_DIR$/core/src/main/Parser.java" />
+        <option value="$PROJECT_DIR$/cfgGrammarExtended.ccfg" />
         <option value="$PROJECT_DIR$/core/src/main/TokenParser.java" />
       </list>
     </option>
@@ -269,9 +264,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="200" />
@@ -287,11 +279,18 @@
       <dailyData date="3-7-2018">
         <observation name="false" value="1296.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="false" value="83.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:liftShorterClasses">
       <dailyData date="3-7-2018">
         <observation name="UNDEFINED" value="110.0" />
         <observation name="false" value="1186.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="8.0" />
+        <observation name="false" value="75.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:middleMatching">
@@ -299,11 +298,19 @@
         <observation name="false" value="1288.0" />
         <observation name="true" value="8.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="false" value="82.0" />
+        <observation name="true" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:nonGeneric">
       <dailyData date="3-7-2018">
         <observation name="0" value="556.0" />
         <observation name="UNDEFINED" value="740.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="0" value="40.0" />
+        <observation name="UNDEFINED" value="43.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_inResolveScope">
@@ -312,12 +319,22 @@
         <observation name="false" value="356.0" />
         <observation name="true" value="875.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="false" value="13.0" />
+        <observation name="true" value="64.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:prox_openedInEditor">
       <dailyData date="3-7-2018">
         <observation name="UNDEFINED" value="65.0" />
         <observation name="false" value="571.0" />
         <observation name="true" value="660.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="false" value="41.0" />
+        <observation name="true" value="36.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameDirectory">
@@ -326,12 +343,22 @@
         <observation name="false" value="758.0" />
         <observation name="true" value="473.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="false" value="45.0" />
+        <observation name="true" value="32.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sameLogicalRoot">
       <dailyData date="3-7-2018">
         <observation name="UNDEFINED" value="65.0" />
         <observation name="false" value="560.0" />
         <observation name="true" value="671.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="false" value="28.0" />
+        <observation name="true" value="49.0" />
       </dailyData>
     </factor>
     <factor id="binaryFeature:prox_sdkOrLibrary">
@@ -340,17 +367,30 @@
         <observation name="false" value="1066.0" />
         <observation name="true" value="165.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="false" value="62.0" />
+        <observation name="true" value="15.0" />
+      </dailyData>
     </factor>
     <factor id="binaryFeature:templates">
       <dailyData date="3-7-2018">
         <observation name="false" value="1262.0" />
         <observation name="true" value="34.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="false" value="80.0" />
+        <observation name="true" value="3.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:accessible">
       <dailyData date="3-7-2018">
         <observation name="NORMAL" value="1231.0" />
         <observation name="UNDEFINED" value="65.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="NORMAL" value="77.0" />
+        <observation name="UNDEFINED" value="6.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:expectedType">
@@ -361,6 +401,12 @@
         <observation name="normal" value="822.0" />
         <observation name="ofDefaultType" value="31.0" />
         <observation name="unexpected" value="3.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="expected" value="24.0" />
+        <observation name="maybeExpected" value="4.0" />
+        <observation name="normal" value="49.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:kind">
@@ -378,11 +424,25 @@
         <observation name="unlikelyClass" value="1.0" />
         <observation name="variable" value="288.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="classNameOrGlobalStatic" value="17.0" />
+        <observation name="expectedTypeArgument" value="1.0" />
+        <observation name="expectedTypeVariable" value="13.0" />
+        <observation name="normal" value="25.0" />
+        <observation name="probableKeyword" value="5.0" />
+        <observation name="suitableClass" value="1.0" />
+        <observation name="variable" value="15.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_groovyReferenceListWeigher">
       <dailyData date="3-7-2018">
         <observation name="UNDEFINED" value="65.0" />
         <observation name="unknown" value="1231.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="unknown" value="77.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_javaInheritance">
@@ -392,12 +452,21 @@
         <observation name="null" value="1018.0" />
         <observation name="true" value="20.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="false" value="19.0" />
+        <observation name="null" value="58.0" />
+      </dailyData>
     </factor>
     <factor id="categoricalFeature:prox_referenceList">
       <dailyData date="3-7-2018">
         <observation name="UNDEFINED" value="65.0" />
         <observation name="applicableByKind" value="3.0" />
         <observation name="unknown" value="1228.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="unknown" value="77.0" />
       </dailyData>
     </factor>
     <factor id="categoricalFeature:recursion">
@@ -407,6 +476,11 @@
         <observation name="normal" value="989.0" />
         <observation name="recursive" value="2.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="21.0" />
+        <observation name="normal" value="60.0" />
+        <observation name="recursive" value="2.0" />
+      </dailyData>
     </factor>
     <factor id="completionFinishedType">
       <dailyData date="3-7-2018">
@@ -414,15 +488,26 @@
         <observation name="explicitSelect" value="687.0" />
         <observation name="typedSelect" value="618.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="cancelled" value="101.0" />
+        <observation name="explicitSelect" value="56.0" />
+        <observation name="typedSelect" value="28.0" />
+      </dailyData>
     </factor>
     <factor id="completionType">
       <dailyData date="3-7-2018">
         <observation name="BASIC" value="1610.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="BASIC" value="110.0" />
+      </dailyData>
     </factor>
     <factor id="completionUsage">
       <dailyData date="3-7-2018">
         <observation name="count" value="3456.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="count" value="185.0" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:explicitProximity">
@@ -433,6 +518,13 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.109911" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="0.145455" />
+        <observation name="count" value="165.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.096591" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:grouping">
       <dailyData date="3-7-2018">
@@ -442,10 +534,25 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="165.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:mostUsed">
       <dailyData date="3-7-2018">
         <observation name="UNDEFINED" value="1296.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="60.0" />
+        <observation name="average" value="-27.533333" />
+        <observation name="count" value="45.0" />
+        <observation name="max" value="-1.0" />
+        <observation name="min" value="-86.0" />
+        <observation name="variance" value="549.42119" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:nameEnd">
@@ -457,6 +564,14 @@
         <observation name="min" value="-2.0" />
         <observation name="variance" value="0.06041" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="-0.104575" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-1.0" />
+        <observation name="variance" value="0.066585" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:position">
       <dailyData date="3-7-2018">
@@ -465,6 +580,13 @@
         <observation name="max" value="18.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.73109" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="0.133333" />
+        <observation name="count" value="165.0" />
+        <observation name="max" value="4.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.28395" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prefix">
@@ -475,6 +597,13 @@
         <observation name="min" value="-1203.0" />
         <observation name="variance" value="69300.925186" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="-1077.721212" />
+        <observation name="count" value="165.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-1202.0" />
+        <observation name="variance" value="44130.989202" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:priority">
       <dailyData date="3-7-2018">
@@ -483,6 +612,13 @@
         <observation name="max" value="999.0" />
         <observation name="min" value="-4.0" />
         <observation name="variance" value="1600.496943" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="-0.048485" />
+        <observation name="count" value="165.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-4.0" />
+        <observation name="variance" value="0.147928" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_explicitlyImported">
@@ -494,6 +630,14 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="18134.895698" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="140.522876" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="300.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="13903.197551" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:prox_knownElement">
       <dailyData date="3-7-2018">
@@ -503,6 +647,14 @@
         <observation name="max" value="8.0" />
         <observation name="min" value="-1.0" />
         <observation name="variance" value="5.357636" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="1.359477" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="7.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="7.273244" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:prox_sameModule">
@@ -514,6 +666,14 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.919592" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="1.267974" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.807828" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:prox_samePsiMember">
       <dailyData date="3-7-2018">
@@ -524,11 +684,26 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.661949" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="0.771242" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="2.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.720427" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:query_length">
       <dailyData date="3-7-2018">
         <observation name="average" value="0.0" />
         <observation name="count" value="2591.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="0.0" />
+        <observation name="count" value="165.0" />
         <observation name="max" value="0.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.0" />
@@ -542,6 +717,13 @@
         <observation name="min" value="1.0" />
         <observation name="variance" value="15.385609" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="6.987879" />
+        <observation name="count" value="165.0" />
+        <observation name="max" value="19.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="15.780276" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:sameWords">
       <dailyData date="3-7-2018">
@@ -551,6 +733,14 @@
         <observation name="max" value="0.0" />
         <observation name="min" value="-2.0" />
         <observation name="variance" value="0.061864" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="-0.091503" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-1.0" />
+        <observation name="variance" value="0.052622" />
       </dailyData>
     </factor>
     <factor id="doubleFeature:shorter">
@@ -562,6 +752,14 @@
         <observation name="min" value="-999.0" />
         <observation name="variance" value="37214.841782" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="-104.405229" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="-999.0" />
+        <observation name="variance" value="66373.967712" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:simple">
       <dailyData date="3-7-2018">
@@ -572,11 +770,26 @@
         <observation name="min" value="0.0" />
         <observation name="variance" value="0.139777" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="6.0" />
+        <observation name="average" value="0.0" />
+        <observation name="count" value="153.0" />
+        <observation name="max" value="0.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:sorter">
       <dailyData date="3-7-2018">
         <observation name="average" value="1.0" />
         <observation name="count" value="2591.0" />
+        <observation name="max" value="1.0" />
+        <observation name="min" value="1.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="1.0" />
+        <observation name="count" value="165.0" />
         <observation name="max" value="1.0" />
         <observation name="min" value="1.0" />
         <observation name="variance" value="0.0" />
@@ -591,6 +804,14 @@
         <observation name="min" value="-5.0" />
         <observation name="variance" value="0.058389" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="UNDEFINED" value="68.0" />
+        <observation name="average" value="-3.0" />
+        <observation name="count" value="29.0" />
+        <observation name="max" value="-3.0" />
+        <observation name="min" value="-3.0" />
+        <observation name="variance" value="0.0" />
+      </dailyData>
     </factor>
     <factor id="doubleFeature:stats">
       <dailyData date="3-7-2018">
@@ -599,6 +820,13 @@
         <observation name="max" value="10000.0" />
         <observation name="min" value="0.0" />
         <observation name="variance" value="16728030.237731" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="3144.218182" />
+        <observation name="count" value="165.0" />
+        <observation name="max" value="10000.0" />
+        <observation name="min" value="0.0" />
+        <observation name="variance" value="18437737.844529" />
       </dailyData>
     </factor>
     <factor id="itemPosition">
@@ -615,11 +843,21 @@
         <observation name="7" value="1.0" />
         <observation name="9" value="2.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="0" value="50.0" />
+        <observation name="1" value="3.0" />
+        <observation name="2" value="2.0" />
+        <observation name="4" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="mnemonicsUsage">
       <dailyData date="3-7-2018">
         <observation name="total" value="352.0" />
         <observation name="withMnemonics" value="5.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="total" value="30.0" />
+        <observation name="withMnemonics" value="0.0" />
       </dailyData>
     </factor>
     <factor id="prefixLength">
@@ -636,11 +874,26 @@
         <observation name="7" value="2.0" />
         <observation name="9" value="1.0" />
       </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="0" value="5.0" />
+        <observation name="1" value="21.0" />
+        <observation name="12" value="1.0" />
+        <observation name="14" value="1.0" />
+        <observation name="2" value="19.0" />
+        <observation name="3" value="4.0" />
+        <observation name="4" value="3.0" />
+        <observation name="5" value="1.0" />
+        <observation name="9" value="1.0" />
+      </dailyData>
     </factor>
     <factor id="timeBetweenTyping">
       <dailyData date="3-7-2018">
         <observation name="average" value="164.020822" />
         <observation name="count" value="1921.0" />
+      </dailyData>
+      <dailyData date="6-7-2018">
+        <observation name="average" value="167.589147" />
+        <observation name="count" value="129.0" />
       </dailyData>
     </factor>
   </component>
@@ -653,72 +906,108 @@
         <subPane>
           <expand>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="defaultGrammars" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="misc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="structure" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="structure" type="462c0819:PsiDirectoryNode" />
               <item name="parse" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="structure" type="462c0819:PsiDirectoryNode" />
               <item name="syntacticObjects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ParsableGrammarProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ParsableGrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GrammarProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 10 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="GrammarProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 10 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="java.base" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -732,14 +1021,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1530651467508" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1530899135148" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -760,21 +1049,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/uiDesigner.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ParsableGrammarProject.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/core.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/Grammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/parse/ParseNode.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/parse/ParseTree.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/gui.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/CommandLineRunner.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -782,20 +1056,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/_config.yml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/cfgGrammarExtended.ccfg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/GrammarLoader.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/Parser.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/VarGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/Editor.form</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/Editor.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/FileSelector.form</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/FileSelector.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/mathGrammar.ccfg</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -803,13 +1063,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/ListGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/StandardGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/parse/Parser.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/mathGrammar.grammar</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -889,6 +1142,924 @@
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="SWITCHED" />
       </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/uiDesigner.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ParsableGrammarProject.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/core.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/Grammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/parse/ParseNode.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/parse/ParseTree.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/gui.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/CommandLineRunner.java</PATH>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/_config.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/cfgGrammarExtended.ccfg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/GrammarLoader.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/Parser.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/main/defaultGrammars/VarGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/Editor.form</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/Editor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/FileSelector.form</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gui/src/gui/FileSelector.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/mathGrammar.ccfg</PATH>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/ListGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/StandardGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/defaultGrammars/VarGrammar.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/structure/parse/Parser.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/mathGrammar.grammar</PATH>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" />
+            <option name="myStatusName" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" />
+          </FILE-GROUP>
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" />
+          <option name="myStatusName" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" />
+        </FILE-GROUP>
+      </FILE-GROUP>
     </UpdatedFiles>
   </component>
   <component name="RunDashboard">
@@ -908,54 +2079,29 @@
       <option name="MAIN_CLASS_NAME" value="main.CommandLineRunner" />
       <module name="ParsableGrammarProject" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method>
+      <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -992,62 +2138,40 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57047000" />
+    <option name="totallyTimeSpent" value="61235000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1840" height="1002" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info id="Capture Tool" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.1991001" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.32943678" />
-      <window_info anchor="right" id="Palette&#9;" order="1" />
-      <window_info id="Image Layers" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="right" id="Run" order="9" sideWeight="0.49946865" weight="0.37708333" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3298611" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32919955" />
-      <window_info id="Capture Tool" order="0" />
-      <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.1921875" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="right" id="Debug" order="10" visible="true" weight="0.290625" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Coverage" order="12" sideWeight="0.5005314" side_tool="true" weight="0.37708333" />
-      <window_info id="Designer" order="1" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.1921875" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info active="true" anchor="right" id="Run" order="9" sideWeight="0.49946865" visible="true" weight="0.37708333" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="0" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.32919955" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="right" id="Debug" order="10" weight="0.46354166" />
       <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Palette&#9;" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="right" id="Run" order="9" sideWeight="0.49946865" weight="0.37708333" />
+      <window_info active="true" anchor="right" id="Debug" order="10" visible="true" weight="0.32733408" />
+      <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5005314" side_tool="true" weight="0.37708333" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1108,7 +2232,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
-          <line>141</line>
+          <line>139</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
@@ -1126,7 +2250,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
-          <line>26</line>
+          <line>24</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
@@ -1136,7 +2260,55 @@
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
           <line>164</line>
           <properties />
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>173</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>201</line>
+          <properties />
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>203</line>
+          <properties />
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>189</line>
+          <properties />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>187</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>214</line>
+          <properties />
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>216</line>
+          <properties />
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>225</line>
+          <properties />
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
@@ -1154,7 +2326,6 @@
           </selected-grouping-rules>
         </breakpoints-dialog>
       </breakpoints-dialog>
-      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -1212,203 +2383,7 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="43" column="3" lean-forward="true" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/Parser.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1166#1167#0" expanded="true" />
-            <element signature="e#1215#1216#0" expanded="true" />
-            <element signature="e#1249#1250#0" expanded="true" />
-            <element signature="e#1289#1290#0" expanded="true" />
-            <element signature="e#1319#1320#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1418#1419#0" expanded="true" />
-            <element signature="e#1453#1454#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1166#1167#0" expanded="true" />
-            <element signature="e#1215#1216#0" expanded="true" />
-            <element signature="e#1249#1250#0" expanded="true" />
-            <element signature="e#1289#1290#0" expanded="true" />
-            <element signature="e#1319#1320#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1418#1419#0" expanded="true" />
-            <element signature="e#1453#1454#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/package-info.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/misc/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#97#98#0" expanded="true" />
-            <element signature="e#123#124#0" expanded="true" />
-            <element signature="e#188#189#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="71" column="20" lean-forward="true" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#635#665#0" expanded="true" />
-            <element signature="e#1694#1695#0" expanded="true" />
-            <element signature="e#1757#1758#0" expanded="true" />
-            <element signature="e#1972#1973#0" expanded="true" />
-            <element signature="e#2004#2005#0" expanded="true" />
-            <element signature="e#2059#2060#0" expanded="true" />
-            <element signature="e#2107#2108#0" expanded="true" />
-            <element signature="e#2145#2146#0" expanded="true" />
-            <element signature="e#2180#2181#0" expanded="true" />
-            <element signature="e#3383#3384#0" expanded="true" />
-            <element signature="e#3420#3421#0" expanded="true" />
-            <element signature="e#3779#3780#0" expanded="true" />
-            <element signature="e#3812#3813#0" expanded="true" />
-            <element signature="e#3879#3880#0" expanded="true" />
-            <element signature="e#3931#3932#0" expanded="true" />
-            <element signature="e#6350#6351#0" expanded="true" />
-            <element signature="e#6425#6426#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/misc/StandardGrammar.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/JavaClassCreator.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding>
-            <element signature="e#1200#1201#0" expanded="true" />
-            <element signature="e#1242#1243#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-            <element signature="e#2656#2657#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2732#2733#0" expanded="true" />
-            <element signature="e#2770#2771#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="79" column="4" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="165" column="43" lean-forward="true" selection-start-line="165" selection-start-column="43" selection-end-line="165" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/package-info.java" />
     <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticTypes.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1420,32 +2395,6 @@
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/invoke/MethodHandleNatives.java" />
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/jdk/internal/util/Preconditions.java" />
     <entry file="file://$PROJECT_DIR$/core/src/JavaClassCreator.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="43" column="3" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1461,9 +2410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1493,11 +2439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1516,19 +2457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#97#98#0" expanded="true" />
-            <element signature="e#123#124#0" expanded="true" />
-            <element signature="e#188#189#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/parse/Parser.java" />
     <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1543,9 +2471,6 @@
     <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/CgfFileGrammar.java" />
     <entry file="file://$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" />
     <entry file="file://$PROJECT_DIR$/mathGrammar.grammar" />
-    <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.ccfg">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -1555,8 +2480,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+        <state relative-caret-position="1072">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
         </state>
       </provider>
     </entry>
@@ -1587,20 +2512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mathGrammar.ccfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/TokenGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1613,38 +2524,153 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/FileSelector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="initializer##0;class#FileSelector#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/Editor.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GuiRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#135#136#0" expanded="true" />
+            <element signature="e#179#180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/src/gui/FileSelector.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="384">
+            <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="87" column="21" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="87" selection-end-column="21" />
+        <state relative-caret-position="270">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#1013#1014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.ccfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/RegexTerminal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#97#98#0" expanded="true" />
+            <element signature="e#123#124#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/GrammarLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
+        <state relative-caret-position="357">
           <caret line="108" selection-start-line="108" selection-end-line="108" />
-          <folding>
-            <element signature="e#1318#1319#0" expanded="true" />
-            <element signature="e#1370#1371#0" expanded="true" />
-            <element signature="e#3800#3801#0" expanded="true" />
-            <element signature="e#3852#3853#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mathGrammar.ccfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/TokenParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="98" column="47" lean-forward="true" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
+        <state relative-caret-position="270">
+          <caret line="173" selection-start-line="173" selection-end-line="173" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-            <element signature="e#1571#1572#0" expanded="true" />
-            <element signature="e#3046#3047#0" expanded="true" />
-            <element signature="e#3083#3084#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+            <element signature="e#3544#3545#0" expanded="true" />
+            <element signature="e#3581#3582#0" expanded="true" />
+            <element signature="e#6789#6819#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1678,6 +2704,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>javac2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1689,7 +2716,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1701,11 +2728,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ParsableGrammarProject</last-edited>
+          <last-edited>gui</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

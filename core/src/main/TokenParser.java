@@ -2,15 +2,13 @@ package main;
 
 import structure.Reference;
 import structure.TokenGrammar;
+import structure.parse.ParseNode;
 import structure.parse.ParseTree;
-import structure.syntacticObjects.SyntacticCategory;
+import structure.syntacticObjects.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -159,11 +157,72 @@ public class TokenParser extends Parser {
         
         tokenIndex = 0;
         tokenStringIndex = 0;
+    
+        Stack<SyntacticObject> inStack = new Stack<>();
+        Stack<SyntacticObject> outStack = new Stack<>();
+        Reference<ParseNode> head = new Reference<>();
         
-        
-        
-        
+        inStack.push(base);
+        ParseNode m = pushdownAutomata(inStack);
         
         return null;
+    }
+    
+    @SuppressWarnings("unchecked")
+    private ParseNode pushdownAutomata(Stack<SyntacticObject> stack){
+        
+        Reference<ParseNode> head = new Reference<>();
+        
+        while(!stack.isEmpty()){
+            SyntacticObject current = stack.pop();
+            
+            if(current.getClass().equals(SyntacticCategory.class)){
+                SyntacticCategory category = (SyntacticCategory) current;
+                for (Rule rule : category.getRules()) {
+                    Stack<SyntacticObject> newStack = (Stack<SyntacticObject>) stack.clone();
+                    loadStackBackwards(newStack, rule.getSyntacticObjects());
+                    ParseNode output = pushdownAutomata(newStack);
+                    if(output != null){
+    
+                        if(head.getRef() == null){
+                            head.setRef(output);
+                        }else{
+                            head.getRef().leftMostOpenParseNode().addChild(output);
+                        }
+                        return head.getRef();
+                    }
+                }
+                return null;
+        
+            }else if(current.getClass().equals(Terminal.class)){
+        
+                Terminal terminal = (Terminal) current;
+                if(!consume(terminal.getRepresentation())) return null;
+                if(head.getRef() == null){
+                    head.setRef(new ParseNode(terminal, terminal.getRepresentation()));
+                }else{
+                    head.getRef().leftMostOpenParseNode().addChild(new ParseNode(terminal, terminal.getRepresentation()));
+                }
+        
+        
+            }else if(current.getClass().equals(RegexTerminal.class)){
+        
+                RegexTerminal regexTerminal = (RegexTerminal) current;
+                Reference<String> found = new Reference<>();
+                if(!consume(regexTerminal.getPattern(), found)) return null;
+        
+                if(head.getRef() == null){
+                    head.setRef(new ParseNode(regexTerminal, found.getRef()));
+                }else{
+                    head.getRef().leftMostOpenParseNode().addChild(new ParseNode(regexTerminal, found.getRef()));
+                }
+            }
+            
+            
+        }
+        
+        
+        
+        return head.getRef();
     }
 }
