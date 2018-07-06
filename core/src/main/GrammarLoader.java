@@ -6,6 +6,7 @@ import main.defaultGrammars.StandardGrammar;
 import main.defaultGrammars.VarGrammar;
 import modules.IConvertModule;
 import structure.Grammar;
+import structure.TokenGrammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.*;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -25,12 +27,28 @@ public class GrammarLoader {
     private HashMap<String, Grammar> hashMap;
     private Grammar cfgGrammar;
     private Parser parser;
+    private static String[] grammarDelimeters;
+    
+    static {
+        grammarDelimeters = new String[]{
+                "{",
+                "}",
+                ":",
+                "<",
+                ">",
+                ":=",
+                "->",
+                "[",
+                "]",
+                "(",
+                ")"
+        };
+    }
     
     public GrammarLoader(){
         hashMap = new HashMap<>();
         cfgGrammar = new CgfFileGrammar();
         parser = new Parser(cfgGrammar);
-        cfgGrammar = loadGrammar(new File("cfgGrammarExtended.ccfg"),cfgGrammar);
     }
     
     public Grammar loadGrammar(String s){
@@ -46,14 +64,13 @@ public class GrammarLoader {
             parsableString = parsableString.substring(0, parsableString.length()-1);
         }
         parsableString += "\n";
-        ParseTree tree = parser.parse(parsableString);
-        if(tree == null) return null;
+     
         Pattern preOptions = Pattern.compile("#\\w* [\\w<>.]*\n");
         
         Grammar output = new Grammar();
         output.inherit(passOff);
         Matcher matcher = preOptions.matcher(s.replaceAll("\r", ""));
-    
+        boolean useExtended = false;
         while (matcher.find()) {
             String optionFull = matcher.group().replaceAll("[\n\r\t]", "");
             String optionName = optionFull.split(" ")[0].substring(1);
@@ -72,12 +89,27 @@ public class GrammarLoader {
                         passOff.inherit(loadGrammar(new File(optionVariables), passOff));
                     }
                 }
+                break;
+                case "standard":
+                    if(optionVariables.equals("extended")){
+                        useExtended = true;
+                        cfgGrammar = loadGrammar(new File("cfgGrammarExtended.ccfg"), cfgGrammar);
+                        cfgGrammar = new TokenGrammar(cfgGrammar, grammarDelimeters);
+                    }
                     break;
             }
         }
        
         
-        return convertParseTreeToGrammar(tree, output);
+        if(!useExtended){
+            ParseTree tree = parser.parse(parsableString);
+            if(tree == null) return null;
+            return convertParseTreeToGrammar(tree, output);
+        }
+        parser = new TokenParser((TokenGrammar) cfgGrammar);
+        ParseTree tree = parser.parse(parsableString);
+        if(tree == null) return null;
+        return convertTokenizedParseTreeToGrammar(tree, output);
     }
     
     public Grammar loadGrammar(File f){
@@ -290,4 +322,9 @@ public class GrammarLoader {
             return null;
         }
     };
+    
+    public Grammar convertTokenizedParseTreeToGrammar(ParseTree g, Grammar pregenerated){
+        
+        return new Grammar();
+    }
 }

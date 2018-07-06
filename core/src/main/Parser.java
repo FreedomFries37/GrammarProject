@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 public class Parser {
     
-    private Grammar grammar;
+    protected Grammar grammar;
     private String parsableString;
     private int index;
     
@@ -26,26 +26,26 @@ public class Parser {
         this.grammar = grammar;
     }
     
-    private char currentChar(){
+    protected  char currentChar(){
         if(index == parsableString.length()) return '\0';
         return parsableString.charAt(index);
     }
     
-    private boolean advancePointer(){
+    protected  boolean advancePointer(){
         if(index == parsableString.length()) return false;
         index++;
         return true;
     }
     
-    private boolean match(char c){
+    protected boolean match(char c){
         return currentChar() == c;
     }
     
-    private boolean match(String s){
+    protected boolean match(String s){
         return parsableString.substring(index).startsWith(s);
     }
     
-    private boolean match(Pattern p){
+    protected boolean match(Pattern p){
         int length = 1;
         String check = parsableString.substring(index, index+length);
         while(index + length < parsableString.length()){
@@ -59,7 +59,7 @@ public class Parser {
         return false;
     }
     
-    private boolean match(Pattern p, Reference<String> outString){
+    protected boolean match(Pattern p, Reference<String> outString){
         int length = 1;
         String check;
         String output = null;
@@ -88,12 +88,12 @@ public class Parser {
         return false;
     }
     
-    private boolean consume(char c){
+    protected boolean consume(char c){
         if(!match(c)) return false;
         return advancePointer();
     }
     
-    private boolean consume(String s){
+    protected boolean consume(String s){
         if(!match(s)) return false;
         for (int i = 0; i < s.length(); i++) {
             if(!advancePointer()) return false;
@@ -101,13 +101,13 @@ public class Parser {
         return true;
     }
     
-    private boolean consume(Pattern p){
+    protected boolean consume(Pattern p){
         Reference<String> consumeString = new Reference<>();
         if(!match(p, consumeString)) return false;
         return consume(consumeString.getRef());
     }
     
-    private boolean consume(Pattern p, Reference<String> ref){
+    protected boolean consume(Pattern p, Reference<String> ref){
         if(!match(p, ref)) return false;
         return consume(ref.getRef());
     }
@@ -197,7 +197,7 @@ public class Parser {
         return output;
     }
     
-    private static void printStack(Stack<SyntacticObject> stack){
+    protected static void printStack(Stack<SyntacticObject> stack){
         for (int i = stack.size() - 1; i >= 0; i--) {
             System.out.print(stack.get(i).getRepresentation());
         }
@@ -205,14 +205,14 @@ public class Parser {
     }
     
     @SuppressWarnings("unchecked")
-    private static <T> void loadStackBackwards(Stack<T> stack, Collection<? extends T> items){
+    protected static <T> void loadStackBackwards(Stack<T> stack, Collection<? extends T> items){
         T[] array = (T[]) items.toArray();
         for (int i = items.size() - 1; i >= 0; i--) {
             stack.push(array[i]);
         }
     }
     
-    private static Rule getRuleFromLookaheadAndHashMap(char lookAhead, HashMap<Pattern, Rule> map){
+    protected static Rule getRuleFromLookaheadAndHashMap(char lookAhead, HashMap<Pattern, Rule> map){
         if(map.containsKey(Pattern.compile(Pattern.quote("" + lookAhead)))){
             return map.get(Pattern.compile(Pattern.quote("" + lookAhead)));
         }else{

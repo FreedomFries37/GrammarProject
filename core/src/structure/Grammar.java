@@ -1,6 +1,5 @@
 package structure;
 
-import structure.parse.ParseTree;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
 import structure.syntacticObjects.SyntacticObject;
@@ -8,18 +7,19 @@ import structure.syntacticObjects.Terminal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Grammar {
     
     private HashMap<String, SyntacticCategory> hashMap;
+    private List<String> options;
     private List<String> autoCleans;
     protected SyntacticCategory head;
     
     public Grammar() {
         hashMap = new HashMap<>();
         autoCleans = new ArrayList<>();
+        options = new ArrayList<>();
     }
     
     @SuppressWarnings("unchecked")
@@ -27,6 +27,7 @@ public class Grammar {
         hashMap = (HashMap<String, SyntacticCategory>) inherit.hashMap.clone();
         head = inherit.head;
         autoCleans = inherit.autoCleans;
+        options = new ArrayList<>();
     }
     
     public void inherit(Grammar g){
@@ -40,6 +41,10 @@ public class Grammar {
                 autoCleans.add(autoClean);
             }
         }
+        for (String option : g.options) {
+            addOption(option);
+        }
+        if(g.hasDefault()) head = g.head;
     }
     
     public void inherit(Grammar g, String... cats){
@@ -53,6 +58,14 @@ public class Grammar {
                autoCleans.add(cat);
             }
         }
+        for (String option : g.options) {
+            addOption(option);
+        }
+        if(g.hasDefault()) head = g.head;
+    }
+    
+    public void addOption(String option){
+        if(!options.contains(option)) options.add(option);
     }
     
     public static ArrayList<Terminal> createTerminals(String s){
