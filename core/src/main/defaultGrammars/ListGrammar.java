@@ -38,6 +38,9 @@ public class ListGrammar extends Grammar {
         }else{
             listTail.addRule(seperator, listBase);
         }
+        listBase.setIgnoreWhitespace(listObject.isIgnoreWhitespace());
+        lObject.setIgnoreWhitespace(listObject.isIgnoreWhitespace());
+        listTail.setIgnoreWhitespace(listObject.isIgnoreWhitespace());
     }
     
     public ListGrammar(SyntacticCategory listObject, SyntacticCategory seperator) {

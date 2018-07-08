@@ -1,80 +1,102 @@
 #import <standard>
 #standard extended
 
-statement(default):
+statement(default){
 	<expression>
 	.<method>
+}
 
-method:
+method{
 	<method_name><whitespace><binds>
+}
 
-method_name(clean):
+method_name(clean){h
 	<named_string>
+}
 
-expression:
+expression{
 	<group><expression_tail>
+}
 
-expression_tail(optional):
+expression_tail(optional){
 	+<expression>
 	-<expression>
+}
 
-group:
+group{
 	<factor><group_tail>
+}
 
-group_tail(optional):
+group_tail(optional){
 	*<group>
 	/<group>
+}
 
-factor:
+factor{
 	(<expression>)
 	<double>
 	<named_action>
 	-<factor>
+}
 
-named_action:
+named_action{
 	<named_string><function_extension>
+}
 
-array_init:
+array_init{
 	[]<named_string_init>
+}
 
-array_size:
+array_size{
 	new [<integer>]
+}
 
-function_extension(optional):
+function_extension(optional){
 	(\list(<expression>)\)
+}
 
-named_string(clean):
+named_string(clean){
 	<named_char><named_string_tail><array_tail>
+}
 
-named_string_init(clean):
+named_string_init(clean){
 	<named_char><named_string_tail>
+}
 
-named_string_tail(optional):
+named_string_tail(optional){
 	<string>
+}
 
-named_char:
+named_char{
 	\regex("[a-zA-Z_]")\
+}
 
-binds:
+binds{
 	<var_bind>
 	<array_bind>
 	<function_bind>
+}
 
-pre_scope(optional):
+pre_scope(optional){
 	{\list(<expression>)\}
+}
 
-var_bind:
+var_bind{
 	\var(<named_string_init>,<expression>,":=")\
+}
 
-array_bind:
+array_bind{
 	\var(<array_init>,<array_size>,":=")\<pre_scope>
+}
 
-array_tail(optional):
+array_tail(optional){
 	[<integer>]
+}
 
-create_function:
+create_function{
 	<named_string>(<named_string>)
+}
 
-function_bind:
+function_bind{
 	\var(<create_function>,<expression>,":=")\
-
+}

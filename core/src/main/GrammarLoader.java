@@ -167,6 +167,10 @@ public class GrammarLoader {
                             break;
                         case "clean":
                             output.addAutoClean(name);
+                            break;
+                        case "whitespace":
+                            output.getCategory(name).setIgnoreWhitespace(false);
+                            break;
                     }
                 }
                 

@@ -10,7 +10,10 @@ public class SyntacticCategory extends SyntacticObject {
     
     private String name;
     private boolean optional;
+    private boolean ignoreWhitespace;
     private ArrayList<Rule> rules;
+    
+    {ignoreWhitespace = true;}
     
     
     public SyntacticCategory(String name) {
@@ -93,6 +96,14 @@ public class SyntacticCategory extends SyntacticObject {
     
     public String getName() {
         return name;
+    }
+    
+    public boolean isIgnoreWhitespace() {
+        return ignoreWhitespace;
+    }
+    
+    public void setIgnoreWhitespace(boolean ignoreWhitespace) {
+        this.ignoreWhitespace = ignoreWhitespace;
     }
     
     @Override

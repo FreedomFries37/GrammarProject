@@ -50,7 +50,9 @@ public class CgfFileGrammar extends Grammar {
     
             addOptionalCategory("opt_space_and_newline");
             getCategory("opt_space_and_newline").addRule( new RegexTerminal("(\\n| )+"));
+            getCategory("opt_space_and_newline").setIgnoreWhitespace(false);
             addCategory("rule", new Rule("\t", getCategory("rule_part"), "\n"));
+            getCategory("rule").setIgnoreWhitespace(false);
             inherit(new ListGrammar(getCategory("rule"), ""));
     
             addOptionalCategory("options");

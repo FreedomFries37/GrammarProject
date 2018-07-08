@@ -49,7 +49,10 @@ public class StandardGrammar extends Grammar {
         getCategory("double_decimal_tail").addRule(getCategory("double_decimal"));
         
         addCategory("whitespace", new Rule(new RegexTerminal("\\s+")));
-        addCategory("opt_whitespace", new Rule(new RegexTerminal("\\s*")));
+        getCategory("whitespace").setIgnoreWhitespace(false);
+        addOptionalCategory("opt_whitespace");
+        getCategory("opt_whitespace").addRule(new Rule(new RegexTerminal("\\s+")));
+        getCategory("opt_whitespace").setIgnoreWhitespace(false);
         
         inherit(new ListGrammar(getCategory("sentence")));
         addAutoClean("double");

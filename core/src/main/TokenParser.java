@@ -137,8 +137,7 @@ public class TokenParser extends Parser {
     
     @Override
     public ParseTree parse(String s, SyntacticCategory base) {
-        tokens = new LinkedList<>(Arrays.asList(s.split("\\s+")));
-        tokens.removeIf((String test) -> test.equals(""));
+        tokens = splitString(s);
         for (int i = 0; i < tokens.size(); i++) {
             String original = tokens.get(i);
             if(!delimiters.contains(original)) {
@@ -159,70 +158,110 @@ public class TokenParser extends Parser {
         tokenStringIndex = 0;
     
         Stack<SyntacticObject> inStack = new Stack<>();
-        Stack<SyntacticObject> outStack = new Stack<>();
-        Reference<ParseNode> head = new Reference<>();
         
         inStack.push(base);
-        ParseNode m = pushdownAutomata(inStack);
+        Reference<ParseNode> node = new Reference<>();
+        if(!recursiveParseFunction(inStack, node)) return null;
         
-        return null;
+        return new ParseTree(node.getRef());
     }
     
+    LinkedList<String> splitString(String s){
+        LinkedList<String> output = new LinkedList<>();
+        
+        StringBuilder word = new StringBuilder();
+        boolean usingWhitespace = false;
+        Pattern wordPattern = Pattern.compile("[^\\s]");
+        for (int i = 0; i < s.length(); i++) {
+            boolean check = wordPattern.matcher("" + s.charAt(i)).matches();
+            if(check == usingWhitespace){
+                usingWhitespace = !usingWhitespace;
+                output.add(word.toString());
+                word = new StringBuilder();
+            }
+            word.append(s.charAt(i));
+        }
+    
+    
+        output.removeIf((String test) -> test.equals(""));
+        return output;
+    }
+    
+    /**
+     * Works like a single recursive rule
+     * @param stack currentStack
+     * @param parent parent ParseNode
+     * @return if it successfully parsed
+     */
     @SuppressWarnings("unchecked")
-    private ParseNode pushdownAutomata(Stack<SyntacticObject> stack){
+    private boolean recursiveParseFunction(Stack<SyntacticObject> stack, Reference<ParseNode> parent){
         
-        Reference<ParseNode> head = new Reference<>();
         
-        while(!stack.isEmpty()){
+        
+        while(!stack.empty()) {
             SyntacticObject current = stack.pop();
             
-            if(current.getClass().equals(SyntacticCategory.class)){
+            
+            
+            if (current.getClass().equals(SyntacticCategory.class)) {
                 SyntacticCategory category = (SyntacticCategory) current;
-                for (Rule rule : category.getRules()) {
-                    Stack<SyntacticObject> newStack = (Stack<SyntacticObject>) stack.clone();
-                    loadStackBackwards(newStack, rule.getSyntacticObjects());
-                    ParseNode output = pushdownAutomata(newStack);
-                    if(output != null){
+                boolean ignoreWhitespace = category.isIgnoreWhitespace();
+                Reference<String> space = new Reference<>();
+                while(ignoreWhitespace && match(Pattern.compile("\\s+"), space)){
+                    consume(space.getRef());
+                }
     
-                        if(head.getRef() == null){
-                            head.setRef(output);
-                        }else{
-                            head.getRef().leftMostOpenParseNode().addChild(output);
+                boolean found = false;
+                for (Rule rule : category.getRules()) {
+                    Reference<ParseNode> next = new Reference<>(new ParseNode(category, rule));
+                    //Stack<SyntacticObject> stackCopy = (Stack<SyntacticObject>) stack.clone();
+                    Stack<SyntacticObject> stackCopy = new Stack<>();
+                    loadStackBackwards(stackCopy, rule.getSyntacticObjects());
+                    if (recursiveParseFunction(stackCopy, next)) {
+                        if (parent.getRef() == null) {
+                            parent.setRef(next.getRef());
+                        } else {
+                            parent.getRef().addChild(next.getRef());
                         }
-                        return head.getRef();
+                        found = true;
+                        break;
                     }
                 }
-                return null;
         
-            }else if(current.getClass().equals(Terminal.class)){
+                if(!found){
+                    if(!category.isOptional()) return false;
+                }
+            } else if (current.getClass().equals(Terminal.class)) {
         
                 Terminal terminal = (Terminal) current;
-                if(!consume(terminal.getRepresentation())) return null;
-                if(head.getRef() == null){
-                    head.setRef(new ParseNode(terminal, terminal.getRepresentation()));
-                }else{
-                    head.getRef().leftMostOpenParseNode().addChild(new ParseNode(terminal, terminal.getRepresentation()));
+                if (!consume(terminal.getRepresentation())){
+                    return false;
                 }
+                if (parent.getRef() == null) {
+                    parent.setRef(new ParseNode(terminal, terminal.getRepresentation()));
+                } else {
+                    parent.getRef().addChild(new ParseNode(terminal, terminal.getRepresentation()));
+                }
+                
         
-        
-            }else if(current.getClass().equals(RegexTerminal.class)){
+            } else if (current.getClass().equals(RegexTerminal.class)) {
         
                 RegexTerminal regexTerminal = (RegexTerminal) current;
                 Reference<String> found = new Reference<>();
-                if(!consume(regexTerminal.getPattern(), found)) return null;
-        
-                if(head.getRef() == null){
-                    head.setRef(new ParseNode(regexTerminal, found.getRef()));
-                }else{
-                    head.getRef().leftMostOpenParseNode().addChild(new ParseNode(regexTerminal, found.getRef()));
+                if (!consume(regexTerminal.getPattern(), found)){
+                    return false;
                 }
+        
+                if (parent.getRef() == null) {
+                    parent.setRef(new ParseNode(regexTerminal, found.getRef()));
+                } else {
+                    parent.getRef().addChild(new ParseNode(regexTerminal, found.getRef()));
+                }
+        
+                
             }
-            
-            
         }
         
-        
-        
-        return head.getRef();
+        return true;
     }
 }
