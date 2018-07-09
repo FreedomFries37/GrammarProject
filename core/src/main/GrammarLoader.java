@@ -233,13 +233,13 @@ public class GrammarLoader {
                                             objects.add(catName);
                                         }else if(param.contains("sentence")){
                                             String string = param.getChild("sentence").getChildTerminals();
-                                            objects.add(string);
+                                            objects.add(string.substring(1, string.length()-1));
                                         }
                                     }
                                     if(objects.size() == 1) {
-                                        output.inherit(new ListGrammar(output.getCategory(objects.get(0))));
+                                        output.inheritAndReplace(new ListGrammar(output.getCategory(objects.get(0))));
                                     }else if(objects.size() == 2){
-                                        output.inherit(new ListGrammar(output.getCategory(objects.get(0)),
+                                        output.inheritAndReplace(new ListGrammar(output.getCategory(objects.get(0)),
                                                 objects.get(1)));
                                     }
                                     SyntacticCategory list = output.getCategory("list_" + objects.get(0));
@@ -329,6 +329,6 @@ public class GrammarLoader {
     
     public Grammar convertTokenizedParseTreeToGrammar(ParseTree g, Grammar pregenerated){
         
-        return new Grammar();
+        return convertParseTreeToGrammar(g, pregenerated);
     }
 }

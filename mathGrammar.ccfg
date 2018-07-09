@@ -10,9 +10,10 @@ method{
 	<method_name><whitespace><binds>
 }
 
-method_name(clean){h
+method_name(clean){
 	<named_string>
 }
+
 
 expression{
 	<group><expression_tail>
@@ -93,10 +94,11 @@ array_tail(optional){
 	[<integer>]
 }
 
-create_function{
-	<named_string>(<named_string>)
+function_bind{
+
+	\var(<create_function>,<expression>,":=")\
 }
 
-function_bind{
-	\var(<create_function>,<expression>,":=")\
+create_function{
+	<named_string>(<named_string>)
 }

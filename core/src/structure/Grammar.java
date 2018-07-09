@@ -46,6 +46,24 @@ public class Grammar {
         }
         if(g.hasDefault()) head = g.head;
     }
+    public void inheritAndReplace(Grammar g){
+        for (String s: g.hashMap.keySet()) {
+            if(!hashMap.containsKey(s)){
+                hashMap.put(s, g.hashMap.get(s));
+            }else{
+                hashMap.replace(s, g.hashMap.get(s));
+            }
+        }
+        for (String autoClean : g.autoCleans) {
+            if(!autoCleans.contains(autoClean)){
+                autoCleans.add(autoClean);
+            }
+        }
+        for (String option : g.options) {
+            addOption(option);
+        }
+        if(g.hasDefault()) head = g.head;
+    }
     
     public void inherit(Grammar g, String... cats){
         for (String cat: cats) {

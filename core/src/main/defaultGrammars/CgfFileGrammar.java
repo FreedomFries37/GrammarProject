@@ -25,6 +25,7 @@ public class CgfFileGrammar extends Grammar {
                     getCategory("list_category")
             );
             head = getCategory("grammar");
+            getCategory("list_category").setIgnoreWhitespace(false);
             
             addCategory("rule_head");
             addCategory("rule_reference");
@@ -47,6 +48,12 @@ public class CgfFileGrammar extends Grammar {
             getCategory("rule_head").addRule(getCategory("rule_char"));
             getCategory("rule_head").addRule(getCategory("rule_escape"));
             getCategory("rule_tail").addRule(getCategory("rule_part"));
+            getCategory("rule_tail").setIgnoreWhitespace(false);
+            getCategory("rule_head").setIgnoreWhitespace(false);
+            getCategory("rule_part").setIgnoreWhitespace(false);
+            getCategory("rule_reference").setIgnoreWhitespace(false);
+            getCategory("rule_escape").setIgnoreWhitespace(false);
+            getCategory("rule_char").setIgnoreWhitespace(false);
     
             addOptionalCategory("opt_space_and_newline");
             getCategory("opt_space_and_newline").addRule( new RegexTerminal("(\\n| )+"));

@@ -51,6 +51,8 @@ public class CommandLineRunner {
             System.out.println();
             GrammarLoader grammarLoader = new GrammarLoader();
             Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.ccfg"));
+            math.printCategoryNames();
+            System.out.println();
             math.printGrammar();
             Parser mathParser = new Parser(math);
             ParseTree v = mathParser.parse(".let func(x) := x+3");

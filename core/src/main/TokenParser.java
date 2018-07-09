@@ -120,21 +120,7 @@ public class TokenParser extends Parser {
         return consume(ref.getRef());
     }
     
-    @Override
-    public ParseTree parse(String s) {
-        return super.parse(s);
-    }
-    
-    @Override
-    public ParseTree parse(File file) throws IOException {
-        return super.parse(file);
-    }
-    
-    @Override
-    public ParseTree parse(File file, SyntacticCategory base) throws IOException {
-        return super.parse(file, base);
-    }
-    
+   
     @Override
     public ParseTree parse(String s, SyntacticCategory base) {
         tokens = splitString(s);
@@ -161,9 +147,17 @@ public class TokenParser extends Parser {
         
         inStack.push(base);
         Reference<ParseNode> node = new Reference<>();
-        if(!recursiveParseFunction(inStack, node)) return null;
+        grammar.printGrammar();
+        if(!recursiveParseFunction(inStack, node)){
+            return null;
+        }
         
-        return new ParseTree(node.getRef());
+        ParseTree output = new ParseTree(node.getRef());
+        for (String autoClean : grammar.getAutoCleans()) {
+            output.clean(autoClean);
+        }
+        output.print();
+        return output;
     }
     
     LinkedList<String> splitString(String s){
@@ -199,6 +193,9 @@ public class TokenParser extends Parser {
         
         
         while(!stack.empty()) {
+            System.out.print(String.format("Lookahead: %c  Stack: ", currentChar()));
+            printStack(stack);
+            
             SyntacticObject current = stack.pop();
             
             
@@ -229,7 +226,10 @@ public class TokenParser extends Parser {
                 }
         
                 if(!found){
-                    if(!category.isOptional()) return false;
+                    if(!category.isOptional()){
+                        parent.getRef().print(0);
+                        return false;
+                    }
                 }
             } else if (current.getClass().equals(Terminal.class)) {
         

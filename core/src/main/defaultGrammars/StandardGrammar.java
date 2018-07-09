@@ -16,8 +16,8 @@ public class StandardGrammar extends Grammar {
         getCategory("string_tail").addRule(new Rule(getCategory("string")));
         
         addCategory("sentence");
-        addCategory("sentence'");
-        addCategory("sentence''");
+        addOptionalCategory("sentence'");
+        addOptionalCategory("sentence''");
         addCategory("sentence_char", new Rule(new RegexTerminal("[^\"]")));
         addCategory("sentence_char'", new Rule(new RegexTerminal("[^']")));
         addOptionalCategory("sentence_tail");
