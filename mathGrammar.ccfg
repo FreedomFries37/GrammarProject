@@ -1,12 +1,13 @@
 #import <standard>
 #standard extended
+#parse token
 
-statement(default){
+statement(default,whitespace){
 	<expression>
 	.<method>
 }
 
-method{
+method(whitespace){
 	<method_name><whitespace><binds>
 }
 
@@ -56,7 +57,7 @@ function_extension(optional){
 	(\list(<expression>)\)
 }
 
-named_string(clean){
+named_string(clean,whitespace){
 	<named_char><named_string_tail><array_tail>
 }
 
@@ -64,7 +65,7 @@ named_string_init(clean){
 	<named_char><named_string_tail>
 }
 
-named_string_tail(optional){
+named_string_tail(optional,whitespace){
 	<string>
 }
 

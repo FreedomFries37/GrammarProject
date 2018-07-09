@@ -15,6 +15,7 @@ public class Grammar {
     private List<String> options;
     private List<String> autoCleans;
     protected SyntacticCategory head;
+    private boolean tokenParse;
     
     public Grammar() {
         hashMap = new HashMap<>();
@@ -28,6 +29,7 @@ public class Grammar {
         head = inherit.head;
         autoCleans = inherit.autoCleans;
         options = new ArrayList<>();
+        tokenParse = inherit.tokenParse;
     }
     
     public void inherit(Grammar g){
@@ -45,6 +47,7 @@ public class Grammar {
             addOption(option);
         }
         if(g.hasDefault()) head = g.head;
+        tokenParse = g.tokenParse;
     }
     public void inheritAndReplace(Grammar g){
         for (String s: g.hashMap.keySet()) {
@@ -105,6 +108,14 @@ public class Grammar {
     
     public boolean hasDefault(){
         return head != null;
+    }
+    
+    public boolean isTokenParse() {
+        return tokenParse;
+    }
+    
+    public void setTokenParse(boolean tokenParse) {
+        this.tokenParse = tokenParse;
     }
     
     public SyntacticCategory getCategory(String name){

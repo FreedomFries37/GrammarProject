@@ -3,6 +3,7 @@ package main;
 import main.defaultGrammars.CgfFileGrammar;
 import main.defaultGrammars.StandardGrammar;
 import structure.Grammar;
+import structure.TokenGrammar;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
@@ -50,12 +51,12 @@ public class CommandLineRunner {
             cfg.printGrammar();
             System.out.println();
             GrammarLoader grammarLoader = new GrammarLoader();
-            Grammar math = grammarLoader.loadGrammar(new File("mathGrammar.ccfg"));
+            TokenGrammar math = new TokenGrammar(grammarLoader.loadGrammar(new File("mathGrammar.ccfg")));
             math.printCategoryNames();
             System.out.println();
             math.printGrammar();
-            Parser mathParser = new Parser(math);
-            ParseTree v = mathParser.parse(".let func(x) := x+3");
+            TokenParser mathParser = new TokenParser(math);
+            ParseTree v = mathParser.parse(".let y = 4+5");
             String orginal = v.getHead().getChildTerminals();
             v.print();
             v.removeAllTerminalsExceptForChildrenOf("named_string", "named_string_init", "double", "integer",

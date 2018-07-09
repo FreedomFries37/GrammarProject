@@ -6,12 +6,19 @@ import structure.parse.ParseNode;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+/**
+ * TODO: Change this and token grammar so that certain syntactic categories must be marked as tokens
+ * TODO: token categories can only accept one token at a time
+ *
+ */
 public class TokenParser extends Parser {
     
     private LinkedList<String> tokens;
@@ -32,12 +39,13 @@ public class TokenParser extends Parser {
     
     @Override
     protected boolean advancePointer() {
+        if(tokenIndex == tokens.size()) return false;
         tokenStringIndex++;
         if(tokenStringIndex == tokens.get(tokenIndex).length()){
             tokenStringIndex = 0;
             tokenIndex++;
         }
-        return tokenIndex < tokens.size();
+        return true;
     }
     
     @Override
@@ -71,6 +79,7 @@ public class TokenParser extends Parser {
         String output = null;
         boolean found = false;
         do{
+            if(tokenIndex == tokens.size()) break;
             check.append(currentChar());
             Matcher m = p.matcher(check);
         
@@ -151,7 +160,8 @@ public class TokenParser extends Parser {
         if(!recursiveParseFunction(inStack, node)){
             return null;
         }
-        
+    
+        System.out.println("Using recursive parser...");
         ParseTree output = new ParseTree(node.getRef());
         for (String autoClean : grammar.getAutoCleans()) {
             output.clean(autoClean);
@@ -192,7 +202,7 @@ public class TokenParser extends Parser {
         
         
         
-        while(!stack.empty()) {
+        while(!stack.empty() && tokenIndex < tokens.size()) {
             System.out.print(String.format("Lookahead: %c  Stack: ", currentChar()));
             printStack(stack);
             
@@ -210,6 +220,10 @@ public class TokenParser extends Parser {
     
                 boolean found = false;
                 for (Rule rule : category.getRules()) {
+                    System.out.println(rule);
+                    int originalIndex, originalStringIndex;
+                    originalIndex = tokenIndex;
+                    originalStringIndex = tokenStringIndex;
                     Reference<ParseNode> next = new Reference<>(new ParseNode(category, rule));
                     //Stack<SyntacticObject> stackCopy = (Stack<SyntacticObject>) stack.clone();
                     Stack<SyntacticObject> stackCopy = new Stack<>();
@@ -222,12 +236,15 @@ public class TokenParser extends Parser {
                         }
                         found = true;
                         break;
+                    }else if(!category.isOptional()){
+                        tokenIndex = originalIndex;
+                        tokenStringIndex = originalStringIndex;
                     }
                 }
         
                 if(!found){
                     if(!category.isOptional()){
-                        parent.getRef().print(0);
+                        if(parent.getRef() != null) parent.getRef().print(0);
                         return false;
                     }
                 }

@@ -97,6 +97,11 @@ public class GrammarLoader {
                         cfgGrammar = new TokenGrammar(cfgGrammar, grammarDelimeters);
                     }
                     break;
+                case "parse":
+                    if(optionVariables.equals("token")){
+                        output.setTokenParse(true);
+                    }
+                    break;
             }
         }
        
