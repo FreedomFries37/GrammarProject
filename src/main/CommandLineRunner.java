@@ -51,7 +51,7 @@ public class CommandLineRunner {
             cfg.printGrammar();
             System.out.println();
             GrammarLoader grammarLoader = new GrammarLoader();
-            TokenGrammar math = new TokenGrammar(grammarLoader.loadGrammar(new File("mathGrammar.ccfg")));
+            TokenGrammar math = new TokenGrammar(grammarLoader.loadGrammar(new File("mathGrammarShort.ccfg")));
             math.printCategoryNames();
             System.out.println();
             math.printGrammar();

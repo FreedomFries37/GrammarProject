@@ -1,0 +1,5 @@
+token(override) string;
+cat sentence(override){
+	"<sentence'>"
+}
+token(override) sentence';

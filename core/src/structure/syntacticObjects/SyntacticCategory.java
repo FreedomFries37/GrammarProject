@@ -10,6 +10,7 @@ public class SyntacticCategory extends SyntacticObject {
     
     private String name;
     private boolean optional;
+    @Deprecated
     private boolean ignoreWhitespace;
     private ArrayList<Rule> rules;
     
@@ -74,6 +75,12 @@ public class SyntacticCategory extends SyntacticObject {
         return output;
     }
     
+    public void convertToTokenized(){
+        for (Rule rule : rules) {
+            rule.convertToTokenized();
+        }
+    }
+    
     public ArrayList<Pattern> allLookAheads(){
         return new ArrayList<>(lookAheadToRuleMap().keySet());
     }
@@ -98,10 +105,12 @@ public class SyntacticCategory extends SyntacticObject {
         return name;
     }
     
+    @Deprecated
     public boolean isIgnoreWhitespace() {
         return ignoreWhitespace;
     }
     
+    @Deprecated
     public void setIgnoreWhitespace(boolean ignoreWhitespace) {
         this.ignoreWhitespace = ignoreWhitespace;
     }

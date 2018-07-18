@@ -6,6 +6,8 @@ import structure.syntacticObjects.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import static structure.syntacticObjects.SyntacticTypes.TOKEN_REGEX_TERMINAL;
+
 public class ParseNode {
     
     private String data;
@@ -107,8 +109,10 @@ public class ParseNode {
     public int getMaxChildren(){
         if(type == null) return 0;
         switch (type){
+            case TOKEN_TERMINAL:
             case REGEX_TERMINAL:
             case TERMINAL:
+            case TOKEN_REGEX_TERMINAL:
                 return 1;
             case SYNTACTIC_CATEGORY:
                 if(rule == null) return 0;
@@ -146,8 +150,10 @@ public class ParseNode {
         switch (type){
             case SYNTACTIC_CATEGORY:
                 return "<" + data + ">";
+            case TOKEN_TERMINAL:
             case TERMINAL:
             case REGEX_TERMINAL:
+            case TOKEN_REGEX_TERMINAL:
                 return children.get(0).data;
             case SPECIAL:
                 return data;
@@ -174,7 +180,11 @@ public class ParseNode {
     
     public String getChildTerminals(){
         StringBuilder newData = new StringBuilder();
-        if(type == SyntacticTypes.TERMINAL || type == SyntacticTypes.REGEX_TERMINAL || type == SyntacticTypes.SPECIAL) return toString();
+        if(type == SyntacticTypes.TERMINAL ||
+                type == SyntacticTypes.REGEX_TERMINAL ||
+                type == SyntacticTypes.SPECIAL ||
+                type == SyntacticTypes.TOKEN_TERMINAL ||
+                type == SyntacticTypes.TOKEN_REGEX_TERMINAL) return toString();
         for (ParseNode child: children) {
             newData.append(child.getChildTerminals());
         }

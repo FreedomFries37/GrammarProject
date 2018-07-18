@@ -1,6 +1,7 @@
 package structure.syntacticObjects;
 
 import structure.Grammar;
+import structure.syntacticObjects.tokenBased.TokenTerminal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +40,25 @@ public class Rule {
                 throw new IncorrectTypeException();
             }
         }
+    }
+    
+    public void convertToTokenized(){
+        ArrayList<SyntacticObject> converted = new ArrayList<>();
+        
+        StringBuilder token = new StringBuilder();
+        for (SyntacticObject syntacticObject : syntacticObjects) {
+            if(syntacticObject.getClass().equals(Terminal.class)){
+                Terminal t = (Terminal) syntacticObject;
+                token.append(t.getRepresentation());
+            }else{
+                if(!token.toString().equals("")) converted.add(new TokenTerminal(token.toString()));
+                token = new StringBuilder();
+                converted.add(syntacticObject);
+            }
+        }
+        if(!token.toString().equals("")) converted.add(new TokenTerminal(token.toString()));
+        
+        syntacticObjects = converted;
     }
     
     public ArrayList<Pattern> lookaheads(){

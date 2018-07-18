@@ -1,0 +1,15 @@
+//use basic cfg grammar for this
+category(override,whitespace):
+	cat<string><options>{<list_rule>}
+	token<options><token_specifier><token_endings>
+
+token_specifier:
+	<whitespace><string>
+
+token_endings:
+	<opt_whitespace>;
+	<whitespace><sentence><opt_whitespace>;
+	{<opt_whitespace><sentence><opt_whitespace>}
+
+grammar(override):
+	\list(<category>,"")\

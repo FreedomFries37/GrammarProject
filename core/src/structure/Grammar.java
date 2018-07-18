@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Grammar {
     
-    private HashMap<String, SyntacticCategory> hashMap;
+    protected HashMap<String, SyntacticCategory> hashMap;
     private List<String> options;
     private List<String> autoCleans;
     protected SyntacticCategory head;

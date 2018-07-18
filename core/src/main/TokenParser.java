@@ -5,6 +5,8 @@ import structure.TokenGrammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.*;
+import structure.syntacticObjects.tokenBased.TokenRegexTerminal;
+import structure.syntacticObjects.tokenBased.TokenTerminal;
 
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -35,6 +37,9 @@ public class TokenParser extends Parser {
     @Override
     protected char currentChar() {
         return tokens.get(tokenIndex).charAt(tokenStringIndex);
+    }
+    protected String currentToken(){
+        return tokens.get(tokenIndex);
     }
     
     @Override
@@ -184,12 +189,41 @@ public class TokenParser extends Parser {
                 word = new StringBuilder();
             }
             word.append(s.charAt(i));
+            if(usingWhitespace){
+                output.add(word.toString());
+                word = new StringBuilder();
+            }
         }
     
-    
+        Pattern empty = Pattern.compile("\\s+");
         output.removeIf((String test) -> test.equals(""));
+        output.removeIf((String test) -> !delimiters.contains(test) && empty.matcher(test).matches());
         return output;
     }
+    
+    private boolean tryAbsorbToken(String token){
+        if(!currentToken().equals(token)) return false;
+        tokenIndex++;
+        tokenStringIndex = 0;
+        return true;
+    }
+    
+    private String absorbToken(){
+        if(tokenIndex == tokens.size()) return null;
+        String output = tokens.get(tokenIndex);
+        tokenIndex++;
+        tokenStringIndex = 0;
+        return output;
+    }
+    
+    private boolean absorbToken(Reference<String> ref){
+        if(tokenIndex == tokens.size()) return false;
+        ref.setRef(tokens.get(tokenIndex));
+        tokenIndex++;
+        tokenStringIndex = 0;
+        return true;
+    }
+    
     
     /**
      * Works like a single recursive rule
@@ -212,11 +246,12 @@ public class TokenParser extends Parser {
             
             if (current.getClass().equals(SyntacticCategory.class)) {
                 SyntacticCategory category = (SyntacticCategory) current;
-                boolean ignoreWhitespace = category.isIgnoreWhitespace();
-                Reference<String> space = new Reference<>();
-                while(ignoreWhitespace && match(Pattern.compile("\\s+"), space)){
+                //boolean ignoreWhitespace = category.isIgnoreWhitespace();
+                //Reference<String> space = new Reference<>();
+                /*while(ignoreWhitespace && match(Pattern.compile("\\s+"), space)){
                     consume(space.getRef());
                 }
+                */
     
                 boolean found = false;
                 for (Rule rule : category.getRules()) {
@@ -276,6 +311,32 @@ public class TokenParser extends Parser {
                 }
         
                 
+            } else if (current.getClass().equals(TokenTerminal.class)){
+                TokenTerminal tokenTerminal = (TokenTerminal) current;
+                Reference<String> found = new Reference<>();
+                if(tokenTerminal.isWildcardToken()){
+                    absorbToken(found);
+                }else{
+                    if(!tokenTerminal.getRepresentation().equals(currentToken())) return false;
+                    absorbToken(found);
+                }
+    
+                if (parent.getRef() == null) {
+                    parent.setRef(new ParseNode(tokenTerminal, found.getRef()));
+                } else {
+                    parent.getRef().addChild(new ParseNode(tokenTerminal, found.getRef()));
+                }
+            } else if(current.getClass().equals(TokenRegexTerminal.class)){
+                TokenRegexTerminal tokenTerminal = (TokenRegexTerminal) current;
+                Reference<String> found = new Reference<>();
+                if(!tokenTerminal.isMatch(currentToken())) return false;
+                absorbToken(found);
+                
+                if (parent.getRef() == null) {
+                    parent.setRef(new ParseNode(tokenTerminal, found.getRef()));
+                } else {
+                    parent.getRef().addChild(new ParseNode(tokenTerminal, found.getRef()));
+                }
             }
         }
         

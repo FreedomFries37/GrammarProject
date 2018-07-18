@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -26,6 +25,8 @@ public class GrammarLoader {
     
     private HashMap<String, Grammar> hashMap;
     private Grammar cfgGrammar;
+    private boolean extended;
+    private boolean firstPass;
     private Parser parser;
     private static String[] grammarDelimeters;
     
@@ -41,13 +42,16 @@ public class GrammarLoader {
                 "[",
                 "]",
                 "(",
-                ")"
+                ")",
+                "\t"
         };
     }
     
     public GrammarLoader(){
         hashMap = new HashMap<>();
         cfgGrammar = new CgfFileGrammar();
+        extended = false;
+        firstPass = true;
         parser = new Parser(cfgGrammar);
     }
     
@@ -56,6 +60,10 @@ public class GrammarLoader {
     }
     
     public Grammar loadGrammar(String s, Grammar passOff){
+        return loadGrammar(s, passOff, false);
+    }
+    
+    public Grammar loadGrammar(String s, Grammar passOff, boolean autoExtended){
         
         String parsableString = s.replaceAll("#\\w* [\\w<>.]*\\s", "")
                 .replaceAll("\r", "")
@@ -92,9 +100,17 @@ public class GrammarLoader {
                 break;
                 case "standard":
                     if(optionVariables.equals("extended")){
-                        useExtended = true;
-                        cfgGrammar = loadGrammar(new File("cfgGrammarExtended.ccfg"), cfgGrammar);
-                        cfgGrammar = new TokenGrammar(cfgGrammar, grammarDelimeters);
+                        if(!extended) {
+                            useExtended = true;
+                            if(firstPass) {
+                                cfgGrammar = loadGrammar(new File("cfgGrammarExtendedBootstrapper.ccfg"), cfgGrammar);
+                                cfgGrammar = new TokenGrammar(cfgGrammar, grammarDelimeters);
+                            }
+                            firstPass = false;
+                            cfgGrammar = loadTokenGrammar(new File("cfgGrammarExtended.eccfg"));
+                            extended = true;
+                        }
+                       
                     }
                     break;
                 case "parse":
@@ -107,14 +123,25 @@ public class GrammarLoader {
        
         
         if(!useExtended){
-            ParseTree tree = parser.parse(parsableString);
-            if(tree == null) return null;
-            return convertParseTreeToGrammar(tree, output);
+            if(!autoExtended) {
+                if (extended) cfgGrammar = new CgfFileGrammar();
+                firstPass = true;
+                ParseTree tree = parser.parse(parsableString);
+                if (tree == null) return null;
+                return convertParseTreeToGrammar(tree, output);
+            }
+            if(firstPass) {
+                cfgGrammar = loadGrammar(new File("cfgGrammarExtendedBootstrapper.ccfg"), cfgGrammar);
+                cfgGrammar = new TokenGrammar(cfgGrammar, grammarDelimeters);
+            }
+            firstPass = false;
+            cfgGrammar = loadTokenGrammar(new File("cfgGrammarExtended.eccfg"));
+            extended = true;
         }
         parser = new TokenParser((TokenGrammar) cfgGrammar);
         ParseTree tree = parser.parse(parsableString);
         if(tree == null) return null;
-        return convertTokenizedParseTreeToGrammar(tree, output);
+        return convertTokenizerParseTreeToGrammar(tree, output);
     }
     
     public Grammar loadGrammar(File f){
@@ -131,6 +158,23 @@ public class GrammarLoader {
             return null;
         }
     }
+    
+    public TokenGrammar loadTokenGrammar(File f){
+        return loadTokenGrammar(f, new Grammar());
+    }
+    public TokenGrammar loadTokenGrammar(File f, Grammar passOff){
+        try {
+            if(!f.getName().endsWith(".eccfg")) return null;
+            String grammar = new String(Files.readAllBytes(f.toPath()), StandardCharsets.UTF_8);
+            return (TokenGrammar) loadGrammar(grammar, passOff, true);
+        }catch (IOException e){
+            System.err.println("File not found");
+            return null;
+        }
+    }
+    
+    
+    
     
     public Grammar convertParseTreeToGrammar(ParseTree g, Grammar pregenerated){
         if(!g.baseType().equals("grammar")) return null;
@@ -332,8 +376,85 @@ public class GrammarLoader {
         }
     };
     
-    public Grammar convertTokenizedParseTreeToGrammar(ParseTree g, Grammar pregenerated){
+    public TokenGrammar convertTokenizerParseTreeToGrammar(ParseTree g, Grammar pregenerated){
+        if(!g.baseType().equals("grammar")) return null;
+        g.removeEmptyNodes();
+        g.clean("string");
+        g.clean("sentence");
+        g.print();
+        TokenGrammar output = new TokenGrammar(pregenerated);
+        List<ParseNode> categoryNodes = new ListGrammar.ListGrammarConverter().convertParseNode(g.getHead().getChild("list_category"));
+        HashMap<String, Boolean> useRegex = new HashMap<>();
         
-        return convertParseTreeToGrammar(g, pregenerated);
+        
+        for (ParseNode categoryNode : categoryNodes) {
+            String name =  categoryNode.getChild("string").getChildTerminals();
+            boolean isToken = categoryNode.contains("token_specifier");
+            
+            if(!isToken && !output.containsCategory(name)) output.addCategory(name);
+            else if (isToken) output.addToken(name);
+            
+            
+            if(categoryNode.contains("options")){
+                List<ParseNode> options = new ListGrammar.ListGrammarConverter().convertParseNode(
+                        categoryNode.getChild("options").getChild("list_string"));
+            
+                for (ParseNode option : options) {
+                    String optionChildTerminals = option.getChildTerminals().toLowerCase();
+                    switch (optionChildTerminals){
+                        case "override":
+                            if(!isToken) {
+                                output.resetCategory(output.getCategory(name));
+                            }else{
+                                if(output.containsCategory(name)) output.removeCategory(name);
+                                output.addToken(name);
+                            }
+                            break;
+                        case "optional":
+                            if (isToken){
+                                System.err.println("Not an available option for tokens");
+                                break;
+                            }
+                            output.getCategory(name).setOptional(true);
+                            break;
+                        case "default":
+                        case "head":
+                            if (isToken){
+                                System.err.println("Not an available option for tokens");
+                                break;
+                            }
+                            output.setDefault(output.getCategory(name));
+                            break;
+                        case "regex":
+                        case "pattern":
+                            if (isToken){
+                                System.err.println("Not an available option for tokens");
+                                break;
+                            }
+                            useRegex.put(name, true);
+                            break;
+                        case "clean":
+                            if (isToken){
+                                System.err.println("Not an available option for tokens");
+                                break;
+                            }
+                            output.addAutoClean(name);
+                            break;
+                        case "whitespace":
+                            if (isToken){
+                                System.err.println("Not an available option for tokens");
+                                break;
+                            }
+                            output.getCategory(name).setIgnoreWhitespace(false);
+                            break;
+                    }
+                }
+            
+            
+            }
+            if(!useRegex.containsKey(name)) useRegex.put(name, false);
+        }
+        
+        return output;
     }
 }

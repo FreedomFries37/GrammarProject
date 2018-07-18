@@ -1,6 +1,0 @@
-//use basic cfg grammar for this
-category(override,whitespace):
-	<string><options>{<opt_space_and_newline><list_rule><opt_space_and_newline>}
-
-grammar(override):
-	\list(<category>,"")\
