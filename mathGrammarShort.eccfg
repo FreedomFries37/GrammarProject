@@ -1,0 +1,38 @@
+#import <standard>
+
+delimiters{
+	"(",
+	")",
+	"+",
+	"-",
+	"*",
+	"\"
+}
+
+cat expression(head){
+	<group><expression_tail>
+}
+
+cat expression_tail(optional){
+	+<expression>
+	-<expression>
+}
+
+cat group{
+	<factor><group_tail>
+}
+
+cat group_tail(optional){
+	*<group>
+	/<group>
+}
+
+cat factor{
+	(<expression>)
+	<double>
+	-<factor>
+}
+
+token(override) double{
+	"\d*(|.\d*)"
+}

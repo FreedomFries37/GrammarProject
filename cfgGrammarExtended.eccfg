@@ -4,7 +4,3 @@ delimiters{
 }
 
 token(override) string;
-
-cat sentence(override){
-	"<string>"
-}

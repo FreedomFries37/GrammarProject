@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="Lots of work into converting token parser into an actual token parser">
-      <change afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/Token.java" afterDir="false" />
+    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="Token parser almost working, need to figure out why delimiters appear to be getting lost">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cfgGrammarExtended.eccfg" beforeDir="false" afterPath="$PROJECT_DIR$/cfgGrammarExtended.eccfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg" beforeDir="false" afterPath="$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/GrammarLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/GrammarLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/Grammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/Grammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/TokenGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/TokenGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/parse/ParseNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/parse/ParseNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenRegexTerminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenRegexTerminal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenTerminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenTerminal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CommandLineRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CommandLineRunner.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,13 +30,13 @@
           <entry key="ccfg" value="947" />
           <entry key="eccfg" value="393" />
           <entry key="java" value="15172" />
-          <entry key="txt" value="137" />
+          <entry key="txt" value="237" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="15172" />
-          <entry key="PLAIN_TEXT" value="1477" />
+          <entry key="PLAIN_TEXT" value="1577" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -1292,7 +1282,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1531965695430" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532006965497" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1363,7 +1353,7 @@
       <workItem from="1530571565465" duration="16680000" />
       <workItem from="1530624263995" duration="20473000" />
       <workItem from="1530737019409" duration="9179000" />
-      <workItem from="1531941666828" duration="17129000" />
+      <workItem from="1531941666828" duration="17795000" />
     </task>
     <task id="LOCAL-00001" summary="Added most internal structure">
       <created>1530579847195</created>
@@ -1400,11 +1390,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531952355781</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Token parser almost working, need to figure out why delimiters appear to be getting lost">
+      <created>1531965756295</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1531965756295</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89789000" />
+    <option name="totallyTimeSpent" value="90455000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1840" height="1002" extended-state="6" />
@@ -1415,7 +1412,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.20134982" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.20134982" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.3287037" />
@@ -1436,7 +1433,7 @@
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Run" order="9" sideWeight="0.49946865" visible="true" weight="0.2952756" />
+      <window_info active="true" anchor="right" id="Run" order="9" sideWeight="0.49946865" visible="true" weight="0.2952756" />
       <window_info anchor="right" id="Debug" order="10" weight="0.32733408" />
       <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5005314" side_tool="true" weight="0.37708333" />
     </layout>
@@ -1453,7 +1450,8 @@
     <MESSAGE value="TokenParser functioning much better" />
     <MESSAGE value="Decided to redo the TokenParser" />
     <MESSAGE value="Lots of work into converting token parser into an actual token parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lots of work into converting token parser into an actual token parser" />
+    <MESSAGE value="Token parser almost working, need to figure out why delimiters appear to be getting lost" />
+    <option name="LAST_COMMIT_MESSAGE" value="Token parser almost working, need to figure out why delimiters appear to be getting lost" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
