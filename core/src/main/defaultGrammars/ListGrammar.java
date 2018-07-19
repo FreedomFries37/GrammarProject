@@ -2,13 +2,17 @@ package main.defaultGrammars;
 
 import modules.IConvertModule;
 import structure.Grammar;
+import structure.TokenGrammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
+import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
+import structure.syntacticObjects.SyntacticObject;
+import structure.syntacticObjects.tokenBased.Token;
 
 import java.util.ArrayList;
 
-public class ListGrammar extends Grammar {
+public class ListGrammar extends TokenGrammar {
     
     private SyntacticCategory listObject;
     private SyntacticCategory seperator;
@@ -23,6 +27,7 @@ public class ListGrammar extends Grammar {
     
         this.seperator.addRule(seperator);
         
+        addCategory(listObject);
         addCategory("list_" + listObject.getName());
         addCategory("list_" + listObject.getName() + "_object");
         addOptionalCategory("list_" + listObject.getName() + "_tail");
@@ -41,6 +46,7 @@ public class ListGrammar extends Grammar {
         listBase.setIgnoreWhitespace(listObject.isIgnoreWhitespace());
         lObject.setIgnoreWhitespace(listObject.isIgnoreWhitespace());
         listTail.setIgnoreWhitespace(listObject.isIgnoreWhitespace());
+        getDelimiters().add(seperator);
     }
     
     public ListGrammar(SyntacticCategory listObject, SyntacticCategory seperator) {
@@ -58,6 +64,18 @@ public class ListGrammar extends Grammar {
         listBase.addRule(lObject, listTail);
         lObject.addRule(listObject);
         listTail.addRule(seperator, listBase);
+    }
+    
+    public ListGrammar(Token t){
+        this(wrapper(t));
+    }
+    
+    public ListGrammar(Token t, String seperator){
+        this(wrapper(t),seperator);
+    }
+   
+    private static SyntacticCategory wrapper(Token t){
+        return new SyntacticCategory(t.getRepresentation() + "_wrapper", new Rule(t));
     }
     
     public static class ListGrammarConverter implements IConvertModule<ArrayList<ParseNode>>{

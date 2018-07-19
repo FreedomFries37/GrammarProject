@@ -4,6 +4,18 @@
     <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="Token parser almost working, need to figure out why delimiters appear to be getting lost">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cfgGrammarExtended.eccfg" beforeDir="false" afterPath="$PROJECT_DIR$/cfgGrammarExtended.eccfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg" beforeDir="false" afterPath="$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/GrammarLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/GrammarLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/TokenParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/TokenParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/structure/TokenGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/TokenGrammar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mathGrammar.ccfg" beforeDir="false" afterPath="$PROJECT_DIR$/mathGrammar.eccfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mathGrammarShort.eccfg" beforeDir="false" afterPath="$PROJECT_DIR$/mathGrammarShort.eccfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CommandLineRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CommandLineRunner.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,29 +39,31 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ccfg" value="947" />
-          <entry key="eccfg" value="393" />
-          <entry key="java" value="15172" />
+          <entry key="ccfg" value="1127" />
+          <entry key="eccfg" value="900" />
+          <entry key="java" value="16677" />
           <entry key="txt" value="237" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="15172" />
-          <entry key="PLAIN_TEXT" value="1577" />
+          <entry key="JAVA" value="16677" />
+          <entry key="PLAIN_TEXT" value="2264" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="ccfg" value="13" />
-          <entry key="eccfg" value="3" />
-          <entry key="java" value="107" />
+          <entry key="ccfg" value="17" />
+          <entry key="eccfg" value="7" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="136" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="107" />
-          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="136" />
+          <entry key="PLAIN_TEXT" value="24" />
         </counts>
       </usages-collector>
     </session>
@@ -60,33 +74,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="53" selection-start-line="53" selection-end-line="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/TokenGrammar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1532#1533#0" expanded="true" />
-                <element signature="e#1573#1574#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="31" column="111" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="111" />
+              <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,10 +85,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/TokenParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="165" selection-start-line="165" selection-end-line="165" />
+            <state relative-caret-position="270">
+              <caret line="190" selection-start-line="190" selection-end-line="190" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1092#1093#0" expanded="true" />
+                <element signature="e#1162#1163#0" expanded="true" />
                 <element signature="e#1199#1200#0" expanded="true" />
                 <element signature="e#1244#1245#0" expanded="true" />
               </folding>
@@ -109,11 +99,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mathGrammarShort.eccfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="37" column="1" lean-forward="true" selection-start-line="34" selection-end-line="37" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ParsableGrammarProject.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
+            <state relative-caret-position="270">
               <caret line="119" selection-start-line="119" selection-end-line="119" />
               <folding>
+                <element signature="e#594#595#0" expanded="true" />
+                <element signature="e#632#633#0" expanded="true" />
                 <element signature="e#972#973#0" expanded="true" />
                 <element signature="e#1013#1014#0" expanded="true" />
               </folding>
@@ -121,11 +127,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.eccfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            <state relative-caret-position="400">
+              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -133,17 +139,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+            <state relative-caret-position="176">
+              <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mathGrammarShort.eccfg">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mathGrammar.eccfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            <state relative-caret-position="357">
+              <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -151,8 +157,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/GrammarLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="659" selection-start-line="659" selection-end-line="659" />
+            <state relative-caret-position="670">
+              <caret line="688" selection-start-line="688" selection-end-line="688" />
               <folding>
                 <element signature="e#5558#5559#0" expanded="true" />
                 <element signature="e#5610#5611#0" expanded="true" />
@@ -166,16 +172,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="286">
+              <caret line="100" column="42" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3142#3143#0" expanded="true" />
-                <element signature="e#3190#3191#0" expanded="true" />
                 <element signature="e#3279#3280#0" expanded="true" />
-                <element signature="e#3335#3336#0" expanded="true" />
-                <element signature="e#3228#3229#0" expanded="true" />
-                <element signature="e#3263#3264#0" expanded="true" />
+                <element signature="e#3336#3337#0" expanded="true" />
+                <element signature="e#3374#3375#0" expanded="true" />
+                <element signature="e#3409#3410#0" expanded="true" />
+                <element signature="e#7754#7755#0" expanded="true" />
+                <element signature="e#7829#7830#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -199,10 +205,14 @@
       <find>category</find>
       <find>function_bind</find>
       <find>function_extension</find>
+      <find>syntacticObjects</find>
+      <find>sentence_prime'</find>
     </findStrings>
     <replaceStrings>
       <replace>first</replace>
       <replace>object</replace>
+      <replace>converted</replace>
+      <replace>sentence_prime_prime</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -212,8 +222,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gui/src/structure/syntacticObjects/ISyntacticCategory.java" />
-        <option value="$PROJECT_DIR$/gui/src/structure/syntacticObjects/SyntacticObject.java" />
         <option value="$PROJECT_DIR$/gui/src/structure/syntacticObjects/Terminal.java" />
         <option value="$PROJECT_DIR$/src/misc/Tools.java" />
         <option value="$PROJECT_DIR$/gui/src/structure/syntacticObjects/SyntacticCategory.java" />
@@ -242,27 +250,29 @@
         <option value="$PROJECT_DIR$/core/src/defaultGrammars/GrammarLoader.java" />
         <option value="$PROJECT_DIR$/mathGrammar.grammar" />
         <option value="$PROJECT_DIR$/core/src/main/Parser.java" />
-        <option value="$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java" />
-        <option value="$PROJECT_DIR$/mathGrammar.ccfg" />
         <option value="$PROJECT_DIR$/core/src/structure/tokenBased/TokenSyntacticCategory.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticTypes.java" />
-        <option value="$PROJECT_DIR$/core/src/main/TokenParser.java" />
-        <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java" />
         <option value="$PROJECT_DIR$/cfgGrammarExtended.ccfg" />
-        <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" />
         <option value="$PROJECT_DIR$/core/src/structure/parse/ParseNode.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/Token.java" />
-        <option value="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" />
-        <option value="$PROJECT_DIR$/core/src/structure/TokenGrammar.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenRegexTerminal.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenTerminal.java" />
         <option value="$PROJECT_DIR$/core/src/structure/Grammar.java" />
         <option value="$PROJECT_DIR$/mathGrammarShort.ccfg" />
-        <option value="$PROJECT_DIR$/mathGrammarShort.eccfg" />
-        <option value="$PROJECT_DIR$/src/main/CommandLineRunner.java" />
-        <option value="$PROJECT_DIR$/core/src/main/GrammarLoader.java" />
-        <option value="$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg" />
+        <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java" />
+        <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" />
+        <option value="$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java" />
+        <option value="$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java" />
+        <option value="$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java" />
+        <option value="$PROJECT_DIR$/core/src/structure/TokenGrammar.java" />
         <option value="$PROJECT_DIR$/cfgGrammarExtended.eccfg" />
+        <option value="$PROJECT_DIR$/core/src/main/GrammarLoader.java" />
+        <option value="$PROJECT_DIR$/core/src/main/TokenParser.java" />
+        <option value="$PROJECT_DIR$/mathGrammarShort.eccfg" />
+        <option value="$PROJECT_DIR$/mathGrammar.ccfg" />
+        <option value="$PROJECT_DIR$/src/main/CommandLineRunner.java" />
+        <option value="$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg" />
+        <option value="$PROJECT_DIR$/mathGrammar.eccfg" />
       </list>
     </option>
   </component>
@@ -1282,7 +1292,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532006965497" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532017758231" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1353,7 +1363,7 @@
       <workItem from="1530571565465" duration="16680000" />
       <workItem from="1530624263995" duration="20473000" />
       <workItem from="1530737019409" duration="9179000" />
-      <workItem from="1531941666828" duration="17795000" />
+      <workItem from="1531941666828" duration="28575000" />
     </task>
     <task id="LOCAL-00001" summary="Added most internal structure">
       <created>1530579847195</created>
@@ -1397,11 +1407,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531965756295</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Token parser almost working, need to figure out why delimiters appear to be getting lost">
+      <created>1532006979582</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532006979582</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90455000" />
+    <option name="totallyTimeSpent" value="101235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1840" height="1002" extended-state="6" />
@@ -1412,13 +1429,13 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.20134982" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.20134982" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.3287037" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3298611" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.32919955" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.3287037" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.3298611" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
@@ -1433,7 +1450,7 @@
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info active="true" anchor="right" id="Run" order="9" sideWeight="0.49946865" visible="true" weight="0.2952756" />
+      <window_info anchor="right" id="Run" order="9" sideWeight="0.49946865" visible="true" weight="0.2952756" />
       <window_info anchor="right" id="Debug" order="10" weight="0.32733408" />
       <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5005314" side_tool="true" weight="0.37708333" />
     </layout>
@@ -1506,32 +1523,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
-          <line>174</line>
+          <line>190</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
-          <line>165</line>
+          <line>181</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
-          <line>163</line>
+          <line>178</line>
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>153</line>
-          <properties />
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <condition expression="SyntacticObject == null" language="JAVA" />
           <url>file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java</url>
-          <line>107</line>
+          <line>128</line>
           <properties />
           <option name="timeStamp" value="95" />
         </line-breakpoint>
@@ -1543,13 +1554,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
-          <line>156</line>
+          <line>169</line>
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>389</line>
+          <line>397</line>
           <properties />
           <option name="timeStamp" value="104" />
         </line-breakpoint>
@@ -1567,7 +1578,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
-          <line>197</line>
+          <line>214</line>
           <properties />
           <option name="timeStamp" value="108" />
         </line-breakpoint>
@@ -1579,51 +1590,52 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>659</line>
+          <line>688</line>
           <properties />
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>398</line>
+          <line>406</line>
           <properties />
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>503</line>
-          <properties />
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>413</line>
+          <line>421</line>
           <properties />
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>545</line>
+          <condition expression="syntacticObject == null" language="JAVA" />
+          <url>file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java</url>
+          <line>51</line>
           <properties />
-          <option name="timeStamp" value="117" />
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/TokenParser.java</url>
+          <line>177</line>
+          <properties />
+          <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>650</line>
+          <line>663</line>
           <properties />
-          <option name="timeStamp" value="118" />
+          <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>138</line>
+          <line>678</line>
           <properties />
-          <option name="timeStamp" value="121" />
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/core/src/main/GrammarLoader.java</url>
-          <line>141</line>
+          <url>file://$PROJECT_DIR$/src/main/CommandLineRunner.java</url>
+          <line>58</line>
           <properties />
-          <option name="timeStamp" value="122" />
+          <option name="timeStamp" value="141" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
@@ -1650,6 +1662,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>syntacticObject == null</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>delimiters != null</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>tokenIndex == tokens.size()-1</expression-string>
         <language-id>JAVA</language-id>
@@ -1687,11 +1709,6 @@
       </expression>
       <expression>
         <expression-string>p.pattern.equals(&quot;(\n*)|( *)&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>&quot;(\n*)|( *)&quot;.equals(p.pattern)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1852,57 +1869,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticTypes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="98" column="4" lean-forward="true" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="805">
           <caret line="544" selection-start-line="544" selection-end-line="544" />
           <folding>
             <element signature="e#16046#16047#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1394#1395#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1914,32 +1886,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseNode.java">
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#2061#2062#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="691" selection-start-line="691" selection-end-line="691" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenRegexTerminal.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenTerminal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        <state relative-caret-position="416">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
+            <element signature="e#236#237#0" expanded="true" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticTypes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="352">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1951,33 +1925,53 @@
             <element signature="e#97#98#0" expanded="true" />
             <element signature="e#123#124#0" expanded="true" />
             <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenTerminal.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/ListGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="576">
+          <caret line="75" column="3" selection-start-line="75" selection-start-column="3" selection-end-line="75" selection-end-column="3" />
+          <folding>
+            <element signature="e#2676#2677#0" expanded="true" />
+            <element signature="e#2697#2698#0" expanded="true" />
+            <element signature="e#2764#2765#0" expanded="true" />
+            <element signature="e#2784#2785#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#236#237#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mathGrammar.ccfg">
+    <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/StandardGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+        <state relative-caret-position="394">
+          <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/defaultGrammars/CgfFileGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="31" column="111" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="111" />
+        <state relative-caret-position="192">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1986,57 +1980,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/TokenGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="540">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1532#1533#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
+            <element signature="e#2280#2281#0" expanded="true" />
+            <element signature="e#2581#2582#0" expanded="true" />
+            <element signature="e#2625#2626#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="464">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3142#3143#0" expanded="true" />
-            <element signature="e#3190#3191#0" expanded="true" />
-            <element signature="e#3279#3280#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3228#3229#0" expanded="true" />
-            <element signature="e#3263#3264#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1235#1236#0" expanded="true" />
+            <element signature="e#2019#2020#0" expanded="true" />
+            <element signature="e#2061#2062#0" expanded="true" />
+            <element signature="e#2216#2217#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/Parser.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/parse/ParseTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="693">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
           <folding>
-            <element signature="e#972#973#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1981#1982#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/tokenBased/TokenRegexTerminal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="432">
+          <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#800#801#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/GrammarLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="659" selection-start-line="659" selection-end-line="659" />
+        <state relative-caret-position="670">
+          <caret line="688" selection-start-line="688" selection-end-line="688" />
           <folding>
             <element signature="e#5558#5559#0" expanded="true" />
             <element signature="e#5610#5611#0" expanded="true" />
@@ -2046,36 +2043,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/TokenParser.java">
+    <entry file="file://$PROJECT_DIR$/core/src/structure/Grammar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="165" selection-start-line="165" selection-end-line="165" />
+        <state relative-caret-position="286">
+          <caret line="100" column="42" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3279#3280#0" expanded="true" />
+            <element signature="e#3336#3337#0" expanded="true" />
+            <element signature="e#3374#3375#0" expanded="true" />
+            <element signature="e#3409#3410#0" expanded="true" />
+            <element signature="e#7754#7755#0" expanded="true" />
+            <element signature="e#7829#7830#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+          <folding>
+            <element signature="e#594#595#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/TokenParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="190" selection-start-line="190" selection-end-line="190" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1092#1093#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
             <element signature="e#1199#1200#0" expanded="true" />
             <element signature="e#1244#1245#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mathGrammarShort.eccfg">
+    <entry file="file://$PROJECT_DIR$/src/main/CommandLineRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        <state relative-caret-position="380">
+          <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ParsableGrammarProject.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/cfgGrammarExtendedBootstrapper.ccfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="176">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cfgGrammarExtended.eccfg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        <state relative-caret-position="400">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mathGrammarShort.eccfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="37" column="1" lean-forward="true" selection-start-line="34" selection-end-line="37" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mathGrammar.eccfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
         </state>
       </provider>
     </entry>

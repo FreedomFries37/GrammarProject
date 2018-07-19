@@ -17,10 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,7 +44,10 @@ public class GrammarLoader {
                 "(",
                 ")",
                 "\t",
-                ";"
+                ";",
+                ",",
+                "\\",
+                "\""
         };
     }
     
@@ -148,10 +148,14 @@ public class GrammarLoader {
             }
             
         }
+        List<String> delimiterPassOf;
+        if(passOff.getClass().equals(TokenGrammar.class)){
+            delimiterPassOf = ((TokenGrammar) passOff).getDelimiters();
+        }else delimiterPassOf = new ArrayList<>();
         parser = new TokenParser((TokenGrammar) cfgGrammar);
         ParseTree tree = parser.parse(parsableString);
         if(tree == null) return null;
-        return convertTokenizerParseTreeToGrammar(tree, output);
+        return convertTokenizerParseTreeToGrammar(tree, output, delimiterPassOf);
     }
     
     public Grammar loadGrammar(File f){
@@ -278,6 +282,10 @@ public class GrammarLoader {
                         ParseNode namedAction = rulePart.getChild("named_action");
                         String namedActionName = namedAction.getChild("string").getChildTerminals();
                         switch (namedActionName){
+                            case "unordered":{
+                            
+                            }
+                            break;
                             case "list":{
                                 ArrayList<ParseNode> params =
                                         new ListGrammar.ListGrammarConverter().convertParseNode(namedAction.getChild(
@@ -386,7 +394,7 @@ public class GrammarLoader {
         }
     };
     
-    public TokenGrammar convertTokenizerParseTreeToGrammar(ParseTree g, Grammar pregenerated){
+    public TokenGrammar convertTokenizerParseTreeToGrammar(ParseTree g, Grammar pregenerated, Collection<String> delimiters){
         if(!g.baseType().equals("grammar")) return null;
         g.removeEmptyNodes();
         g.clean("string");
@@ -574,11 +582,23 @@ public class GrammarLoader {
                                                 objects.add(string.substring(1, string.length()-1));
                                             }
                                         }
-                                        if(objects.size() == 1) {
-                                            output.inheritAndReplace(new ListGrammar(output.getCategory(objects.get(0))));
-                                        }else if(objects.size() == 2){
-                                            output.inheritAndReplace(new ListGrammar(output.getCategory(objects.get(0)),
-                                                    objects.get(1)));
+                                        
+                                        boolean isListPartToken = output.containsToken(objects.get(0));
+                                        
+                                        if(!isListPartToken) {
+                                            if (objects.size() == 1) {
+                                                output.inheritAndReplace(new ListGrammar(output.getCategory(objects.get(0))));
+                                            } else if (objects.size() == 2) {
+                                                output.inheritAndReplace(new ListGrammar(output.getCategory(objects.get(0)),
+                                                        objects.get(1)));
+                                            }
+                                        }else{
+                                            if (objects.size() == 1) {
+                                                output.inheritAndReplace(new ListGrammar(output.getToken(objects.get(0))));
+                                            } else if (objects.size() == 2) {
+                                                output.inheritAndReplace(new ListGrammar(output.getToken(objects.get(0)),
+                                                        objects.get(1)));
+                                            }
                                         }
                                         SyntacticCategory list = output.getCategory("list_" + objects.get(0));
                                         syntacticObjects.add(list);
@@ -656,7 +676,16 @@ public class GrammarLoader {
         }
         
         
-        
+        output.setDelimiters(new ArrayList<>(delimiters));
+        List<ParseNode> delimiterList = new ListGrammar.ListGrammarConverter().convertParseNode(g.getHead().getChild(
+                "delimiters").getChild("list_delimiter"));
+        for (ParseNode parseNode : delimiterList) {
+            String delim = parseNode.getChild("sentence").getChildTerminals();
+            delim = delim.substring(1, delim.length()-1);
+            output.getDelimiters().add(
+                   delim
+            );
+        }
         return output;
     }
 }

@@ -51,12 +51,12 @@ public class CommandLineRunner {
             cfg.printGrammar();
             System.out.println();
             GrammarLoader grammarLoader = new GrammarLoader();
-            TokenGrammar math = grammarLoader.loadTokenGrammar(new File("mathGrammarShort.eccfg"));
+            TokenGrammar math = grammarLoader.loadTokenGrammar(new File("mathGrammar.eccfg"));
             math.printCategoryNames();
             System.out.println();
             math.printGrammar();
             TokenParser mathParser = new TokenParser(math);
-            ParseTree v = mathParser.parse(".let y = 4+5");
+            ParseTree v = mathParser.parse("3+5*278.7-6");
             String orginal = v.getHead().getChildTerminals();
             v.print();
             v.removeAllTerminalsExceptForChildrenOf("named_string", "named_string_init", "double", "integer",

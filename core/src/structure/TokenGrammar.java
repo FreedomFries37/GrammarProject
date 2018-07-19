@@ -3,34 +3,33 @@ package structure;
 import structure.syntacticObjects.SyntacticCategory;
 import structure.syntacticObjects.SyntacticObject;
 import structure.syntacticObjects.tokenBased.Token;
-import structure.syntacticObjects.tokenBased.TokenRegexTerminal;
-import structure.syntacticObjects.tokenBased.TokenTerminal;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public class TokenGrammar extends Grammar {
     
-    private List<String> delimiters;
+    private ArrayList<String> delimiters;
     private HashMap<String, Token> tokenMap;
     
     public TokenGrammar(String... delimeters) {
         super();
-        this.delimiters = Arrays.asList(delimeters);
+        this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = new HashMap<>();
     }
     
     public TokenGrammar(Grammar inherit, String... delimeters) {
         super(inherit);
         ensureTokenized();
-        this.delimiters = Arrays.asList(delimeters);
+        this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = new HashMap<>();
     }
     
     public TokenGrammar(TokenGrammar inherit, String... delimeters) {
         super(inherit);
-        this.delimiters = Arrays.asList(delimeters);
+        this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = inherit.tokenMap;
     }
     
@@ -69,7 +68,7 @@ public class TokenGrammar extends Grammar {
     
     public void ensureTokenized(){
         for (SyntacticCategory value : hashMap.values()) {
-            value.convertToTokenized();
+            value.convertToTokenized(delimiters);
         }
     }
     
@@ -82,11 +81,32 @@ public class TokenGrammar extends Grammar {
         }
     }
     
+    public SyntacticObject get(String s){
+        if(containsCategory(s)) return getCategory(s);
+        else if(containsToken(s)) return getToken(s);
+        return null;
+    }
+    
     public HashMap<String, Token> getTokenMap() {
         return tokenMap;
     }
     
     public List<String> getDelimiters() {
         return delimiters;
+    }
+    
+    public void setDelimiters(ArrayList<String> delimiters) {
+        this.delimiters = delimiters;
+    }
+    
+    @Override
+    public void printGrammar() {
+        super.printGrammar();
+        System.out.println(
+                "DELIMITERS:"
+        );
+        for (String delimiter : delimiters) {
+            System.out.print("\t\"" + delimiter + "\"\n");
+        }
     }
 }

@@ -1,10 +1,12 @@
 package structure.syntacticObjects;
 
 import structure.Grammar;
+import structure.syntacticObjects.tokenBased.Token;
 import structure.syntacticObjects.tokenBased.TokenTerminal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Rule {
@@ -42,7 +44,7 @@ public class Rule {
         }
     }
     
-    public void convertToTokenized(){
+    public void convertToTokenized(List<String> delimiters){
         ArrayList<SyntacticObject> converted = new ArrayList<>();
         
         StringBuilder token = new StringBuilder();
@@ -57,6 +59,25 @@ public class Rule {
             }
         }
         if(!token.toString().equals("")) converted.add(new TokenTerminal(token.toString()));
+        for (int i = 0; i < converted.size(); i++) {
+            if(converted.get(i).getClass().equals(TokenTerminal.class)) {
+                String original = converted.get(i).getRepresentation();
+                if (delimiters != null && !delimiters.contains(original)) {
+                    for (String delimiter : delimiters) {
+                        if (original.contains(delimiter)) {
+                            converted.set(i, new TokenTerminal(original.substring(0,
+                                    original.indexOf(delimiter))));
+                            converted.add(i + 1, new TokenTerminal(original.substring(original.indexOf(delimiter),
+                                    original.indexOf(delimiter) + delimiter.length())));
+                            String next = original.substring(original.indexOf(delimiter) + delimiter.length());
+                            if (next.length() > 0) converted.add(i + 2, new TokenTerminal(next));
+                            original = converted.get(i).getRepresentation();
+                        }
+                    }
+                }
+                converted.removeIf((SyntacticObject test) -> test.getRepresentation().equals(""));
+            }
+        }
         
         syntacticObjects = converted;
     }

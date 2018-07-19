@@ -142,7 +142,9 @@ public class TokenParser extends Parser {
             String original = tokens.get(i);
             if(!delimiters.contains(original)) {
                 for (String delimiter : delimiters) {
-                    if (original.contains(delimiter)) {
+                    if (original.contains(delimiter)
+                        && (original.indexOf(delimiter) == 0 ||
+                            original.indexOf(delimiter) > 0 && original.charAt(original.indexOf(delimiter)-1) != '\\')) {
                         tokens.set(i, original.substring(0, original.indexOf(delimiter)));
                         tokens.add(i + 1, original.substring(original.indexOf(delimiter), original.indexOf(delimiter) + delimiter.length()));
                         String next = original.substring(original.indexOf(delimiter) + delimiter.length());
@@ -153,6 +155,17 @@ public class TokenParser extends Parser {
             }
             tokens.removeIf((String test) -> test.equals(""));
         }
+        /*
+        for (int i = 0; i < tokens.size(); i++) {
+            String original = tokens.get(i);
+            for (String delimiter : delimiters) {
+                if(original.contains("\\" + delimiter)){
+                    original = original.replace("\\" + delimiter, delimiter);
+                }
+            }
+            tokens.set(i, original);
+        }
+        */
         
         tokenIndex = 0;
         tokenStringIndex = 0;
@@ -161,12 +174,15 @@ public class TokenParser extends Parser {
         
         inStack.push(base);
         Reference<ParseNode> node = new Reference<>();
+        
+        ((TokenGrammar) grammar).ensureTokenized();
         grammar.printGrammar();
+        System.out.println("Using recursive parser...");
         if(!recursiveParseFunction(inStack, node)){
             return null;
         }
     
-        System.out.println("Using recursive parser...");
+        
         ParseTree output = new ParseTree(node.getRef());
         for (String autoClean : grammar.getAutoCleans()) {
             output.clean(autoClean);
@@ -194,7 +210,8 @@ public class TokenParser extends Parser {
                 word = new StringBuilder();
             }
         }
-    
+        if(word.length()>0) output.add(word.toString());
+        
         Pattern empty = Pattern.compile("\\s+");
         output.removeIf((String test) -> test.equals(""));
         output.removeIf((String test) -> !delimiters.contains(test) && empty.matcher(test).matches());
@@ -237,7 +254,9 @@ public class TokenParser extends Parser {
         
         
         while(!stack.empty() && tokenIndex < tokens.size()) {
-            System.out.print(String.format("Lookahead: %c  Stack: ", currentChar()));
+            System.out.print(String.format("Lookahead: %10s Stack: ", currentToken().substring(0,
+                    tokenStringIndex) +
+                    "^" + currentToken().substring(tokenStringIndex)));
             printStack(stack);
             
             SyntacticObject current = stack.pop();
@@ -255,7 +274,7 @@ public class TokenParser extends Parser {
     
                 boolean found = false;
                 for (Rule rule : category.getRules()) {
-                    System.out.println(rule);
+                    //System.out.println(rule);
                     int originalIndex, originalStringIndex;
                     originalIndex = tokenIndex;
                     originalStringIndex = tokenStringIndex;
@@ -329,7 +348,7 @@ public class TokenParser extends Parser {
             } else if(current.getClass().equals(TokenRegexTerminal.class)){
                 TokenRegexTerminal tokenTerminal = (TokenRegexTerminal) current;
                 Reference<String> found = new Reference<>();
-                if(!tokenTerminal.isMatch(currentToken())) return false;
+                if(!consume(tokenTerminal.getPatternMatch(), found)) return false;
                 absorbToken(found);
                 
                 if (parent.getRef() == null) {

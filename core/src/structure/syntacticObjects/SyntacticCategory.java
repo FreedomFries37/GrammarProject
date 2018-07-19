@@ -75,9 +75,9 @@ public class SyntacticCategory extends SyntacticObject {
         return output;
     }
     
-    public void convertToTokenized(){
+    public void convertToTokenized(List<String> delimiters){
         for (Rule rule : rules) {
-            rule.convertToTokenized();
+            rule.convertToTokenized(delimiters);
         }
     }
     

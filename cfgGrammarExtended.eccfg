@@ -3,4 +3,24 @@ delimiters{
 	")"
 }
 
-token(override) string;
+cat cleans(optional){
+	cleans\{\list(<string>,"	")\\}
+}
+
+cat removes(optional){
+	removes\{\list(<string>,"	")\\}
+}
+
+token wildcard;
+cat string(override){
+	<wildcard>
+}
+
+cat grammar(override){
+	<delimiters><cleans><removes>\list(<category>,"")\
+	<delimiters><removes><cleans>\list(<category>,"")\
+	<cleans><delimiters><removes>\list(<category>,"")\
+	<cleans><removes><delimiters>\list(<category>,"")\
+	<removes><cleans><delimiters>\list(<category>,"")\
+	<removes><delimiters><cleans>\list(<category>,"")\
+}

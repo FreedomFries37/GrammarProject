@@ -16,18 +16,18 @@ public class StandardGrammar extends Grammar {
         getCategory("string_tail").addRule(new Rule(getCategory("string")));
         
         addCategory("sentence");
-        addOptionalCategory("sentence'");
-        addOptionalCategory("sentence''");
+        addOptionalCategory("sentence_prime");
+        addOptionalCategory("sentence_prime_prime");
         addCategory("sentence_char", new Rule(new RegexTerminal("[^\"]")));
         addCategory("sentence_char'", new Rule(new RegexTerminal("[^']")));
         addOptionalCategory("sentence_tail");
         addOptionalCategory("sentence_tail'");
-        getCategory("sentence_tail").addRule(new Rule(getCategory("sentence'")));
-        getCategory("sentence_tail'").addRule(new Rule(getCategory("sentence''")));
-        getCategory("sentence'").addRule(new Rule(getCategory("sentence_char"), getCategory("sentence_tail")));
-        getCategory("sentence''").addRule(getCategory("sentence_char'"), getCategory("sentence_tail'"));
-        getCategory("sentence").addRule("\"", getCategory("sentence'"), "\"");
-        getCategory("sentence").addRule("'", getCategory("sentence''"), "'");
+        getCategory("sentence_tail").addRule(new Rule(getCategory("sentence_prime")));
+        getCategory("sentence_tail'").addRule(new Rule(getCategory("sentence_prime_prime")));
+        getCategory("sentence_prime").addRule(new Rule(getCategory("sentence_char"), getCategory("sentence_tail")));
+        getCategory("sentence_prime_prime").addRule(getCategory("sentence_char'"), getCategory("sentence_tail'"));
+        getCategory("sentence").addRule("\"", getCategory("sentence_prime"), "\"");
+        getCategory("sentence").addRule("'", getCategory("sentence_prime_prime"), "'");
         
         addCategory("string_sentence", new Rule(getCategory("string")), new Rule(getCategory("sentence")));
         

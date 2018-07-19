@@ -23,8 +23,11 @@ rule_char(override):
 regex_wrapper:
 	<sentence>
 
-delimiters:
-	delimiters{\list(<sentence>)\}
+delimiters(optional):
+	delimiters{\list(<delimiter>)\}
 
-grammar:
-	<delimiters>\list(<category>)\
+delimiter:
+	<opt_whitespace><sentence><opt_whitespace>
+
+grammar(override):
+	<delimiters>\list(<category>,"")\

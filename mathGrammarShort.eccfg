@@ -1,12 +1,12 @@
-#import <standard>
-
 delimiters{
 	"(",
 	")",
 	"+",
 	"-",
 	"*",
-	"\"
+	"\",
+	",",
+	"^"
 }
 
 cat expression(head){
@@ -33,6 +33,6 @@ cat factor{
 	-<factor>
 }
 
-token(override) double{
-	"\d*(|.\d*)"
+cat double{
+	\regex("\d*(|\.\d*)")\
 }
