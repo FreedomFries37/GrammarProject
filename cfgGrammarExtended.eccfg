@@ -1,5 +1,10 @@
-token(override) string;
-cat sentence(override){
-	"<sentence'>"
+delimiters{
+	"(",
+	")"
 }
-token(override) sentence';
+
+token(override) string;
+
+cat sentence(override){
+	"<string>"
+}

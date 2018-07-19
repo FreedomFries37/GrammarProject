@@ -3,7 +3,7 @@ package structure.syntacticObjects.tokenBased;
 import misc.Tools;
 import structure.syntacticObjects.SyntacticObject;
 
-public class TokenTerminal extends SyntacticObject {
+public class TokenTerminal extends Token {
     
     private String tokenAbsorbString;
     
@@ -29,6 +29,7 @@ public class TokenTerminal extends SyntacticObject {
     
     @Override
     public String getRepresentation() {
+        if(tokenAbsorbString == null) return "%wildcard%";
         return tokenAbsorbString;
     }
     

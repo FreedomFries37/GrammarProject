@@ -7,6 +7,7 @@ import structure.syntacticObjects.Terminal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Grammar {
@@ -104,6 +105,10 @@ public class Grammar {
     
     public boolean containsCategory(String name){
         return hashMap.containsKey(name);
+    }
+    
+    public List<SyntacticCategory> getAllCategories(){
+        return new LinkedList<>(hashMap.values());
     }
     
     public boolean hasDefault(){

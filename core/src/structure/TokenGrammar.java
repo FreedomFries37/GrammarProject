@@ -2,6 +2,7 @@ package structure;
 
 import structure.syntacticObjects.SyntacticCategory;
 import structure.syntacticObjects.SyntacticObject;
+import structure.syntacticObjects.tokenBased.Token;
 import structure.syntacticObjects.tokenBased.TokenRegexTerminal;
 import structure.syntacticObjects.tokenBased.TokenTerminal;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class TokenGrammar extends Grammar {
     
     private List<String> delimiters;
-    private HashMap<String, SyntacticObject> tokenMap;
+    private HashMap<String, Token> tokenMap;
     
     public TokenGrammar(String... delimeters) {
         super();
@@ -39,22 +40,19 @@ public class TokenGrammar extends Grammar {
         super.inherit(g);
     }
     
-    private void addToken(String s, SyntacticObject o){
-        if(tokenMap.containsKey(s)){
-            tokenMap.replace(s, o);
-        }else{
-            tokenMap.put(s, o);
-        }
-    }
-    public void addToken(String name, TokenRegexTerminal t){
-        addToken(name,(SyntacticObject) t);
-    }
-    public void addToken(String name, TokenTerminal t){
-        addToken(name, (SyntacticObject) t);
+    public void addToken(String name, Token t){
+        
+       if(!tokenMap.containsKey(name)){
+           tokenMap.put(name, t);
+       }
     }
     
     public boolean containsToken(String name){
         return tokenMap.containsKey(name);
+    }
+    
+    public Token getToken(String name){
+        return tokenMap.get(name);
     }
     
     public void removeCategory(String name){
@@ -63,16 +61,10 @@ public class TokenGrammar extends Grammar {
         }
     }
     
-    private void changeToken(String name, SyntacticObject s){
+    public void changeToken(String name, Token s){
         if(containsToken(name)){
             tokenMap.replace(name, s);
         }
-    }
-    public void changeToken(String name, TokenRegexTerminal t){
-        changeToken(name,(SyntacticObject) t);
-    }
-    public void changeToken(String name, TokenTerminal t){
-        changeToken(name, (SyntacticObject) t);
     }
     
     public void ensureTokenized(){
@@ -90,7 +82,7 @@ public class TokenGrammar extends Grammar {
         }
     }
     
-    public HashMap<String, SyntacticObject> getTokenMap() {
+    public HashMap<String, Token> getTokenMap() {
         return tokenMap;
     }
     

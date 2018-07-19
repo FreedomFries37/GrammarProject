@@ -4,12 +4,27 @@ category(override,whitespace):
 	token<options><token_specifier><token_endings>
 
 token_specifier:
-	<whitespace><string>
+	<string>
 
 token_endings:
-	<opt_whitespace>;
-	<whitespace><sentence><opt_whitespace>;
-	{<opt_whitespace><sentence><opt_whitespace>}
+	;
+	<sentence>;
+	{<regex_wrapper>}
 
 grammar(override):
 	\list(<category>,"")\
+
+rule(override):
+	\regex("\t")\<rule_part>
+
+rule_char(override):
+	\regex("[^\s<>\\\{}]|(\\<)|(\\>)|(\\\{)|(\\})| ")\
+
+regex_wrapper:
+	<sentence>
+
+delimiters:
+	delimiters{\list(<sentence>)\}
+
+grammar:
+	<delimiters>\list(<category>)\

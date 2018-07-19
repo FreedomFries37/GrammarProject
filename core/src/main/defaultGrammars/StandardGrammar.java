@@ -57,7 +57,7 @@ public class StandardGrammar extends Grammar {
         inherit(new ListGrammar(getCategory("sentence")));
         addAutoClean("double");
         addAutoClean("string");
-        addAutoClean("sentence");
+        addAutoClean("sentence'");
         addAutoClean("integer");
     }
     

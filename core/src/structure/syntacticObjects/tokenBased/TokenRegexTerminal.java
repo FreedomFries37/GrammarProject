@@ -6,7 +6,7 @@ import structure.syntacticObjects.SyntacticObject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TokenRegexTerminal extends SyntacticObject {
+public class TokenRegexTerminal extends Token {
     
     private Pattern patternMatch;
     
@@ -29,7 +29,7 @@ public class TokenRegexTerminal extends SyntacticObject {
     
     @Override
     public String getRepresentation() {
-        return patternMatch.pattern();
+        return "%" + patternMatch.pattern() + "%";
     }
     
     @Override

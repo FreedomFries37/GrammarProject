@@ -5,8 +5,11 @@ import structure.syntacticObjects.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import static structure.syntacticObjects.SyntacticTypes.TOKEN_REGEX_TERMINAL;
+import static structure.syntacticObjects.SyntacticTypes.TOKEN_TERMINAL;
 
 public class ParseNode {
     
@@ -24,6 +27,9 @@ public class ParseNode {
         type = SyntacticTypes.getType(object);
         children = new LinkedList<>();
         children.add(new ParseNode(str));
+        if(type == TOKEN_TERMINAL || type == TOKEN_REGEX_TERMINAL){
+            data = object.getRepresentation();
+        }
     }
     
     public ParseNode(SyntacticCategory category, Rule rule) {
@@ -48,8 +54,24 @@ public class ParseNode {
         return null;
     }
     
+    public LinkedList<ParseNode> getChildren(String s){
+        return getChildren(Pattern.compile(s));
+    }
+    public LinkedList<ParseNode> getChildren(Pattern s){
+        LinkedList<ParseNode> output = new LinkedList<>();
+        for (ParseNode child : children) {
+            if(s.matcher(child.data).matches()){
+                output.add(child);
+            }
+        }
+        return output;
+    }
+    
     public boolean contains(String s){
         return getChild(s) != null;
+    }
+    public boolean contains(Pattern s){
+        return getChildren(s).size() > 0;
     }
     
     
@@ -159,7 +181,7 @@ public class ParseNode {
                 return data;
         }
         
-        return null;
+        return data;
     }
     
     public void print(int index){
