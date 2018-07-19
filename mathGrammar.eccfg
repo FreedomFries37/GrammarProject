@@ -7,20 +7,26 @@ delimiters{
 	"\",
 	",",
 	"^",
-	"."
+	".",
+	"[",
+	"]"
 }
 
-cat statement(default,whitespace){
+cat statement(default){
 	<expression>
 	.<method>
 }
 
 cat method(whitespace){
-	<method_name><whitespace><binds>
-cat }
+	<method_name><binds>
+}
 
-cat method_name(clean){
-	<named_string>
+cat method_name{
+	<non_int_start_string>
+}
+
+token non_int_start_string{
+	"[a-zA-Z]\w*"
 }
 
 
@@ -50,7 +56,7 @@ cat factor{
 }
 
 cat double{
-	\regex("\d*(|\.\d*)")\
+	\regex("\d+(|\.\d*)")\
 }
 
 cat named_action{
@@ -62,14 +68,14 @@ cat array_init{
 }
 
 cat array_size{
-	new [<integer>]
+	new[{integer:group("arrays")}]
 }
 
 cat function_extension(optional){
 	(\list(<expression>)\)
 }
 
-cat named_string(clean,whitespace){
+cat named_string(clean){
 	<named_char><named_string_tail><array_tail>
 }
 
@@ -77,7 +83,7 @@ cat named_string_init(clean){
 	<named_char><named_string_tail>
 }
 
-cat named_string_tail(optional,whitespace){
+cat named_string_tail(optional){
 	<string>
 }
 
@@ -92,7 +98,7 @@ cat binds{
 }
 
 cat pre_scope(optional){
-	{\list(<expression>)\}
+	\{\list(<expression>)\\}
 }
 
 cat var_bind{
@@ -114,4 +120,16 @@ cat function_bind{
 
 cat create_function{
 	<named_string>(<named_string>)
+}
+
+cat string{
+	<char><string_tail>
+}
+
+cat char{
+	\regex("\w")\
+}
+
+cat string_tail(optional){
+	<string>
 }

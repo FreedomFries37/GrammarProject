@@ -1,6 +1,7 @@
 delimiters{
 	"(",
-	")"
+	")",
+	":"
 }
 
 cat cleans(optional){
@@ -23,4 +24,10 @@ cat grammar(override){
 	<cleans><removes><delimiters>\list(<category>,"")\
 	<removes><cleans><delimiters>\list(<category>,"")\
 	<removes><delimiters><cleans>\list(<category>,"")\
+}
+
+cat tag{
+	group(<sentence>)
+	match_declare(<string>)
+	match_check(<string>)
 }

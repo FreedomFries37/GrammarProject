@@ -336,7 +336,8 @@ public class TokenParser extends Parser {
                 if(tokenTerminal.isWildcardToken()){
                     absorbToken(found);
                 }else{
-                    if(!tokenTerminal.getRepresentation().equals(currentToken())) return false;
+                    String fixed = tokenTerminal.getRepresentation().replaceAll("\\\\(.)", "$1");
+                    if(!fixed.equals(currentToken())) return false;
                     absorbToken(found);
                 }
     
