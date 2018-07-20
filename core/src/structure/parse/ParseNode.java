@@ -1,13 +1,14 @@
 package structure.parse;
 
 import misc.Tools;
+import structure.Grammar;
 import structure.syntacticObjects.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.regex.Pattern;
 
+import static structure.syntacticObjects.SyntacticTypes.SYNTACTIC_CATEGORY;
 import static structure.syntacticObjects.SyntacticTypes.TOKEN_REGEX_TERMINAL;
 import static structure.syntacticObjects.SyntacticTypes.TOKEN_TERMINAL;
 
@@ -219,6 +220,23 @@ public class ParseNode {
                 children.remove(i);
             }else{
                 children.get(i).removeEmptyChildren();
+            }
+        }
+    }
+    
+    public void refactorInvisibleChildren(Grammar grammar){
+        if(type == SYNTACTIC_CATEGORY) {
+            if (rule != null && rule.getSyntacticObjects() != null) {
+                for (int i = 0; i < rule.getSyntacticObjects().size(); i++) {
+                    getChild(i).refactorInvisibleChildren(grammar);
+                    if (rule.getSyntacticObjects().get(i).getClass().equals(SyntacticCategory.class)) {
+                        if (grammar.getInvisibleCategories().contains((SyntacticCategory) (rule.getSyntacticObjects().get(i)))) {
+                            children.remove(i);
+                            children.addAll(i, getChild(i).children);
+                        }
+            
+                    }
+                }
             }
         }
     }

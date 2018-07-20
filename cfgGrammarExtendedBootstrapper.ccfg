@@ -2,7 +2,6 @@
 category(override,whitespace):
 	cat<string><options>{<list_rule>}
 	token<options><token_specifier><token_endings>
-	wrap<options><token_specifier><token_endings>
 
 token_specifier:
 	<string>
@@ -32,3 +31,4 @@ delimiter:
 
 grammar(override):
 	<delimiters>\list(<category>,"")\
+

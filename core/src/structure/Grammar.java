@@ -26,11 +26,13 @@ public class Grammar {
     
     @SuppressWarnings("unchecked")
     public Grammar(Grammar inherit){
-        hashMap = (HashMap<String, SyntacticCategory>) inherit.hashMap.clone();
-        head = inherit.head;
-        autoCleans = inherit.autoCleans;
-        options = new ArrayList<>();
-        tokenParse = inherit.tokenParse;
+        this();
+        if(inherit != null) {
+            hashMap = (HashMap<String, SyntacticCategory>) inherit.hashMap.clone();
+            head = inherit.head;
+            autoCleans = inherit.autoCleans;
+            tokenParse = inherit.tokenParse;
+        }
     }
     
     public void inherit(Grammar g){
@@ -177,6 +179,16 @@ public class Grammar {
     public List<String> getAutoCleans(){
         return autoCleans;
     }
+    
+    public LinkedList<SyntacticCategory> getInvisibleCategories(){
+        LinkedList<SyntacticCategory> output = new LinkedList<>();
+        for (SyntacticCategory allCategory : getAllCategories()) {
+            if(allCategory.isInvisible()){
+                output.add(allCategory);
+            }
+        }
+        return output;
+    }
    
     
     public ArrayList<String> generateExamples(int count){
@@ -265,6 +277,7 @@ public class Grammar {
         for (String categoryName: getCategoryNames()) {
             String modifierText = "";
             if(head.getName().equals(categoryName)) modifierText += "head ";
+            if(getCategory(categoryName).isInvisible()) modifierText += "invisible ";
             if(getCategory(categoryName).isOptional()) modifierText += "optional ";
             System.out.println(modifierText + categoryName + ":");
             for (Rule rule: getCategory(categoryName).getRules()) {

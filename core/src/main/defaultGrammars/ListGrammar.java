@@ -94,6 +94,19 @@ public class ListGrammar extends TokenGrammar {
             return output;
         }
     
+        public ArrayList<ParseNode> convertParseNodeMustHaveChild(ParseNode p, String cat) {
+            ArrayList<ParseNode> output = new ArrayList<>();
+            ParseNode ptr =p;
+            while(ptr != null){
+                if(ptr.getData().endsWith("_tail")) ptr = ptr.getChild(ptr.childCount()-1);
+                ParseNode object= ptr.getChild(0).getChild(0);
+                if(object.contains(cat)) output.add(object.getChild(cat));
+                ptr = ptr.getChild(1);
+            }
+        
+            return output;
+        }
+    
         @Override
         public ArrayList<ParseNode> convertParseTree(ParseTree p) {
             return convertParseNode(p.getHead());

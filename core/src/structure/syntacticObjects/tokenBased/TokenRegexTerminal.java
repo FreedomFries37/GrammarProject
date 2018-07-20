@@ -1,7 +1,6 @@
 package structure.syntacticObjects.tokenBased;
 
 import misc.Tools;
-import structure.syntacticObjects.SyntacticObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

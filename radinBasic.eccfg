@@ -1,0 +1,118 @@
+#import <standard>
+
+delimiters{
+",",
+";",
+"(",
+")",
+"{",
+"}",
+"[",
+"]",
+"*",
+".",
+"+",
+"-",
+"/",
+"=",
+"<",
+">"
+}
+
+token(override) string;
+token(override) double{
+	"\d+(\.\d*)?"
+}
+
+token(override) integer{
+	"\d+"
+}
+
+token true "TRUE";
+token false "FALSE";
+cat boolean{
+	<true>
+	<false>
+}
+
+cat number{
+	<double>
+	<double>d
+}
+
+cat named_variable{
+	\regex("[a-zA-Z_]\w*")\
+}
+
+cat string_wrap{
+	<string>
+}
+
+cat double_wrap{
+	<double>
+}
+
+cat program(default){
+	\list(<statement_outer>,"")\
+}
+
+cat identifier{
+	<string>
+}
+
+cat set_value:assert(<constant_value>){
+	<named_variable>
+	<method>
+}
+
+cat method{
+	<named_variable>(\list(<resulting_block>)\)
+}
+
+cat variable_declare{
+	<identifier><named_variable>
+}
+
+cat statement_outer{
+	<statement_inner>;
+}
+
+cat statement_inner{
+	<variable_declare>
+	<variable_set>
+}
+
+cat variable_set{
+	<named_variable><set_operation><resulting_block>
+}
+
+token equality{
+	"=|(\+=)|(-=)"
+}
+cat set_operation{
+	<equality>
+}
+
+cat resulting_block{
+	<set_value><resulting_block_tail>
+	\{<program>return<set_value>\}
+	<constant_value>
+}
+
+cat resulting_block_tail(optional){
+	.<resulting_block>
+}
+
+cat variable_set{
+	<named_variable>=<resulting_block>
+}
+
+cat constant_value{
+	<number>
+	<boolean>
+	<sentence>
+}
+
+
+
+

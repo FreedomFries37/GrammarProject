@@ -12,6 +12,7 @@ public class SyntacticCategory extends SyntacticObject {
     private boolean optional;
     @Deprecated
     private boolean ignoreWhitespace;
+    private boolean invisible;
     private ArrayList<Rule> rules;
     
     {ignoreWhitespace = true;}
@@ -63,6 +64,14 @@ public class SyntacticCategory extends SyntacticObject {
         for (Rule rule : rules) {
             addRule(rule);
         }
+    }
+    
+    public boolean isInvisible() {
+        return invisible;
+    }
+    
+    public void setInvisible(boolean invisible) {
+        this.invisible = invisible;
     }
     
     public HashMap<Pattern, Rule> lookAheadToRuleMap(){

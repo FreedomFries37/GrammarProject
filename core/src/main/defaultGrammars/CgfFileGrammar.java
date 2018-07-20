@@ -42,11 +42,9 @@ public class CgfFileGrammar extends Grammar {
             getCategory("rule_escape").addRule("\\", getCategory("named_action"), "\\");
             
             
-            addCategory("tag");
-            getCategory("tag").addRule("ILLEGAL USE");
             addCategory("rule_part", new Rule(getCategory("rule_head"), getCategory("rule_tail")));
             getCategory("rule_reference").addRule("<", getCategory("string"), ">");
-            getCategory("rule_reference").addRule("{", getCategory("string"),":", getCategory("tag"), "}");
+            //getCategory("rule_reference").addRule("{", getCategory("string"),":", getCategory("tag"), "}");
             getCategory("rule_head").addRule(getCategory("rule_reference"));
             getCategory("rule_head").addRule(getCategory("rule_char"));
             getCategory("rule_head").addRule(getCategory("rule_escape"));

@@ -190,10 +190,7 @@ public class Parser {
         System.out.println("Lookahead: " + currentChar() + "  Stack: ");
         printStack(stack);
         if(index != parsableString.length()) return null;
-        ParseTree output = new ParseTree(head.getRef());
-        for (String autoClean : grammar.getAutoCleans()) {
-            output.clean(autoClean);
-        }
+        ParseTree output = new ParseTree(head.getRef(), grammar);
         return output;
     }
     

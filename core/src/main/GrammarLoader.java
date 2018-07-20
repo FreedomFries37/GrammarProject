@@ -200,6 +200,7 @@ public class GrammarLoader {
         Grammar output = pregenerated;
     
         List<ParseNode> categoryNodes = new ListGrammar.ListGrammarConverter().convertParseNode(g.getHead().getChild("list_category"));
+    
         HashMap<String, Boolean> useRegex = new HashMap<>();
         /*
             first add all categories into the grammar
@@ -233,6 +234,9 @@ public class GrammarLoader {
                             break;
                         case "whitespace":
                             output.getCategory(name).setIgnoreWhitespace(false);
+                            break;
+                        case "invisible":
+                            output.getCategory(name).setInvisible(true);
                             break;
                     }
                 }
@@ -401,7 +405,13 @@ public class GrammarLoader {
         g.clean("sentence");
         g.print();
         TokenGrammar output = new TokenGrammar(pregenerated);
-        List<ParseNode> categoryNodes = new ListGrammar.ListGrammarConverter().convertParseNode(g.getHead().getChild("list_category"));
+        List<ParseNode> categoryNodes;
+        if(extended )categoryNodes =
+                new ListGrammar.ListGrammarConverter().convertParseNodeMustHaveChild(g.getHead().getChild(
+                "list_block"), "category");
+        else categoryNodes = new ListGrammar.ListGrammarConverter().convertParseNode(g.getHead().getChild(
+                "list_category"));
+    
         HashMap<String, Boolean> useRegex = new HashMap<>();
         
         categoryNodes.sort(new Comparator<>() {
@@ -488,6 +498,13 @@ public class GrammarLoader {
                             }
                             output.getCategory(name).setIgnoreWhitespace(false);
                             break;
+                        case "invisible":
+                            if (isToken){
+                                System.err.println("Not an available option for tokens");
+                                break;
+                            }
+                            output.getCategory(name).setInvisible(true);
+                            break;
                     }
                 }
             
@@ -510,13 +527,14 @@ public class GrammarLoader {
     
         
             if(isToken){
-                if(categoryNode.contains("sentence")){
-                    String str = categoryNode.getChild("sentence").getChildTerminals();
+                ParseNode tokenEndingNode = categoryNode.getChild("token_endings");
+                if(tokenEndingNode.contains("sentence")){
+                    String str = tokenEndingNode.getChild("sentence").getChildTerminals();
                     str = str.substring(1, str.length()-1);
                     output.changeToken(name,
                             new TokenTerminal(str));
-                }else if(categoryNode.contains("regex_wrapper")){
-                    String str = categoryNode.getChild("regex_wrapper").getChildTerminals();
+                }else if(tokenEndingNode.contains("regex_wrapper")){
+                    String str = tokenEndingNode.getChild("regex_wrapper").getChild("sentence").getChildTerminals();
                     str = str.substring(1, str.length()-1);
                     output.changeToken(name,
                             new TokenRegexTerminal(str));

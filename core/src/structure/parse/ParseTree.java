@@ -1,5 +1,6 @@
 package structure.parse;
 
+import structure.Grammar;
 import structure.syntacticObjects.SyntacticTypes;
 
 import java.util.ArrayList;
@@ -19,6 +20,16 @@ public class ParseTree {
         for (String s: clean) {
             clean(s);
         }
+    }
+    
+    
+    public ParseTree(ParseNode head, Grammar grammar){
+        this(head);
+        head.refactorInvisibleChildren(grammar);
+        for (String autoClean : grammar.getAutoCleans()) {
+            clean(autoClean);
+        }
+        
     }
     
     public void clean(String catName){

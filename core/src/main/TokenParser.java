@@ -41,6 +41,10 @@ public class TokenParser extends Parser {
     protected String currentToken(){
         return tokens.get(tokenIndex);
     }
+    protected String nextToken(){
+        if(tokenIndex + 1 == tokens.size()) return null;
+        return tokens.get(tokenIndex + 1);
+    }
     
     @Override
     protected boolean advancePointer() {
@@ -155,17 +159,17 @@ public class TokenParser extends Parser {
             }
             tokens.removeIf((String test) -> test.equals(""));
         }
+        
         /*
-        for (int i = 0; i < tokens.size(); i++) {
+        for (int i = 0; i < tokens.size()-1; i++) {
             String original = tokens.get(i);
-            for (String delimiter : delimiters) {
-                if(original.contains("\\" + delimiter)){
-                    original = original.replace("\\" + delimiter, delimiter);
-                }
+            if(original.equals("\\") && delimiters.contains(tokens.get(tokenIndex+1))){
+                tokens.set(i, tokens.get(i+1));
+                tokens.remove(i+1);
             }
-            tokens.set(i, original);
         }
         */
+        
         
         tokenIndex = 0;
         tokenStringIndex = 0;
@@ -241,7 +245,7 @@ public class TokenParser extends Parser {
         return true;
     }
     
-    
+    boolean insideBreakerExpression = false;
     /**
      * Works like a single recursive rule
      * @param stack currentStack
@@ -254,7 +258,7 @@ public class TokenParser extends Parser {
         
         
         while(!stack.empty() && tokenIndex < tokens.size()) {
-            System.out.print(String.format("Lookahead: %10s Stack: ", currentToken().substring(0,
+            System.out.print(String.format("Lookahead(%d): %10s Stack: ", tokenIndex, currentToken().substring(0,
                     tokenStringIndex) +
                     "^" + currentToken().substring(tokenStringIndex)));
             printStack(stack);
@@ -336,7 +340,22 @@ public class TokenParser extends Parser {
                 if(tokenTerminal.isWildcardToken()){
                     absorbToken(found);
                 }else{
-                    String fixed = tokenTerminal.getRepresentation().replaceAll("\\\\(.)", "$1");
+                    String fixed;
+                    if(!tokenTerminal.getRepresentation().equals("\\") &&
+                            currentToken().equals("\\") &&
+                            nextToken() != null &&
+                            delimiters.contains(nextToken()) &&
+                            !insideBreakerExpression){
+                        absorbToken();
+                        fixed = currentToken();
+                    }else{
+                        if(currentToken().equals("\\") && tokenTerminal.getRepresentation().equals("\\")){
+                            insideBreakerExpression = !insideBreakerExpression;
+                            System.out.println("INSIDE BREAKER EXPRESSION: " + insideBreakerExpression);
+                        }
+                        fixed =tokenTerminal.getRepresentation();
+                    }
+                    //String fixed = tokenTerminal.getRepresentation().replaceAll("\\\\(.)", "$1");
                     if(!fixed.equals(currentToken())) return false;
                     absorbToken(found);
                 }
@@ -350,7 +369,7 @@ public class TokenParser extends Parser {
                 TokenRegexTerminal tokenTerminal = (TokenRegexTerminal) current;
                 Reference<String> found = new Reference<>();
                 if(!consume(tokenTerminal.getPatternMatch(), found)) return false;
-                absorbToken(found);
+                //absorbToken(found);
                 
                 if (parent.getRef() == null) {
                     parent.setRef(new ParseNode(tokenTerminal, found.getRef()));

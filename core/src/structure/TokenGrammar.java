@@ -101,7 +101,16 @@ public class TokenGrammar extends Grammar {
     
     @Override
     public void printGrammar() {
+        System.out.println(
+                "CATEGORIES:"
+        );
         super.printGrammar();
+        System.out.println(
+                "TOKENS:"
+        );
+        for (String s : tokenMap.keySet()) {
+            System.out.printf("%s:\n\t%s\n",s,tokenMap.get(s).getRepresentation());
+        }
         System.out.println(
                 "DELIMITERS:"
         );

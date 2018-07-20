@@ -51,6 +51,7 @@ public class CommandLineRunner {
             cfg.printGrammar();
             System.out.println();
             GrammarLoader grammarLoader = new GrammarLoader();
+            /*
             TokenGrammar math = grammarLoader.loadTokenGrammar(new File("mathGrammar.eccfg"));
             math.printCategoryNames();
             System.out.println();
@@ -67,6 +68,11 @@ public class CommandLineRunner {
             System.out.println(orginal);
             v.printTerminals();
             math.printExamples(1, 11);
+            */
+            TokenGrammar basic = grammarLoader.loadTokenGrammar(new File("radinBasic.eccfg"));
+            basic.printGrammar();
+            TokenParser basicParser = new TokenParser(basic);
+            basicParser.parse("int aa;aa=TRUE;aa+=2").print();
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }

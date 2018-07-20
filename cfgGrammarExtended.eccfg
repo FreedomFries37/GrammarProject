@@ -17,17 +17,65 @@ cat string(override){
 	<wildcard>
 }
 
-cat grammar(override){
-	<delimiters><cleans><removes>\list(<category>,"")\
-	<delimiters><removes><cleans>\list(<category>,"")\
-	<cleans><delimiters><removes>\list(<category>,"")\
-	<cleans><removes><delimiters>\list(<category>,"")\
-	<removes><cleans><delimiters>\list(<category>,"")\
-	<removes><delimiters><cleans>\list(<category>,"")\
+token number_token{
+	"\d+(\.\d*)?"
 }
 
-cat tag{
-	group(<sentence>)
-	match_declare(<string>)
-	match_check(<string>)
+cat number{
+	<number_token>
+}
+
+cat grammar(override){
+	<delimiters><cleans><removes>\list(<block>,"")\
+	<delimiters><removes><cleans>\list(<block>,"")\
+	<cleans><delimiters><removes>\list(<block>,"")\
+	<cleans><removes><delimiters>\list(<block>,"")\
+	<removes><cleans><delimiters>\list(<block>,"")\
+	<removes><delimiters><cleans>\list(<block>,"")\
+}
+
+cat category(override){
+	cat<string><options><category_tags>\{<list_rule>\}
+	token<options><token_specifier><token_endings>
+	<function>
+}
+
+cat block(invisible){
+	<category>
+	<group>
+}
+
+cat category_tags(optional){
+	:\list(<category_tag>)\
+}
+
+cat category_tag{
+	<string>(\list(<parameter>)\)
+}
+
+cat parameter{
+	<number>
+	<string>
+}
+
+cat group{
+	group<string>\{\list(<parameter>)\\}
+}
+
+// using these *probably* means any language using them are no longer cfg
+cat function{
+	function<string>\list(<function_parameters>)\\{<rule>\}
+}
+
+cat function_parameters{
+	cat<string>
+	token<string>
+}
+
+cat function_variable{
+	$(<string>)
+}
+
+cat rule_head{
+	<function_variable>
 }

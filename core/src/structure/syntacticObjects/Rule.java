@@ -78,6 +78,16 @@ public class Rule {
                 converted.removeIf((SyntacticObject test) -> test.getRepresentation().equals(""));
             }
         }
+        for (int i = converted.size()-2; i > 0; i-- ){
+            if(converted.get(i).getClass().equals(TokenTerminal.class)) {
+                String original = converted.get(i).getRepresentation();
+                if(original.equals("\\") &&
+                    converted.get(i+1).getClass().equals(TokenTerminal.class) &&
+                    delimiters.contains(converted.get(i+1).getRepresentation())){
+                    converted.remove(i);
+                }
+            }
+        }
         
         syntacticObjects = converted;
     }
