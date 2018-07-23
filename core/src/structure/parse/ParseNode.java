@@ -80,6 +80,10 @@ public class ParseNode {
         return data;
     }
     
+    public void setData(String data) {
+        this.data = data;
+    }
+    
     public SyntacticTypes getType() {
         return type;
     }
@@ -180,9 +184,9 @@ public class ParseNode {
                 return children.get(0).data;
             case SPECIAL:
                 return data;
+                default:
+                    return data;
         }
-        
-        return data;
     }
     
     public void print(int index){

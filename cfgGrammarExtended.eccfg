@@ -43,6 +43,7 @@ cat category(override){
 cat block(invisible){
 	<category>
 	<group>
+	<macro>
 }
 
 cat category_tags(optional){
@@ -78,4 +79,19 @@ cat function_variable{
 
 cat rule_head{
 	<function_variable>
+	<function_call>
 }
+
+cat function_call{
+	\<<string>()\>
+}
+
+cat macro{
+	macro<string>(\list(<string>)\)\{<category_or_rule_list>\}
+}
+
+cat category_or_rule_list{
+	\list(<category>,"")\
+	\list(<rule>,"")\
+}
+

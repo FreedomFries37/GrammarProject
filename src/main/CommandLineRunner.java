@@ -71,8 +71,9 @@ public class CommandLineRunner {
             */
             TokenGrammar basic = grammarLoader.loadTokenGrammar(new File("radinBasic.eccfg"));
             basic.printGrammar();
+            basic.printExamples(5, "boolean_expression", 8);
             TokenParser basicParser = new TokenParser(basic);
-            basicParser.parse("int aa;aa=TRUE;aa+=2").print();
+            //basicParser.parse("int aa;aa=TRUE;aa+=2").print();
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }

@@ -15,6 +15,7 @@ import structure.syntacticObjects.tokenBased.TokenTerminal;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
@@ -133,6 +134,7 @@ public class GrammarLoader {
                 firstPass = true;
                 ParseTree tree = parser.parse(parsableString);
                 if (tree == null) return null;
+                fixRuleChars(tree.getHead());
                 return convertParseTreeToGrammar(tree, output);
             }
             if(!extended) {
@@ -155,7 +157,19 @@ public class GrammarLoader {
         parser = new TokenParser((TokenGrammar) cfgGrammar);
         ParseTree tree = parser.parse(parsableString);
         if(tree == null) return null;
+        fixRuleChars(tree.getHead());
         return convertTokenizerParseTreeToGrammar(tree, output, delimiterPassOf);
+    }
+    
+    private void fixRuleChars(ParseNode head){
+        ArrayList<ParseNode> list = head.getAllChildren();
+        for (ParseNode parseNode : list) {
+            if(parseNode.getData() != null && parseNode.getData().equals("rule_char") && parseNode.childCount() == 1){
+                parseNode.getChild(0).getChild(0).setData(parseNode.getChild(0).getChild(0).getData().replaceAll(
+                        "\\\\(.)",
+                        "$1"));
+            }
+        }
     }
     
     public Grammar loadGrammar(File f){
