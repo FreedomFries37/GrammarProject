@@ -1,7 +1,6 @@
 package structure.syntacticObjects;
 
 import misc.Tools;
-import structure.parse.ParseNode;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -14,8 +13,6 @@ public class SyntacticCategory extends SyntacticObject {
     private boolean ignoreWhitespace;
     private boolean invisible;
     private ArrayList<Rule> rules;
-    
-    {ignoreWhitespace = true;}
     
     
     public SyntacticCategory(String name) {

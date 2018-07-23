@@ -24,6 +24,8 @@ token(override) double{
 	"\d+(\.\d*)?"
 }
 
+group vars;
+
 token(override) integer{
 	"\d+"
 }
@@ -84,7 +86,7 @@ cat method{
 }
 
 cat variable_declare{
-	<identifier><named_variable>
+	<identifier><named_variable:gAdd(vars)>
 }
 
 cat statement_line{
@@ -97,7 +99,7 @@ cat statement_inner{
 }
 
 cat variable_set{
-	<named_variable><set_operation><resulting_block>
+	<named_variable:existsIn(vars)><set_operation><resulting_block>
 }
 
 token equality{

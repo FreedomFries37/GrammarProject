@@ -61,11 +61,16 @@ cat parameter{
 
 cat group{
 	group<string>\{\list(<parameter>)\\}
+	group<string>;
 }
 
 // using these *probably* means any language using them are no longer cfg
 cat function{
-	function<string>\list(<function_parameters>)\\{<rule>\}
+	func<string>(\list(<lrl>)\)\{<rule>\}
+}
+
+cat lrl{
+	\list(<rule_reference>,"")\
 }
 
 cat function_parameters{
@@ -73,12 +78,17 @@ cat function_parameters{
 	token<string>
 }
 
-cat function_variable{
-	$(<string>)
+cat variable{
+	$(<scope>:<string>)
+}
+
+cat scope{
+	local
+	global
 }
 
 cat rule_head{
-	<function_variable>
+	<variable>
 	<function_call>
 }
 
@@ -93,5 +103,13 @@ cat macro{
 cat category_or_rule_list{
 	\list(<category>,"")\
 	\list(<rule>,"")\
+}
+
+cat rule_reference(override){
+	\<<string><rule_reference_tag>\>
+}
+
+cat rule_reference_tag(optional){
+	:<string>(\list(<string>)\)
 }
 
