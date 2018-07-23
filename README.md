@@ -2,7 +2,8 @@
 Universal context free grammar parser
 
 ## Grammar examples
-#####Basic math grammar
+
+##### Basic math grammar
 
     #import <standard>
 
@@ -25,7 +26,7 @@ Universal context free grammar parser
         <double>
         -<factor>
         
-#####Basic math grammar using extended (.eccfg file)
+##### Basic math grammar using extended (.eccfg file)
     
     cat expression{
         <group><expression_tail>
