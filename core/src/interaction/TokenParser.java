@@ -1,17 +1,16 @@
-package main;
+package interaction;
 
 import structure.Reference;
-import structure.TokenGrammar;
+import structure.Grammars.ExtendedGrammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.*;
-import structure.syntacticObjects.tokenBased.TokenRegexTerminal;
-import structure.syntacticObjects.tokenBased.TokenTerminal;
+import structure.syntacticObjects.Terminals.RegexTerminal;
+import structure.syntacticObjects.Terminals.Terminal;
+import structure.syntacticObjects.Terminals.tokenBased.TokenRegexTerminal;
+import structure.syntacticObjects.Terminals.tokenBased.TokenTerminal;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,21 +26,23 @@ public class TokenParser extends Parser {
     private List<String> delimiters;
     private int tokenIndex;
     private int tokenStringIndex;
+    private HashMap<String, ParseNode> globalVars;
     
-    public TokenParser(TokenGrammar grammar) {
+    public TokenParser(ExtendedGrammar grammar) {
         super(grammar);
         delimiters = grammar.getDelimiters();
         delimiters.sort(Comparator.comparingInt((String s) -> -s.length()));
+        globalVars = new HashMap<>();
     }
     
     @Override
     protected char currentChar() {
         return tokens.get(tokenIndex).charAt(tokenStringIndex);
     }
-    protected String currentToken(){
+    private String currentToken(){
         return tokens.get(tokenIndex);
     }
-    protected String nextToken(){
+    private String nextToken(){
         if(tokenIndex + 1 == tokens.size()) return null;
         return tokens.get(tokenIndex + 1);
     }
@@ -179,7 +180,7 @@ public class TokenParser extends Parser {
         inStack.push(base);
         Reference<ParseNode> node = new Reference<>();
         
-        ((TokenGrammar) grammar).ensureTokenized();
+        ((ExtendedGrammar) grammar).ensureTokenized();
         grammar.printGrammar();
         System.out.println("Using recursive parser...");
         if(!recursiveParseFunction(inStack, node)){
@@ -254,8 +255,8 @@ public class TokenParser extends Parser {
      */
     @SuppressWarnings("unchecked")
     private boolean recursiveParseFunction(Stack<SyntacticObject> stack, Reference<ParseNode> parent){
-        
-        
+    
+        HashMap<String, ParseNode> localVars = new HashMap<>();
         
         while(!stack.empty() && tokenIndex < tokens.size()) {
             System.out.print(String.format("Lookahead(%d): %10s Stack: ", tokenIndex, currentToken().substring(0,
@@ -380,5 +381,12 @@ public class TokenParser extends Parser {
         }
         
         return true;
+    }
+    
+    @Override
+    public double progress() {
+        if(tokens == null || tokens.size() == 0) return 0;
+        System.out.printf("%d/%d\n", tokenIndex, tokens.size());
+        return ((double) tokenIndex)/tokens.size();
     }
 }

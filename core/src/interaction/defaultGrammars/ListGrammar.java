@@ -1,18 +1,16 @@
-package main.defaultGrammars;
+package interaction.defaultGrammars;
 
 import modules.IConvertModule;
-import structure.Grammar;
-import structure.TokenGrammar;
+import structure.Grammars.ExtendedGrammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
-import structure.syntacticObjects.SyntacticObject;
-import structure.syntacticObjects.tokenBased.Token;
+import structure.syntacticObjects.Terminals.tokenBased.Token;
 
 import java.util.ArrayList;
 
-public class ListGrammar extends TokenGrammar {
+public class ListGrammar extends ExtendedGrammar {
     
     private SyntacticCategory listObject;
     private SyntacticCategory seperator;

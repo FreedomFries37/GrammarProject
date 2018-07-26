@@ -1,10 +1,9 @@
-package main;
+package interaction;
 
-import main.defaultGrammars.CgfFileGrammar;
-import main.defaultGrammars.StandardGrammar;
-import structure.Grammar;
-import structure.TokenGrammar;
-import structure.parse.ParseTree;
+import interaction.defaultGrammars.CgfFileGrammar;
+import interaction.defaultGrammars.StandardGrammar;
+import structure.Grammars.ExtendedGrammar;
+import structure.Grammars.Grammar;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
 
@@ -52,7 +51,7 @@ public class CommandLineRunner {
             System.out.println();
             GrammarLoader grammarLoader = new GrammarLoader();
             /*
-            TokenGrammar math = grammarLoader.loadTokenGrammar(new File("mathGrammar.eccfg"));
+            ExtendedGrammar math = grammarLoader.loadTokenGrammar(new File("mathGrammar.eccfg"));
             math.printCategoryNames();
             System.out.println();
             math.printGrammar();
@@ -69,7 +68,7 @@ public class CommandLineRunner {
             v.printTerminals();
             math.printExamples(1, 11);
             */
-            TokenGrammar basic = grammarLoader.loadTokenGrammar(new File("radinBasic.eccfg"));
+            ExtendedGrammar basic = grammarLoader.loadTokenGrammar(new File("radinBasic.eccfg"));
             basic.printGrammar();
             basic.printExamples(5, "boolean_expression", 8);
             TokenParser basicParser = new TokenParser(basic);

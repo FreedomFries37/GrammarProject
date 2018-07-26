@@ -1,4 +1,4 @@
-package structure.syntacticObjects.tokenBased;
+package structure.syntacticObjects.Terminals.tokenBased;
 
 import misc.Tools;
 

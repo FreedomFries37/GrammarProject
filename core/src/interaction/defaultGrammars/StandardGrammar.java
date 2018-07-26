@@ -1,10 +1,10 @@
-package main.defaultGrammars;
+package interaction.defaultGrammars;
 
 import modules.IConvertModule;
-import structure.Grammar;
+import structure.Grammars.Grammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
-import structure.syntacticObjects.RegexTerminal;
+import structure.syntacticObjects.Terminals.RegexTerminal;
 import structure.syntacticObjects.Rule;
 
 public class StandardGrammar extends Grammar {

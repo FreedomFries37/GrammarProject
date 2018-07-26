@@ -1,39 +1,44 @@
-package structure;
+package structure.Grammars;
 
 import structure.syntacticObjects.SyntacticCategory;
+import structure.syntacticObjects.SyntacticFunction;
 import structure.syntacticObjects.SyntacticObject;
-import structure.syntacticObjects.tokenBased.Token;
+import structure.syntacticObjects.Terminals.tokenBased.Token;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class TokenGrammar extends Grammar {
+public class ExtendedGrammar extends Grammar {
     
     private ArrayList<String> delimiters;
     private HashMap<String, Token> tokenMap;
+    private HashMap<String, SyntacticFunction> functionMap;
     
-    public TokenGrammar(String... delimeters) {
+    public ExtendedGrammar(String... delimeters) {
         super();
         this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = new HashMap<>();
+        functionMap = new HashMap<>();
     }
     
-    public TokenGrammar(Grammar inherit, String... delimeters) {
+    public ExtendedGrammar(Grammar inherit, String... delimeters) {
         super(inherit);
         ensureTokenized();
         this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = new HashMap<>();
+        functionMap = new HashMap<>();
     }
     
-    public TokenGrammar(TokenGrammar inherit, String... delimeters) {
+    public ExtendedGrammar(ExtendedGrammar inherit, String... delimeters) {
         super(inherit);
         this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = inherit.tokenMap;
+        functionMap = inherit.functionMap;
     }
     
-    public void inherit(TokenGrammar g){
+    public void inherit(ExtendedGrammar g){
         this.delimiters =g.delimiters;
         this.tokenMap = g.tokenMap;
         super.inherit(g);

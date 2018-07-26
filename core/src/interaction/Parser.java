@@ -1,10 +1,12 @@
-package main;
+package interaction;
 
-import structure.Grammar;
+import structure.Grammars.Grammar;
 import structure.Reference;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.*;
+import structure.syntacticObjects.Terminals.RegexTerminal;
+import structure.syntacticObjects.Terminals.Terminal;
 
 import java.io.File;
 import java.io.IOException;
@@ -222,6 +224,10 @@ public class Parser {
         return null;
     }
     
+    public double progress(){
+        if(parsableString == null || parsableString.length() == 0) return 0;
+        return (double) index/parsableString.length();
+    }
     
     
 }

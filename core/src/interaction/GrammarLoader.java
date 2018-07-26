@@ -1,21 +1,21 @@
-package main;
+package interaction;
 
-import main.defaultGrammars.CgfFileGrammar;
-import main.defaultGrammars.ListGrammar;
-import main.defaultGrammars.StandardGrammar;
-import main.defaultGrammars.VarGrammar;
+import interaction.defaultGrammars.CgfFileGrammar;
+import interaction.defaultGrammars.ListGrammar;
+import interaction.defaultGrammars.StandardGrammar;
+import interaction.defaultGrammars.VarGrammar;
 import modules.IConvertModule;
-import structure.Grammar;
-import structure.TokenGrammar;
+import structure.Grammars.Grammar;
+import structure.Grammars.ExtendedGrammar;
 import structure.parse.ParseNode;
 import structure.parse.ParseTree;
 import structure.syntacticObjects.*;
-import structure.syntacticObjects.tokenBased.TokenRegexTerminal;
-import structure.syntacticObjects.tokenBased.TokenTerminal;
+import structure.syntacticObjects.Terminals.RegexTerminal;
+import structure.syntacticObjects.Terminals.tokenBased.TokenRegexTerminal;
+import structure.syntacticObjects.Terminals.tokenBased.TokenTerminal;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
@@ -109,7 +109,7 @@ public class GrammarLoader {
                             useExtended = true;
                             if(firstPass) {
                                 cfgGrammar = loadGrammar(new File("cfgGrammarExtendedBootstrapper.ccfg"), cfgGrammar);
-                                cfgGrammar = new TokenGrammar(cfgGrammar, grammarDelimeters);
+                                cfgGrammar = new ExtendedGrammar(cfgGrammar, grammarDelimeters);
                                 firstPass = false;
                             }
                             
@@ -140,7 +140,7 @@ public class GrammarLoader {
             if(!extended) {
                 if (firstPass) {
                     cfgGrammar = loadGrammar(new File("cfgGrammarExtendedBootstrapper.ccfg"), cfgGrammar);
-                    cfgGrammar = new TokenGrammar(cfgGrammar, grammarDelimeters);
+                    cfgGrammar = new ExtendedGrammar(cfgGrammar, grammarDelimeters);
                     firstPass = false;
                     cfgGrammar = loadTokenGrammar(new File("cfgGrammarExtended.eccfg"), cfgGrammar);
                     extended = true;
@@ -151,10 +151,10 @@ public class GrammarLoader {
             
         }
         List<String> delimiterPassOf;
-        if(passOff.getClass().equals(TokenGrammar.class)){
-            delimiterPassOf = ((TokenGrammar) passOff).getDelimiters();
+        if(passOff.getClass().equals(ExtendedGrammar.class)){
+            delimiterPassOf = ((ExtendedGrammar) passOff).getDelimiters();
         }else delimiterPassOf = new ArrayList<>();
-        parser = new TokenParser((TokenGrammar) cfgGrammar);
+        parser = new TokenParser((ExtendedGrammar) cfgGrammar);
         ParseTree tree = parser.parse(parsableString);
         if(tree == null) return null;
         fixRuleChars(tree.getHead());
@@ -187,14 +187,14 @@ public class GrammarLoader {
         }
     }
     
-    public TokenGrammar loadTokenGrammar(File f){
+    public ExtendedGrammar loadTokenGrammar(File f){
         return loadTokenGrammar(f, new Grammar());
     }
-    public TokenGrammar loadTokenGrammar(File f, Grammar passOff){
+    public ExtendedGrammar loadTokenGrammar(File f, Grammar passOff){
         try {
             if(!f.getName().endsWith(".eccfg")) return null;
             String grammar = new String(Files.readAllBytes(f.toPath()), StandardCharsets.UTF_8);
-            return (TokenGrammar) loadGrammar(grammar, passOff, true);
+            return (ExtendedGrammar) loadGrammar(grammar, passOff, true);
         }catch (IOException e){
             System.err.println("File not found");
             return null;
@@ -412,13 +412,13 @@ public class GrammarLoader {
         }
     };
     
-    public TokenGrammar convertTokenizerParseTreeToGrammar(ParseTree g, Grammar pregenerated, Collection<String> delimiters){
+    public ExtendedGrammar convertTokenizerParseTreeToGrammar(ParseTree g, Grammar pregenerated, Collection<String> delimiters){
         if(!g.baseType().equals("grammar")) return null;
         g.removeEmptyNodes();
         g.clean("string");
         g.clean("sentence");
         g.print();
-        TokenGrammar output = new TokenGrammar(pregenerated);
+        ExtendedGrammar output = new ExtendedGrammar(pregenerated);
         List<ParseNode> categoryNodes;
         if(extended )categoryNodes =
                 new ListGrammar.ListGrammarConverter().convertParseNodeMustHaveChild(g.getHead().getChild(
@@ -709,14 +709,16 @@ public class GrammarLoader {
         
         
         output.setDelimiters(new ArrayList<>(delimiters));
-        List<ParseNode> delimiterList = new ListGrammar.ListGrammarConverter().convertParseNode(g.getHead().getChild(
-                "delimiters").getChild("list_delimiter"));
-        for (ParseNode parseNode : delimiterList) {
-            String delim = parseNode.getChild("sentence").getChildTerminals();
-            delim = delim.substring(1, delim.length()-1);
-            output.getDelimiters().add(
-                   delim
-            );
+        if(g.getHead().contains("delimiters")) {
+            List<ParseNode> delimiterList = new ListGrammar.ListGrammarConverter().convertParseNode(g.getHead().getChild(
+                    "delimiters").getChild("list_delimiter"));
+            for (ParseNode parseNode : delimiterList) {
+                String delim = parseNode.getChild("sentence").getChildTerminals();
+                delim = delim.substring(1, delim.length() - 1);
+                output.getDelimiters().add(
+                        delim
+                );
+            }
         }
         return output;
     }

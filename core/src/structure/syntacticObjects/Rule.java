@@ -1,8 +1,9 @@
 package structure.syntacticObjects;
 
-import structure.Grammar;
-import structure.syntacticObjects.tokenBased.Token;
-import structure.syntacticObjects.tokenBased.TokenTerminal;
+import structure.Grammars.Grammar;
+import structure.syntacticObjects.Terminals.RegexTerminal;
+import structure.syntacticObjects.Terminals.Terminal;
+import structure.syntacticObjects.Terminals.tokenBased.TokenTerminal;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,7 @@
-package structure.syntacticObjects;
+package structure.syntacticObjects.Terminals;
 
 import misc.Tools;
+import structure.syntacticObjects.SyntacticObject;
 
 import java.util.Arrays;
 

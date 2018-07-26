@@ -1,7 +1,7 @@
 package structure.parse;
 
 import misc.Tools;
-import structure.Grammar;
+import structure.Grammars.Grammar;
 import structure.syntacticObjects.*;
 
 import java.util.ArrayList;
@@ -17,6 +17,7 @@ public class ParseNode {
     private String data;
     private SyntacticTypes type;
     private Rule rule;
+    private SyntacticFunction function;
     private LinkedList<ParseNode> children;
     
     public ParseNode(String object){
@@ -39,6 +40,7 @@ public class ParseNode {
         this.rule = rule;
         children = new LinkedList<>();
     }
+    
     
     public void addChild(ParseNode p){
         children.add(p);
@@ -116,6 +118,15 @@ public class ParseNode {
         return children.size();
     }
     
+    public int totalChildCount(){
+        if(childCount() == 0) return 0;
+        int output = childCount();
+        for (ParseNode child : children) {
+            output += child.totalChildCount();
+        }
+        return output;
+    }
+    
     public ParseNode leftMostOpenParseNode(){
         ParseNode ptr = this;
         int maxChildren = ptr.getMaxChildren();
@@ -136,17 +147,14 @@ public class ParseNode {
     public int getMaxChildren(){
         if(type == null) return 0;
         switch (type){
-            case TOKEN_TERMINAL:
-            case REGEX_TERMINAL:
-            case TERMINAL:
-            case TOKEN_REGEX_TERMINAL:
-                return 1;
             case SYNTACTIC_CATEGORY:
                 if(rule == null) return 0;
                 return rule.getSyntacticObjects().size();
+            case FUNCTION:
+                return function.getMaxSize();
+                default:
+                    return type.getMaxChildren();
         }
-        
-        return -1;
     }
     
     public boolean empty(){

@@ -1,6 +1,6 @@
-package main.defaultGrammars;
+package interaction.defaultGrammars;
 
-import structure.Grammar;
+import structure.Grammars.Grammar;
 import structure.syntacticObjects.SyntacticCategory;
 
 public class VarGrammar extends Grammar {

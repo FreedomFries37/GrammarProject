@@ -1,7 +1,6 @@
-package structure.syntacticObjects.tokenBased;
+package structure.syntacticObjects.Terminals.tokenBased;
 
 import misc.Tools;
-import structure.syntacticObjects.SyntacticObject;
 
 public class TokenTerminal extends Token {
     

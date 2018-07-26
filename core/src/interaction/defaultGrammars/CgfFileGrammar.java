@@ -1,7 +1,7 @@
-package main.defaultGrammars;
+package interaction.defaultGrammars;
 
-import structure.Grammar;
-import structure.syntacticObjects.RegexTerminal;
+import structure.Grammars.Grammar;
+import structure.syntacticObjects.Terminals.RegexTerminal;
 import structure.syntacticObjects.Rule;
 
 import java.util.regex.Pattern;

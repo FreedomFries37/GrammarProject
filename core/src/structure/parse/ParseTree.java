@@ -1,6 +1,7 @@
 package structure.parse;
 
-import structure.Grammar;
+import gui.TreeViewer;
+import structure.Grammars.Grammar;
 import structure.syntacticObjects.SyntacticTypes;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class ParseTree {
         for (String autoClean : grammar.getAutoCleans()) {
             clean(autoClean);
         }
-        
+        new TreeViewer(this);
     }
     
     public void clean(String catName){

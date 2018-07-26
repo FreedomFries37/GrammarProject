@@ -1,9 +1,9 @@
-package structure;
+package structure.Grammars;
 
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
 import structure.syntacticObjects.SyntacticObject;
-import structure.syntacticObjects.Terminal;
+import structure.syntacticObjects.Terminals.Terminal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -276,7 +276,7 @@ public class Grammar {
     public void printGrammar(){
         for (String categoryName: getCategoryNames()) {
             String modifierText = "";
-            if(head.getName().equals(categoryName)) modifierText += "head ";
+            if(head != null && head.getName().equals(categoryName)) modifierText += "head ";
             if(getCategory(categoryName).isInvisible()) modifierText += "invisible ";
             if(getCategory(categoryName).isOptional()) modifierText += "optional ";
             System.out.println(modifierText + categoryName + ":");
