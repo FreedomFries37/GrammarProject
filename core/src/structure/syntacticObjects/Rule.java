@@ -8,6 +8,7 @@ import structure.syntacticObjects.Terminals.tokenBased.TokenTerminal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Rule {
@@ -33,6 +34,36 @@ public class Rule {
                         char c = s.charAt(i);
                         syntacticObjects.add(new Terminal(c));
                         
+                    }
+                }
+            }else if(object.getClass().equals(char.class)){
+                syntacticObjects.add(new Terminal((char) object));
+            }else if(SyntacticObject.class.isAssignableFrom(object.getClass())){
+                syntacticObjects.add((SyntacticObject) object);
+            }else{
+                throw new IncorrectTypeException();
+            }
+        }
+    }
+    
+    public Rule(String functionName, Object... objects) throws IncorrectTypeException{
+        syntacticObjects = new ArrayList<>();
+        for (Object object : objects) {
+            if(object.getClass().equals(String.class)){
+                String s = (String) object;
+                
+                Pattern variablePattern = Pattern.compile("\\$(?<num>\\d+)");
+                Matcher m = variablePattern.matcher(s);
+                if(m.matches()){
+                    String varNum = m.group("num");
+                    String varNameFull = functionName + "_" + varNum;
+                    syntacticObjects.add(new Variable(varNameFull, Variable.Scope.local));
+                }else if(!s.contains("\\")) syntacticObjects.addAll(Grammar.createTerminals((String) object));
+                else{
+                    for (int i = 0; i < s.toCharArray().length; i++) {
+                        char c = s.charAt(i);
+                        syntacticObjects.add(new Terminal(c));
+                    
                     }
                 }
             }else if(object.getClass().equals(char.class)){

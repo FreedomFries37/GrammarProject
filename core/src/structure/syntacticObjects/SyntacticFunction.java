@@ -7,6 +7,21 @@ public class SyntacticFunction extends SyntacticObject {
     private Rule baseRule;
     
     
+    public SyntacticFunction(String name, SyntacticCategory[][] parameters, Rule baseRule) {
+        this(name,parameters,baseRule.getSyntacticObjects().toArray());
+    }
+    
+    public SyntacticFunction(String name, SyntacticCategory[][] parameters, Object... obj) {
+        try {
+            this.name = name;
+            this.parameters = parameters;
+            this.baseRule = new Rule(name, obj);
+        }catch (Rule.IncorrectTypeException e){
+            e.printStackTrace();
+        }
+    }
+    
+   
     public int getMaxSize(){
         int output = 0;
         for (SyntacticCategory[] parameter : parameters) {
@@ -15,9 +30,35 @@ public class SyntacticFunction extends SyntacticObject {
         return output + baseRule.getSyntacticObjects().size();
     }
     
+    public String getName() {
+        return name;
+    }
+    
+    public SyntacticCategory[][] getParameters() {
+        return parameters;
+    }
+    
+    public Rule getBaseRule() {
+        return baseRule;
+    }
+    
     @Override
     public String getRepresentation() {
-        return "<" + name + "()>";
+        StringBuilder params = new StringBuilder();
+        for (SyntacticCategory[] parameter : parameters) {
+            StringBuilder param = new StringBuilder();
+            for (SyntacticCategory syntacticCategory : parameter) {
+                param.append(syntacticCategory.getRepresentation());
+            }
+            param.append(",");
+            params.append(param);
+        }
+        params.deleteCharAt(params.length()-1);
+        
+        
+        
+        
+        return String.format("<%s(%s)> -> %s", name, params.toString(), baseRule.toString());
     }
     
     @Override

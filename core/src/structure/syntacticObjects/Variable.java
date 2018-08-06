@@ -26,6 +26,14 @@ public class Variable extends SyntacticObject {
         this.scope = scope;
     }
     
+    public String getName() {
+        return name;
+    }
+    
+    public Scope getScope() {
+        return scope;
+    }
+    
     @Override
     public String getRepresentation() {
         return String.format("$(%s:%s)",scope,name);

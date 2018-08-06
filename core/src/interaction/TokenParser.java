@@ -377,6 +377,92 @@ public class TokenParser extends Parser {
                 } else {
                     parent.getRef().addChild(new ParseNode(tokenTerminal, found.getRef()));
                 }
+            } else if(current.getClass().equals(SyntacticFunction.class)){
+                SyntacticFunction function = (SyntacticFunction) current;
+                String name = function.getName();
+    
+                
+                for (int i = 0; i < function.getParameters().length; i++) {
+                    SyntacticCategory[] parameter = function.getParameters()[i];
+                    Reference<ParseNode> n = new Reference<>();
+                    Stack<SyntacticObject> tempStack = new Stack<>();
+                    loadStackBackwards(tempStack, Arrays.asList(parameter));
+                    if(!recursiveParseFunction(tempStack, n)) return false;
+                    String variableName = name + "_" + i;
+                    if(localVars.containsKey(variableName)){
+                        localVars.replace(variableName, n.getRef());
+                    }else{
+                        localVars.put(variableName, n.getRef());
+                    }
+                    parent.getRef().addChild(n.getRef());
+                }
+                
+                loadStackBackwards(stack, function.getBaseRule().getSyntacticObjects());
+                
+                
+    
+            }else if(current.getClass().equals(RuleReference.class)){
+                RuleReference ref = (RuleReference) current;
+                List<Map.Entry<String, ArrayList<String>>> tags = ref.getTagInfo();
+                SyntacticCategory rule = ref.getCategory();
+                Stack<SyntacticObject> stackCopy = new Stack<>();
+                stackCopy.add(rule);
+                Reference<ParseNode> next = new Reference<>();
+                
+                if(!recursiveParseFunction(stackCopy, next)) return false;
+                parent.getRef().addChild(next.getRef());
+                for (Map.Entry<String, ArrayList<String>> tag : tags) {
+                    /*
+                    
+                    DO TAG STUFF HERE
+                    
+                     */
+                    switch (tag.getKey()){
+                        case "local":{
+                            String name = tag.getValue().get(0);
+                            if(localVars.containsKey(name)){
+                                localVars.replace(name, next.getRef());
+                            }else{
+                                localVars.put(name, next.getRef());
+                            }
+                        }
+                        break;
+                        case "global":{
+                            String name = tag.getValue().get(0);
+                            if(globalVars.containsKey(name)){
+                                globalVars.replace(name, next.getRef());
+                            }else{
+                                globalVars.put(name, next.getRef());
+                            }
+                        }
+                        break;
+                    }
+                }
+            }else if(current.getClass().equals(Variable.class)){
+                Variable var = (Variable) current;
+                Variable.Scope scope = var.getScope();
+                String name = var.getName();
+                
+                ParseNode match = null;
+                switch (scope){
+                    case local: {
+                        if (!localVars.containsKey(name)) return false;
+                        match = localVars.get(name);
+                    }
+                        break;
+                    case global: {
+                        if (!globalVars.containsKey(name)) return false;
+                        match = globalVars.get(name);
+                    }
+                        break;
+                }
+                if(match != null){
+                    Reference<ParseNode> throwAway = new Reference<>();
+                    Stack<SyntacticObject> stack1 = new Stack<>();
+                    stack1.push(new TokenRegexTerminal(match.getChildTerminals()));
+                    if(!recursiveParseFunction(stack1, throwAway)) return false;
+                    parent.getRef().addChild(match);
+                }else return false;
             }
         }
         

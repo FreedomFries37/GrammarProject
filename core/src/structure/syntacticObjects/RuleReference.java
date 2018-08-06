@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class RuleReference extends SyntacticObject {
     
-    SyntacticCategory category;
+    private SyntacticCategory category;
     private HashMap<String, ArrayList<String>> instanceTags;
     
     public RuleReference(SyntacticCategory category){
@@ -23,6 +23,9 @@ public class RuleReference extends SyntacticObject {
         return new ArrayList<>(instanceTags.entrySet());
     }
     
+    public SyntacticCategory getCategory() {
+        return category;
+    }
     
     @Override
     public String getRepresentation() {

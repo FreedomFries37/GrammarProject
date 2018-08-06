@@ -6,6 +6,7 @@ import structure.Grammars.ExtendedGrammar;
 import structure.Grammars.Grammar;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
+import structure.syntacticObjects.SyntacticFunction;
 
 import java.io.File;
 
@@ -69,9 +70,18 @@ public class CommandLineRunner {
             math.printExamples(1, 11);
             */
             ExtendedGrammar basic = grammarLoader.loadTokenGrammar(new File("radinBasic.eccfg"));
+            basic.addFunction(new SyntacticFunction(
+                    "surroundNum",
+                    new SyntacticCategory[][]{
+                            {basic.getCategory("char")}
+                    },
+                    basic.getCategory("number"), "$0")
+            );
+            basic.addCategory("surroundCat", new Rule(basic.getFunction("surroundNum")));
             basic.printGrammar();
             basic.printExamples(5, "boolean_expression", 8);
             TokenParser basicParser = new TokenParser(basic);
+            basicParser.parse("a99a", basic.getCategory("surroundCat"));
             //basicParser.parse("int aa;aa=TRUE;aa+=2").print();
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();

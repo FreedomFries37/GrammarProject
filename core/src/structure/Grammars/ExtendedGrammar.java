@@ -15,12 +15,14 @@ public class ExtendedGrammar extends Grammar {
     private ArrayList<String> delimiters;
     private HashMap<String, Token> tokenMap;
     private HashMap<String, SyntacticFunction> functionMap;
+    private HashMap<String, ArrayList<String>> groups;
     
     public ExtendedGrammar(String... delimeters) {
         super();
         this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = new HashMap<>();
         functionMap = new HashMap<>();
+        groups = new HashMap<>();
     }
     
     public ExtendedGrammar(Grammar inherit, String... delimeters) {
@@ -29,6 +31,7 @@ public class ExtendedGrammar extends Grammar {
         this.delimiters = new ArrayList<>(Arrays.asList(delimeters));
         tokenMap = new HashMap<>();
         functionMap = new HashMap<>();
+        groups = new HashMap<>();
     }
     
     public ExtendedGrammar(ExtendedGrammar inherit, String... delimeters) {
@@ -42,6 +45,23 @@ public class ExtendedGrammar extends Grammar {
         this.delimiters =g.delimiters;
         this.tokenMap = g.tokenMap;
         super.inherit(g);
+    }
+    
+    public boolean containsFunction(String name){
+        return getFunction(name) != null;
+    }
+    
+    public void addFunction(SyntacticFunction function){
+        if(!functionMap.containsKey(function.getName())){
+            functionMap.put(function.getName(), function);
+        }
+    }
+    
+    public SyntacticFunction getFunction(String name){
+        if(functionMap.containsKey(name)){
+            return functionMap.get(name);
+        }
+        return null;
     }
     
     public void addToken(String name, Token t){
@@ -59,17 +79,19 @@ public class ExtendedGrammar extends Grammar {
         return tokenMap.get(name);
     }
     
-    public void removeCategory(String name){
-        if(containsCategory(name)){
-            hashMap.remove(name);
-        }
-    }
     
     public void changeToken(String name, Token s){
         if(containsToken(name)){
             tokenMap.replace(name, s);
         }
     }
+    
+    public void removeCategory(String name){
+        if(containsCategory(name)){
+            hashMap.remove(name);
+        }
+    }
+    
     
     public void ensureTokenized(){
         for (SyntacticCategory value : hashMap.values()) {
@@ -83,6 +105,16 @@ public class ExtendedGrammar extends Grammar {
             tokenMap.replace(s, null);
         }else{
             tokenMap.put(s, null);
+        }
+    }
+    
+    public boolean containsGroup(String name){
+        return groups.containsKey(name);
+    }
+    
+    public void addGroup(String name){
+        if(!containsGroup(name)){
+            groups.put(name, new ArrayList<>());
         }
     }
     
@@ -115,6 +147,12 @@ public class ExtendedGrammar extends Grammar {
         );
         for (String s : tokenMap.keySet()) {
             System.out.printf("%s:\n\t%s\n",s,tokenMap.get(s).getRepresentation());
+        }
+        System.out.println(
+                "FUNCTIONS:"
+        );
+        for (String s : functionMap.keySet()) {
+            System.out.printf("%s:\n\t%s\n",s,functionMap.get(s).getRepresentation());
         }
         System.out.println(
                 "DELIMITERS:"
