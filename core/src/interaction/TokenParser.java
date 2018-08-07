@@ -397,7 +397,7 @@ public class TokenParser extends Parser {
                     parent.getRef().addChild(n.getRef());
                 }
                 
-                loadStackBackwards(stack, function.getBaseRule().getSyntacticObjects());
+                loadStackBackwards(stack, function.getRule().getSyntacticObjects());
                 
                 
     

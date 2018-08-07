@@ -74,9 +74,20 @@ public class CommandLineRunner {
                     "surroundNum",
                     new SyntacticCategory[][]{
                             {basic.getCategory("char")}
-                    },
-                    basic.getCategory("number"), "$0")
+                    }
+                    )
             );
+            SyntacticFunction function = basic.getFunction("surroundNum");
+            // basic.getCategory("number"), "$0"
+            SyntacticFunction.IBooleanNode tree = function.createAndNode(
+                    function.createEqualToNode("hello", "hello"),
+                    function.createGreaterThanOrEqualToTree(4, 3)
+            );
+            SyntacticFunction.RuleNode ruleNode = function.createRuleNode(basic.getCategory("number"), "$0");
+            SyntacticFunction.ControlNode controlNode =function.createControlNode(tree,ruleNode);
+            function.setTree(controlNode);
+            
+            
             basic.addCategory("surroundCat", new Rule(basic.getFunction("surroundNum")));
             basic.printGrammar();
             basic.printExamples(5, "boolean_expression", 8);
