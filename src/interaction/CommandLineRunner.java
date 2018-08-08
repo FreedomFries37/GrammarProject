@@ -4,6 +4,7 @@ import interaction.defaultGrammars.CgfFileGrammar;
 import interaction.defaultGrammars.StandardGrammar;
 import structure.Grammars.ExtendedGrammar;
 import structure.Grammars.Grammar;
+import structure.Reference;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
 import structure.syntacticObjects.SyntacticFunction;
@@ -81,10 +82,23 @@ public class CommandLineRunner {
             // basic.getCategory("number"), "$0"
             SyntacticFunction.IBooleanNode tree = function.createAndNode(
                     function.createEqualToNode("hello", "hello"),
-                    function.createGreaterThanOrEqualToTree(4, 3)
+                    function.createAndNode(
+                            function.createGreaterThanOrEqualToTree(5, 4),
+                            function.createTrueNode()
+                    )
             );
+            
             SyntacticFunction.RuleNode ruleNode = function.createRuleNode(basic.getCategory("number"), "$0");
-            SyntacticFunction.ControlNode controlNode =function.createControlNode(tree,ruleNode);
+            SyntacticFunction.ControlNode controlNode = function.createControlNode(tree,ruleNode);
+            controlNode = function.createControlNode(
+                    function.createNotNode(
+                            function.createOrNode(
+                                    function.createFalseNode(),
+                                    function.createFalseNode()
+                            )
+                    ),
+                    controlNode
+            );
             function.setTree(controlNode);
             
             
@@ -93,7 +107,13 @@ public class CommandLineRunner {
             basic.printExamples(5, "boolean_expression", 8);
             TokenParser basicParser = new TokenParser(basic);
             basicParser.parse("a99a", basic.getCategory("surroundCat"));
-            //basicParser.parse("int aa;aa=TRUE;aa+=2").print();
+            
+            
+            Reference<Boolean> bool = new Reference<>(false);
+            Reference<Reference<Boolean>> booleanReference = new Reference<>(bool);
+            bool.setRef(true);
+            System.out.println(booleanReference.getRef());
+    
         }catch (Rule.IncorrectTypeException e){
             e.printStackTrace();
         }

@@ -152,7 +152,7 @@ public class ExtendedGrammar extends Grammar {
                 "FUNCTIONS:"
         );
         for (String s : functionMap.keySet()) {
-            System.out.printf("%s:\n\t%s\n",s,functionMap.get(s).getRepresentation());
+            System.out.printf("%s:\n%s\n",s,functionMap.get(s).getUpperRepresentation());
         }
         System.out.println(
                 "DELIMITERS:"
