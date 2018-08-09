@@ -83,20 +83,24 @@ public class CommandLineRunner {
             );
             SyntacticFunction function = basic.getFunction("surroundNum");
             // basic.getCategory("number"), "$0"
-            SyntacticFunction.IBooleanNode tree = function.createAndNode(
-                    function.createNotNode(
-                            function.createGroupExistsNode("test")
-                    ),
-                    function.createAndNode(
-                            function.createGreaterThanOrEqualToTree(5, 4),
-                            function.createTrueNode()
-                    )
-            );
+            SyntacticFunction.FunctionNode tree =
+                    function.createListControlNode(
+                            function.createVariableSetNode("x", 0),
+                            function.createLoopNode(
+                                    function.createVariableCheckNode("x", SyntacticFunction.ConditionalType.lessThan,
+                                            3),
+                                    function.createIfControlNode(
+                                            function.createFalseNode(),
+                                            function.createRuleNode("HELLo")
+                                    )
+                            ),
+                            function.createRuleNode("hello")
+                    );
             
             SyntacticFunction.RuleNode ruleNode1 = function.createRuleNode(basic.getCategory("number"), "$0");
             SyntacticFunction.RuleNode ruleNode2 = function.createRuleNode(basic.getCategory("number"));
-            SyntacticFunction.ControlNode controlNode = function.createControlNode(tree,ruleNode1,ruleNode2);
-            controlNode = function.createControlNode(
+            SyntacticFunction.FunctionNode controlNode = tree;
+            controlNode = function.createIfControlNode(
                     function.createNotNode(
                             function.createOrNode(
                                     function.createFalseNode(),
@@ -113,7 +117,7 @@ public class CommandLineRunner {
             ));
             function = basic.getFunction("surroundCatFunc");
             function.setTree(
-                    function.createControlNode(
+                    function.createIfControlNode(
                             function.createPatternMatchNode(Pattern.compile("[^\\d]")),
                             function.createRuleNode(basic.getFunction("surroundNum")),
                             function.createRuleNode(basic.getCategory("number"))

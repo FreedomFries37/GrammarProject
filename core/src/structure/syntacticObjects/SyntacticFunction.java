@@ -3,11 +3,12 @@ package structure.syntacticObjects;
 import interaction.TokenParser;
 import misc.Tools;
 import structure.Reference;
-import structure.syntacticObjects.Terminals.tokenBased.Token;
 
-import java.lang.reflect.Array;
-import java.util.*;
-import java.util.function.ToLongBiFunction;
+import javax.tools.Tool;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class SyntacticFunction extends SyntacticObject {
@@ -15,25 +16,58 @@ public class SyntacticFunction extends SyntacticObject {
     private interface IPrintableTree{
         String printTree(int indent);
     }
-    public interface IBooleanNode extends IPrintableTree{
+    public interface IBooleanNode extends IPrintableTree, IVariables{
         boolean getValue();
+        
     }
-    private abstract class FunctionNode implements IPrintableTree{
+    public interface IVariables{
+        HashMap<String, Object> getVariables();
+        void setVariables(HashMap<String, Object> map);
+    }
+    public abstract class FunctionNode implements IPrintableTree, IVariables{
         private FunctionNode children[];
+        protected HashMap<String, Object> variables;
         
         FunctionNode(int childSize){
             children = new FunctionNode[childSize];
+            variables = new HashMap<>();
+        }
+        FunctionNode(int childSize, HashMap<String, Object> map){
+            this(childSize);
+            variables = map;
         }
     
         FunctionNode[] getChildren() {
             return children;
         }
+        void expandChildren(int newSize){
+            if(newSize < 0) return;
+            children = Arrays.copyOf(children, children.length+newSize);
+        }
         
+        void setChild(int i, FunctionNode node) {
+            children[i] = node;
+        }
         FunctionNode getChild(int i){
             return children[i];
         }
-        
+    
+        public void setChildren(FunctionNode[] children) {
+            this.children = children;
+        }
+    
         public abstract Rule calculateRule();
+    
+        public HashMap<String, Object> getVariables() {
+            return variables;
+        }
+    
+        public void setVariables(HashMap<String, Object> variables) {
+            this.variables = variables;
+            for (FunctionNode child : children) {
+                if(child != null) child.setVariables(this.variables);
+            }
+        }
     }
     
     
@@ -74,17 +108,33 @@ public class SyntacticFunction extends SyntacticObject {
         }
     }
     
-    public class ControlNode extends FunctionNode{
+    public class IfControlNode extends FunctionNode{
         private IBooleanNode booleanTree;
     
-        public ControlNode(IBooleanNode booleanNode, FunctionNode nextNode) {
+        public IfControlNode(IBooleanNode booleanNode, FunctionNode nextNode) {
             super(2);
             this.booleanTree = booleanNode;
             getChildren()[0] = nextNode;
+            nextNode.setVariables(new HashMap<>(getVariables()));
         }
         
-        public ControlNode(IBooleanNode booleanNode, FunctionNode nextNode, FunctionNode elseNode) {
+        public IfControlNode(IBooleanNode booleanNode, FunctionNode nextNode, FunctionNode elseNode) {
             super(2);
+            this.booleanTree = booleanNode;
+            getChildren()[0] = nextNode;
+            getChildren()[1] = elseNode;
+            nextNode.setVariables(new HashMap<>(getVariables()));
+            elseNode.setVariables(new HashMap<>(getVariables()));
+        }
+    
+        public IfControlNode(IBooleanNode booleanNode, FunctionNode nextNode, HashMap<String, Object> map) {
+            super(2,map);
+            this.booleanTree = booleanNode;
+            getChildren()[0] = nextNode;
+        }
+    
+        public IfControlNode(IBooleanNode booleanNode, FunctionNode nextNode, FunctionNode elseNode, HashMap<String, Object> map) {
+            super(2,map);
             this.booleanTree = booleanNode;
             getChildren()[0] = nextNode;
             getChildren()[1] = elseNode;
@@ -99,17 +149,173 @@ public class SyntacticFunction extends SyntacticObject {
     
         @Override
         public String printTree(int indent) {
-            String output = String.format("%sif (\n%s%s) {\n%s\n%s}",
+            String output = String.format("%sif (%s) {\n%s\n%s}",
                     Tools.indent(indent),
                     booleanTree.printTree(indent+1),
-                    Tools.indent(indent),
                     getChild(0).printTree(indent+1),
                     Tools.indent(indent));
-            if(getChild(1) != null) output += " else\n" + getChild(1).printTree(indent+1);
+            if(getChild(1) != null) output += " else " + getChild(1).printTree(indent+1);
             
             return output;
         }
     }
+    
+    public class ListControlNode extends FunctionNode{
+        
+        public ListControlNode(Collection<FunctionNode> nodes, HashMap<String, Object> map) {
+            super(nodes.size(),map);
+            FunctionNode[] array = nodes.toArray(new FunctionNode[nodes.size()]);
+            for (int i = 0; i < nodes.size(); i++) {
+                setChild(i,array[i]);
+                array[i].setVariables(new HashMap<>(getVariables()));
+            }
+        }
+    
+        public ListControlNode(Collection<FunctionNode> nodes) {
+            super(nodes.size());
+            setChildren(nodes.toArray(new FunctionNode[nodes.size()]));
+        }
+    
+        @Override
+        public String printTree(int indent) {
+            StringBuilder output = new StringBuilder();
+            for (FunctionNode child : getChildren()) {
+                output.append(String.format("%s",child.printTree(indent)));
+            }
+            return output.toString();
+        }
+    
+        @Override
+        public Rule calculateRule() {
+            for (FunctionNode child : getChildren()) {
+                Rule output = child.calculateRule();
+                if(output != null) return output;
+            }
+            
+            return null;
+        }
+    }
+    
+    public class LoopControlNode extends FunctionNode{
+    
+        IBooleanNode condition;
+        
+        public LoopControlNode(FunctionNode internal, IBooleanNode condition) {
+            super(1);
+            setChild(0, internal);
+            this.condition = condition;
+            internal.setVariables(new HashMap<>(getVariables()));
+        }
+    
+        public LoopControlNode(FunctionNode internal, IBooleanNode condition, HashMap<String, Object> map) {
+            super(1,map);
+            setChild(0, internal);
+            this.condition = condition;
+        }
+    
+        @Override
+        public String printTree(int indent) {
+            return String.format("%swhile (%s) {\n%s\n%s}\n",Tools.indent(indent),condition.printTree(indent),
+                    getChild(0).printTree(indent+1),Tools.indent(indent));
+        }
+    
+        @Override
+        public Rule calculateRule() {
+            while(condition.getValue()){
+                Rule output = getChild(0).calculateRule();
+                if(output != null) return output;
+            }
+            
+            return null;
+        }
+    }
+    
+    public class VariableSetControlNode<T> extends FunctionNode{
+        private String name;
+        private T value;
+        
+        public VariableSetControlNode(HashMap<String, Object> map, String name, T value) {
+            super(0, map);
+            if(map.containsKey(name)){
+                map.replace(name,value);
+            }else{
+                map.put(name, value);
+            }
+            this.name = name;
+            this.value = value;
+        }
+    
+        public VariableSetControlNode(String name, T value) {
+            super(0);
+            this.name = name;
+            this.value = value;
+        }
+    
+        @Override
+        public String printTree(int indent) {
+            return String.format("%s%s = %s\n",Tools.indent(indent),name,value);
+        }
+    
+        @Override
+        public Rule calculateRule() {
+            if(getVariables().containsKey(name)){
+                getVariables().replace(name,value);
+            }else{
+                getVariables().put(name, value);
+            }
+            return null;
+        }
+    }
+    
+    public class VariableGetNode<T> implements IMethodNode<T,HashMap<String, Object>>, IVariables{
+        
+        private String name;
+        private HashMap<String, Object> variables;
+        
+        public VariableGetNode(String name){
+            this.name = name;
+        }
+        
+        public VariableGetNode(){
+            name = null;
+            variables = null;
+        }
+        
+        
+        @Override
+        @SuppressWarnings("unchecked")
+        public T getValue(HashMap<String, Object> base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+            if(variables == null || name == null) {
+                if (args.size() != 1) throw new IncorrectAmountOfArgumentsException(1, args.size());
+                return (T) base.getOrDefault(args.toArray()[0], null);
+            }else return (T) variables.getOrDefault(name, null);
+        }
+    
+        @SuppressWarnings("unchecked")
+        public T getValue(){
+            return (T) variables.get(name);
+        }
+    
+        @Override
+        public HashMap<String, Object> getVariables() {
+            return variables;
+        }
+    
+        @Override
+        public void setVariables(HashMap<String, Object> map) {
+            this.variables = map;
+        }
+    
+        
+    
+        @Override
+        public String printTree(int indent) {
+            return name + "(" + variables.getOrDefault(name,"null") + ")";
+            
+            
+        }
+    }
+    
     
    
     
@@ -119,6 +325,7 @@ public class SyntacticFunction extends SyntacticObject {
         protected boolean strictlyNumeric;
         protected T obj1;
         protected K obj2;
+        private HashMap<String, Object> variables;
     
         public ConditionalNode(ConditionalType conditionalType, T obj1, K obj2) {
             this.conditionalType = conditionalType;
@@ -138,7 +345,17 @@ public class SyntacticFunction extends SyntacticObject {
     
         @Override
         public String printTree(int indent) {
-            return Tools.indent(indent) + obj1.toString() + " " + conditionalType.identifier + " " + obj2.toString() + "\n";
+            return obj1.toString() + " " + conditionalType.identifier + " " + obj2.toString();
+        }
+    
+        @Override
+        public void setVariables(HashMap<String, Object> map) {
+            this.variables = map;
+        }
+    
+        @Override
+        public HashMap<String, Object> getVariables() {
+            return variables;
         }
     }
     
@@ -177,7 +394,7 @@ public class SyntacticFunction extends SyntacticObject {
             }
             str.append(args.toArray()[args.size()-1].toString());
             str.append(")");
-            return Tools.indent(indent) + obj1.toString() + str.toString() + " " + conditionalType.identifier + " " + obj2.toString() + "\n";
+            return obj1.toString() + str.toString() + " " + conditionalType.identifier + " " + obj2.toString();
         }
     }
     
@@ -226,7 +443,7 @@ public class SyntacticFunction extends SyntacticObject {
             }
             str2.append(args2.toArray()[args2.size()-1].toString());
             str2.append(")");
-            return Tools.indent(indent) + obj1.toString() + str1.toString() + " " + conditionalType.identifier + " " + obj2.toString() + str2.toString() + "\n";
+            return obj1.toString() + str1.toString() + " " + conditionalType.identifier + " " + obj2.toString() + str2.toString();
     
         }
     }
@@ -236,13 +453,13 @@ public class SyntacticFunction extends SyntacticObject {
         equal("=="){
             @Override
             <T, K> boolean getValue(T obj1, K obj2) {
-                System.out.printf("Checking if %s == %s -> %s\n", obj1, obj2, obj1.equals(obj2));
+                System.out.printf("Checking %s == %s -> %s\n", obj1, obj2, obj1.equals(obj2));
                 return obj1.equals(obj2);
             }
     
             @Override
             <T extends Number, K extends Number> boolean getValue(T obj1, K obj2) {
-                System.out.printf("Checking if %s == %s -> %s\n", obj1, obj2, obj1.doubleValue() == obj2.doubleValue());
+                System.out.printf("Checking %s == %s -> %s\n", obj1, obj2, obj1.doubleValue() == obj2.doubleValue());
                 return obj1.doubleValue() == obj2.doubleValue();
             }
         },
@@ -255,7 +472,7 @@ public class SyntacticFunction extends SyntacticObject {
     
             @Override
             <T extends Number, K extends Number> boolean getValue(T obj1, K obj2) {
-                System.out.printf("Checking if %s < %s -> %s\n", obj1, obj2, obj1.doubleValue() < obj2.doubleValue());
+                System.out.printf("Checking %s < %s -> %s\n", obj1, obj2, obj1.doubleValue() < obj2.doubleValue());
                 return obj1.doubleValue() < obj2.doubleValue();
             }
         },
@@ -268,7 +485,7 @@ public class SyntacticFunction extends SyntacticObject {
     
             @Override
             <T extends Number, K extends Number> boolean getValue(T obj1, K obj2) {
-                System.out.printf("Checking if %s > %s -> %s\n", obj1, obj2, obj1.doubleValue() > obj2.doubleValue());
+                System.out.printf("Checking %s > %s -> %s\n", obj1, obj2, obj1.doubleValue() > obj2.doubleValue());
                 return obj1.doubleValue() > obj2.doubleValue();
             }
         };
@@ -287,6 +504,7 @@ public class SyntacticFunction extends SyntacticObject {
         private BooleanTypes type;
         private IBooleanNode first;
         private IBooleanNode[] after;
+        private HashMap<String, Object> variables;
     
         public BooleanNode(BooleanTypes type, IBooleanNode first, IBooleanNode... after){
             this.type = type;
@@ -309,6 +527,20 @@ public class SyntacticFunction extends SyntacticObject {
         public String printTree(int indent) {
             return type.toString(indent, first, after);
         }
+    
+        @Override
+        public void setVariables(HashMap<String, Object> map) {
+            this.variables = map;
+            first.setVariables(map);
+            for (IBooleanNode iBooleanNode : after) {
+                iBooleanNode.setVariables(map);
+            }
+        }
+    
+        @Override
+        public HashMap<String, Object> getVariables() {
+            return variables;
+        }
     }
     
     private enum BooleanTypes{
@@ -317,14 +549,14 @@ public class SyntacticFunction extends SyntacticObject {
             public boolean getValue(IBooleanNode n1, IBooleanNode... n2) throws IncorrectAmountOfArgumentsException{
                 if(n2.length > 0) throw new IncorrectAmountOfArgumentsException(1, 1 + n2.length);
                 boolean value = n1.getValue();
-                System.out.printf("Checking if !(%s) -> %s\n", n1.printTree(0), !value);
+                System.out.printf("Checking !(%s) -> %s\n", n1.printTree(0), !value);
                 return !value;
             }
     
             @Override
             public String toString(int indent, IBooleanNode n1, IBooleanNode... n2) {
                 
-                return Tools.indent(indent) + "!(\n" + n1.printTree(indent+1) + Tools.indent(indent) + ")\n";
+                return "!(" + n1.printTree(indent+1) + ")";
             }
         },
         and(2, "&&"){
@@ -335,7 +567,7 @@ public class SyntacticFunction extends SyntacticObject {
                 left = n1.getValue();
                 if(!left) return false;
                 right = n2[0].getValue();
-                System.out.printf("Checking if %s && %s -> %s\n", n1.printTree(0), n2[0].printTree(0), left && right);
+                System.out.printf("Checking %s && %s -> %s\n", n1.printTree(0), n2[0].printTree(0), left && right);
                 return right;
             }
         },
@@ -347,8 +579,13 @@ public class SyntacticFunction extends SyntacticObject {
                 left = n1.getValue();
                 if(left) return true;
                 right = n2[0].getValue();
-                System.out.printf("Checking if %s || %s -> %s\n", n1.printTree(0), n2[0].printTree(0), left || right);
+                System.out.printf("Checking %s || %s -> %s\n", n1.printTree(0), n2[0].printTree(0), left || right);
                 return right;
+            }
+    
+            @Override
+            public String toString(int indent, IBooleanNode n1, IBooleanNode... n2) {
+                return "(" + super.toString(indent, n1, n2) + ")";
             }
         };
         
@@ -360,7 +597,7 @@ public class SyntacticFunction extends SyntacticObject {
         }
         public abstract boolean getValue(IBooleanNode n1, IBooleanNode... n2) throws IncorrectAmountOfArgumentsException;
         public String toString(int indent, IBooleanNode n1, IBooleanNode... n2){
-            return n1.printTree(indent+1) +  Tools.indent(indent) + identifier + "\n" +
+            return n1.printTree(indent+1) + " " + identifier + " " +
                     n2[0].printTree(indent+1);
         }
         
@@ -380,8 +617,16 @@ public class SyntacticFunction extends SyntacticObject {
         }
         @Override
         public String printTree(int indent) {
-            return Tools.indent(indent) + "TRUE\n";
+            return "TRUE";
         }
+    
+        @Override
+        public HashMap<String, Object> getVariables() {
+            return null;
+        }
+    
+        @Override
+        public void setVariables(HashMap<String, Object> map) { }
     }
     public class FalseNode implements IBooleanNode{
         @Override
@@ -391,8 +636,16 @@ public class SyntacticFunction extends SyntacticObject {
     
         @Override
         public String printTree(int indent) {
-            return Tools.indent(indent) + "FALSE\n";
+            return "FALSE";
         }
+    
+        @Override
+        public HashMap<String, Object> getVariables() {
+            return null;
+        }
+    
+        @Override
+        public void setVariables(HashMap<String, Object> map) { }
     }
     public class BooleanReferenceNode implements IBooleanNode{
     
@@ -411,6 +664,14 @@ public class SyntacticFunction extends SyntacticObject {
         public String printTree(int indent) {
             return Tools.indent(indent) + "ref:" + (ref.getRef() ? "TRUE" : "FALSE") + "\n";
         }
+    
+        @Override
+        public HashMap<String, Object> getVariables() {
+            return null;
+        }
+    
+        @Override
+        public void setVariables(HashMap<String, Object> map) { }
     }
     
     
@@ -630,12 +891,28 @@ public class SyntacticFunction extends SyntacticObject {
         return new FalseNode();
     }
     
-    public ControlNode createControlNode(IBooleanNode booleanNode, FunctionNode nextNode){
-        return new ControlNode(booleanNode, nextNode);
+    public IfControlNode createIfControlNode(IBooleanNode booleanNode, FunctionNode nextNode){
+        return new IfControlNode(booleanNode, nextNode);
     }
     
-    public ControlNode createControlNode(IBooleanNode booleanNode, FunctionNode nextNode, FunctionNode elseNode){
-        return new ControlNode(booleanNode, nextNode, elseNode);
+    public IfControlNode createIfControlNode(IBooleanNode booleanNode, FunctionNode nextNode, FunctionNode elseNode){
+        return new IfControlNode(booleanNode, nextNode, elseNode);
+    }
+    
+    public LoopControlNode createLoopNode(IBooleanNode condition, FunctionNode node){
+        return new LoopControlNode(node,condition);
+    }
+    
+    public ListControlNode createListControlNode(FunctionNode... nodes){
+        return new ListControlNode(Arrays.asList(nodes));
+    }
+    
+    public <T> VariableSetControlNode<T> createVariableSetNode(String name, T val){
+        return new VariableSetControlNode<>(name, val);
+    }
+    
+    public <T> VariableGetNode<T> createVariableGetNode(String name){
+        return new VariableGetNode<>(name);
     }
     
     public IBooleanNode createExistsInNode(String group, String str){
@@ -716,6 +993,48 @@ public class SyntacticFunction extends SyntacticObject {
                 creator,
                 "" + str,
                 new ArrayList<>()
+        );
+    }
+    
+    public <T> IBooleanNode createVariableCheckNode(String var, T val){
+        return new HalfMethodConditionalNode<>(
+                ConditionalType.equal,
+                new VariableGetNode<>(var),
+                null,
+                val,
+                Arrays.asList(var)
+        );
+    }
+    
+    public <T extends Number> IBooleanNode createVariableCheckNode(String var, ConditionalType type, T val){
+        return new HalfMethodConditionalNode<>(
+                type,
+                new VariableGetNode<>(var),
+                null,
+                val,
+                Arrays.asList(var)
+        );
+    }
+    
+    public <T> IBooleanNode createTwoVariableCheckNode(String var1, String var2){
+        return new FullMethodConditionalNode<>(
+                ConditionalType.equal,
+                null,
+                new VariableGetNode<T>(var1),
+                Arrays.asList(var1),
+                new VariableGetNode<T>(var2),
+                Arrays.asList(var2)
+        );
+    }
+    
+    public <T extends Number> IBooleanNode createTwoVariableCheckNode(String var1, ConditionalType type, String var2){
+        return new FullMethodConditionalNode<>(
+                type,
+                null,
+                new VariableGetNode<T>(var1),
+                Arrays.asList(var1),
+                new VariableGetNode<T>(var2),
+                Arrays.asList(var2)
         );
     }
     
