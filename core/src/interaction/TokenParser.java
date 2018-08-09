@@ -27,19 +27,24 @@ public class TokenParser extends Parser {
     private int tokenIndex;
     private int tokenStringIndex;
     private HashMap<String, ParseNode> globalVars;
+    private HashMap<String, ArrayList<String>> groups;
     
     public TokenParser(ExtendedGrammar grammar) {
         super(grammar);
         delimiters = grammar.getDelimiters();
         delimiters.sort(Comparator.comparingInt((String s) -> -s.length()));
         globalVars = new HashMap<>();
+        groups = new HashMap<>(grammar.getGroups());
+        for (String s : grammar.getFunctionMap().keySet()) {
+            grammar.getFunctionMap().get(s).setCreator(this);
+        }
     }
     
     @Override
-    protected char currentChar() {
+    public char currentChar() {
         return tokens.get(tokenIndex).charAt(tokenStringIndex);
     }
-    private String currentToken(){
+    public String currentToken(){
         return tokens.get(tokenIndex);
     }
     private String nextToken(){
@@ -75,8 +80,8 @@ public class TokenParser extends Parser {
     }
     
     @Override
-    protected boolean match(Pattern p) {
-        return super.match(p);
+    public boolean match(Pattern p) {
+        return match(p, new Reference<>());
     }
     
     @Override
@@ -477,5 +482,17 @@ public class TokenParser extends Parser {
         if(tokens == null || tokens.size() == 0) return 0;
         System.out.printf("%d/%d\n", tokenIndex, tokens.size());
         return ((double) tokenIndex)/tokens.size();
+    }
+    
+    public HashMap<String, ParseNode> getGlobalVars() {
+        return globalVars;
+    }
+    
+    public HashMap<String, ArrayList<String>> getGroups() {
+        return groups;
+    }
+    
+    public SyntacticFunction createFunction(String name, SyntacticCategory[][] parameters,Object... obj){
+        return new SyntacticFunction(name,parameters,this,obj);
     }
 }

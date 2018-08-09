@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="Added to functions, now can have control structures">
+    <list default="true" id="869f9dd7-f516-4530-84a8-87882a4818e3" name="Default" comment="Now included reference boolean nodes, though current implementation is iffy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/interaction/TokenParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/interaction/TokenParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/structure/Grammars/ExtendedGrammar.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/Grammars/ExtendedGrammar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/interaction/CommandLineRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interaction/CommandLineRunner.java" afterDir="false" />
     </list>
@@ -27,16 +26,16 @@
     <session id="306447391">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.15" value="3" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -45,14 +44,14 @@
           <entry key="dummy" value="8" />
           <entry key="eccfg" value="5562" />
           <entry key="ft" value="44" />
-          <entry key="java" value="36475" />
-          <entry key="txt" value="910" />
+          <entry key="java" value="40561" />
+          <entry key="txt" value="1008" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="36475" />
-          <entry key="PLAIN_TEXT" value="7660" />
+          <entry key="JAVA" value="40561" />
+          <entry key="PLAIN_TEXT" value="7758" />
           <entry key="VTL" value="44" />
         </counts>
       </usages-collector>
@@ -61,14 +60,14 @@
           <entry key="ccfg" value="18" />
           <entry key="eccfg" value="15" />
           <entry key="iml" value="1" />
-          <entry key="java" value="227" />
+          <entry key="java" value="233" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="227" />
+          <entry key="JAVA" value="233" />
           <entry key="PLAIN_TEXT" value="34" />
         </counts>
       </usages-collector>
@@ -79,30 +78,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="177" selection-start-line="177" selection-end-line="177" />
+            <state relative-caret-position="352">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6518#6519#0" expanded="true" />
-                <element signature="e#6557#6558#0" expanded="true" />
-                <element signature="e#6611#6612#0" expanded="true" />
-                <element signature="e#6661#6662#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Variable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-              <folding>
-                <element signature="e#554#555#0" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
-                <element signature="e#616#617#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#762#763#0" expanded="true" />
+                <element signature="e#680#681#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,9 +91,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
+            <state relative-caret-position="-1876">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
+                <element signature="e#3040#3041#0" expanded="true" />
                 <element signature="e#3090#3091#0" expanded="true" />
               </folding>
             </state>
@@ -123,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="104" column="35" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
+            <state relative-caret-position="332">
+              <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,9 +114,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminals/RegexTerminal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#370#371#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/structure/Grammars/Grammar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="-512">
               <caret line="129" selection-start-line="129" selection-end-line="129" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -147,10 +149,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/interaction/TokenParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="444" selection-start-line="444" selection-end-line="444" />
+            <state relative-caret-position="-4450">
+              <caret line="82" column="37" lean-forward="true" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2416#2417#0" expanded="true" />
+                <element signature="e#19007#19008#0" expanded="true" />
+                <element signature="e#19040#19041#0" expanded="true" />
+                <element signature="e#19105#19106#0" expanded="true" />
+                <element signature="e#19134#19135#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,11 +166,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/structure/Grammars/ExtendedGrammar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="158" column="10" lean-forward="true" selection-start-line="158" selection-start-column="10" selection-end-line="158" selection-end-column="10" />
+            <state relative-caret-position="-1076">
+              <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
               <folding>
                 <element signature="e#1643#1644#0" expanded="true" />
                 <element signature="e#1691#1692#0" expanded="true" />
+                <element signature="e#3821#3822#0" expanded="true" />
+                <element signature="e#3855#3856#0" expanded="true" />
+                <element signature="e#3920#3921#0" expanded="true" />
+                <element signature="e#3949#3950#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,79 +183,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="375" selection-start-line="375" selection-end-line="375" />
+            <state relative-caret-position="-9010">
+              <caret line="162" selection-start-line="162" selection-end-line="162" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#232#233#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#384#385#0" expanded="true" />
-                <element signature="e#438#439#0" expanded="true" />
-                <element signature="e#476#477#0" expanded="true" />
-                <element signature="e#910#911#0" expanded="true" />
-                <element signature="e#945#946#0" expanded="true" />
-                <element signature="e#1006#1007#0" expanded="true" />
-                <element signature="e#1046#1047#0" expanded="true" />
-                <element signature="e#1179#1180#0" expanded="true" />
-                <element signature="e#1224#1225#0" expanded="true" />
-                <element signature="e#1340#1341#0" expanded="true" />
-                <element signature="e#1408#1409#0" expanded="true" />
-                <element signature="e#4597#4598#0" expanded="true" />
-                <element signature="e#4637#4638#0" expanded="true" />
-                <element signature="e#5649#5650#0" expanded="true" />
-                <element signature="e#5683#5684#0" expanded="true" />
-                <element signature="e#5968#5969#0" expanded="true" />
-                <element signature="e#6004#6005#0" expanded="true" />
-                <element signature="e#8037#8038#0" expanded="true" />
-                <element signature="e#8098#8099#0" expanded="true" />
-                <element signature="e#6116#6117#0" expanded="true" />
-                <element signature="e#6152#6153#0" expanded="true" />
-                <element signature="e#10059#10060#0" expanded="true" />
-                <element signature="e#10122#10123#0" expanded="true" />
                 <element signature="e#10331#10332#0" expanded="true" />
                 <element signature="e#10369#10370#0" expanded="true" />
-                <element signature="e#10250#10251#0" expanded="true" />
-                <element signature="e#10286#10287#0" expanded="true" />
-                <element signature="e#11077#11078#0" expanded="true" />
-                <element signature="e#11109#11110#0" expanded="true" />
-                <element signature="e#11384#11385#0" expanded="true" />
-                <element signature="e#11411#11412#0" expanded="true" />
-                <element signature="e#11467#11468#0" expanded="true" />
-                <element signature="e#11500#11501#0" expanded="true" />
-                <element signature="e#12251#12252#0" expanded="true" />
-                <element signature="e#12313#12314#0" expanded="true" />
-                <element signature="e#13530#13531#0" expanded="true" />
-                <element signature="e#13567#13568#0" expanded="true" />
-                <element signature="e#13615#13616#0" expanded="true" />
-                <element signature="e#13653#13654#0" expanded="true" />
-                <element signature="e#14069#14070#0" expanded="true" />
-                <element signature="e#14121#14122#0" expanded="true" />
-                <element signature="e#14968#14969#0" expanded="true" />
-                <element signature="e#14995#14996#0" expanded="true" />
-                <element signature="e#15045#15046#0" expanded="true" />
-                <element signature="e#15072#15073#0" expanded="true" />
-                <element signature="e#15149#15150#0" expanded="true" />
-                <element signature="e#15176#15177#0" expanded="true" />
+                <element signature="e#11113#11114#0" expanded="true" />
+                <element signature="e#11196#11197#0" expanded="true" />
+                <element signature="e#19359#19360#0" expanded="true" />
+                <element signature="e#19391#19392#0" expanded="true" />
+                <element signature="e#19666#19667#0" expanded="true" />
+                <element signature="e#19693#19694#0" expanded="true" />
+                <element signature="e#19749#19750#0" expanded="true" />
+                <element signature="e#19782#19783#0" expanded="true" />
+                <element signature="e#20533#20534#0" expanded="true" />
+                <element signature="e#20595#20596#0" expanded="true" />
+                <element signature="e#21812#21813#0" expanded="true" />
+                <element signature="e#21849#21850#0" expanded="true" />
+                <element signature="e#21897#21898#0" expanded="true" />
+                <element signature="e#21935#21936#0" expanded="true" />
+                <element signature="e#25621#25622#0" expanded="true" />
+                <element signature="e#25674#25675#0" expanded="true" />
+                <element signature="e#25822#25823#0" expanded="true" />
+                <element signature="e#25874#25875#0" expanded="true" />
+                <element signature="e#26721#26722#0" expanded="true" />
+                <element signature="e#26748#26749#0" expanded="true" />
+                <element signature="e#26798#26799#0" expanded="true" />
+                <element signature="e#26825#26826#0" expanded="true" />
+                <element signature="e#26902#26903#0" expanded="true" />
+                <element signature="e#26929#26930#0" expanded="true" />
+                <element signature="e#26972#26973#0" expanded="true" />
+                <element signature="e#27011#27012#0" expanded="true" />
+                <element signature="e#27066#27067#0" expanded="true" />
+                <element signature="e#27110#27111#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/misc/Tools.java">
+        <entry file="file://$PROJECT_DIR$/core/src/structure/Reference.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
+            <state relative-caret-position="128">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminals/tokenBased/Token.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#214#215#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -276,6 +262,7 @@
       <find>function_call</find>
       <find>BooleanNode</find>
       <find>double</find>
+      <find>args\[(\d+)]</find>
     </findStrings>
     <replaceStrings>
       <replace>first</replace>
@@ -286,6 +273,7 @@
       <replace>statement_line</replace>
       <replace>IBooleanNode</replace>
       <replace>int</replace>
+      <replace>args.toArray()[$1]</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -341,10 +329,10 @@
         <option value="$PROJECT_DIR$/core/src/misc/TreeInfo.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/RuleReference.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/Variable.java" />
-        <option value="$PROJECT_DIR$/core/src/interaction/TokenParser.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java" />
         <option value="$PROJECT_DIR$/core/src/structure/Grammars/ExtendedGrammar.java" />
         <option value="$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java" />
+        <option value="$PROJECT_DIR$/core/src/interaction/TokenParser.java" />
         <option value="$PROJECT_DIR$/src/interaction/CommandLineRunner.java" />
       </list>
     </option>
@@ -356,10 +344,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="190" />
-    <option name="y" value="-23" />
-    <option name="width" value="1410" />
-    <option name="height" value="1011" />
+    <option name="x" value="189" />
+    <option name="y" value="-24" />
+    <option name="width" value="1411" />
+    <option name="height" value="1012" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -1252,7 +1240,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1385,13 +1372,14 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/Documents/ProgrammingWorkspace/GrammarProject/core/src/structure/parse/ParseNode.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533697048509" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533832834664" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1482,7 +1470,8 @@
       <workItem from="1533239439022" duration="1075000" />
       <workItem from="1533561661025" duration="141000" />
       <workItem from="1533582790366" duration="4765000" />
-      <workItem from="1533652996187" duration="14652000" />
+      <workItem from="1533652996187" duration="14812000" />
+      <workItem from="1533821990838" duration="10585000" />
     </task>
     <task id="LOCAL-00001" summary="Added most internal structure">
       <created>1530579847195</created>
@@ -1589,11 +1578,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533659718930</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Now included reference boolean nodes, though current implementation is iffy">
+      <created>1533697150050</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1533697150050</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170680000" />
+    <option name="totallyTimeSpent" value="181425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1840" height="1002" extended-state="6" />
@@ -1604,7 +1600,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.22215973" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.22497188" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="1" weight="0.06481481" />
@@ -1625,8 +1621,8 @@
       <window_info anchor="right" id="Commander" order="6" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Run" order="9" sideWeight="0.4988426" weight="0.25646794" />
-      <window_info active="true" anchor="right" id="Debug" order="10" sideWeight="0.4988426" visible="true" weight="0.35714287" />
+      <window_info anchor="right" id="Run" order="9" sideWeight="0.4988426" visible="true" weight="0.25646794" />
+      <window_info anchor="right" id="Debug" order="10" sideWeight="0.4988426" weight="0.33858266" />
       <window_info anchor="right" id="Coverage" order="11" sideWeight="0.5011574" side_tool="true" weight="0.42688414" />
     </layout>
     <layout-to-restore>
@@ -1682,7 +1678,8 @@
     <MESSAGE value="Lots of work into the UI" />
     <MESSAGE value="Added functionality to variables and functions, put work into getting tags working" />
     <MESSAGE value="Added to functions, now can have control structures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added to functions, now can have control structures" />
+    <MESSAGE value="Now included reference boolean nodes, though current implementation is iffy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now included reference boolean nodes, though current implementation is iffy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1719,7 +1716,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
-          <line>55</line>
+          <line>57</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
@@ -1737,19 +1734,19 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>195</line>
+          <line>200</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>186</line>
+          <line>191</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>183</line>
+          <line>188</line>
           <properties />
           <option name="timeStamp" value="88" />
         </line-breakpoint>
@@ -1762,7 +1759,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>174</line>
+          <line>179</line>
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
@@ -1817,7 +1814,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>182</line>
+          <line>187</line>
           <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
@@ -1835,32 +1832,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
-          <line>60</line>
+          <line>62</line>
           <properties />
           <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
-          <line>72</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>371</line>
+          <line>376</line>
           <properties />
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="fixed.contains(&quot;\\&quot;)" language="JAVA" />
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>359</line>
+          <line>364</line>
           <properties />
           <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>349</line>
+          <line>354</line>
           <properties />
           <option name="timeStamp" value="152" />
         </line-breakpoint>
@@ -1873,14 +1870,14 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>354</line>
+          <line>359</line>
           <properties />
           <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="tokenIndex == 132" language="JAVA" />
           <url>file://$PROJECT_DIR$/core/src/interaction/TokenParser.java</url>
-          <line>266</line>
+          <line>271</line>
           <properties />
           <option name="timeStamp" value="155" />
         </line-breakpoint>
@@ -1898,19 +1895,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
-          <line>108</line>
+          <line>126</line>
           <properties />
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
-          <line>101</line>
+          <line>107</line>
           <properties />
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
-          <line>90</line>
+          <line>95</line>
           <properties />
           <option name="timeStamp" value="184" />
         </line-breakpoint>
@@ -1922,9 +1919,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
-          <line>114</line>
+          <line>132</line>
           <properties />
           <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java</url>
+          <line>442</line>
+          <properties />
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java</url>
+          <line>151</line>
+          <properties />
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java</url>
+          <line>460</line>
+          <properties />
+          <option name="timeStamp" value="194" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
@@ -2045,13 +2072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mathGrammarShort.eccfg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -2137,13 +2157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/interaction/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1696">
-          <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gui/src/gui/GrammarEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -2160,9 +2173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
           <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2257,20 +2267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminals/RegexTerminal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminals/Terminal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -2282,6 +2278,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#762#763#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2299,47 +2309,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
+    <entry file="file://$PROJECT_DIR$/core/src/interaction/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-          <folding>
-            <element signature="e#3090#3091#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Rule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="177" selection-start-line="177" selection-end-line="177" />
+        <state relative-caret-position="352">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6518#6519#0" expanded="true" />
-            <element signature="e#6557#6558#0" expanded="true" />
-            <element signature="e#6611#6612#0" expanded="true" />
-            <element signature="e#6661#6662#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/Grammars/Grammar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="-512">
           <caret line="129" selection-start-line="129" selection-end-line="129" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2349,89 +2350,106 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/structure/Grammars/ExtendedGrammar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="158" column="10" lean-forward="true" selection-start-line="158" selection-start-column="10" selection-end-line="158" selection-end-column="10" />
+        <state relative-caret-position="-1076">
+          <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
           <folding>
             <element signature="e#1643#1644#0" expanded="true" />
             <element signature="e#1691#1692#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="375" selection-start-line="375" selection-end-line="375" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#384#385#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#910#911#0" expanded="true" />
-            <element signature="e#945#946#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-            <element signature="e#1340#1341#0" expanded="true" />
-            <element signature="e#1408#1409#0" expanded="true" />
-            <element signature="e#4597#4598#0" expanded="true" />
-            <element signature="e#4637#4638#0" expanded="true" />
-            <element signature="e#5649#5650#0" expanded="true" />
-            <element signature="e#5683#5684#0" expanded="true" />
-            <element signature="e#5968#5969#0" expanded="true" />
-            <element signature="e#6004#6005#0" expanded="true" />
-            <element signature="e#8037#8038#0" expanded="true" />
-            <element signature="e#8098#8099#0" expanded="true" />
-            <element signature="e#6116#6117#0" expanded="true" />
-            <element signature="e#6152#6153#0" expanded="true" />
-            <element signature="e#10059#10060#0" expanded="true" />
-            <element signature="e#10122#10123#0" expanded="true" />
-            <element signature="e#10331#10332#0" expanded="true" />
-            <element signature="e#10369#10370#0" expanded="true" />
-            <element signature="e#10250#10251#0" expanded="true" />
-            <element signature="e#10286#10287#0" expanded="true" />
-            <element signature="e#11077#11078#0" expanded="true" />
-            <element signature="e#11109#11110#0" expanded="true" />
-            <element signature="e#11384#11385#0" expanded="true" />
-            <element signature="e#11411#11412#0" expanded="true" />
-            <element signature="e#11467#11468#0" expanded="true" />
-            <element signature="e#11500#11501#0" expanded="true" />
-            <element signature="e#12251#12252#0" expanded="true" />
-            <element signature="e#12313#12314#0" expanded="true" />
-            <element signature="e#13530#13531#0" expanded="true" />
-            <element signature="e#13567#13568#0" expanded="true" />
-            <element signature="e#13615#13616#0" expanded="true" />
-            <element signature="e#13653#13654#0" expanded="true" />
-            <element signature="e#14069#14070#0" expanded="true" />
-            <element signature="e#14121#14122#0" expanded="true" />
-            <element signature="e#14968#14969#0" expanded="true" />
-            <element signature="e#14995#14996#0" expanded="true" />
-            <element signature="e#15045#15046#0" expanded="true" />
-            <element signature="e#15072#15073#0" expanded="true" />
-            <element signature="e#15149#15150#0" expanded="true" />
-            <element signature="e#15176#15177#0" expanded="true" />
+            <element signature="e#3821#3822#0" expanded="true" />
+            <element signature="e#3855#3856#0" expanded="true" />
+            <element signature="e#3920#3921#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/interaction/TokenParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="444" selection-start-line="444" selection-end-line="444" />
+        <state relative-caret-position="-4450">
+          <caret line="82" column="37" lean-forward="true" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2416#2417#0" expanded="true" />
+            <element signature="e#19007#19008#0" expanded="true" />
+            <element signature="e#19040#19041#0" expanded="true" />
+            <element signature="e#19105#19106#0" expanded="true" />
+            <element signature="e#19134#19135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9010">
+          <caret line="162" selection-start-line="162" selection-end-line="162" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10331#10332#0" expanded="true" />
+            <element signature="e#10369#10370#0" expanded="true" />
+            <element signature="e#11113#11114#0" expanded="true" />
+            <element signature="e#11196#11197#0" expanded="true" />
+            <element signature="e#19359#19360#0" expanded="true" />
+            <element signature="e#19391#19392#0" expanded="true" />
+            <element signature="e#19666#19667#0" expanded="true" />
+            <element signature="e#19693#19694#0" expanded="true" />
+            <element signature="e#19749#19750#0" expanded="true" />
+            <element signature="e#19782#19783#0" expanded="true" />
+            <element signature="e#20533#20534#0" expanded="true" />
+            <element signature="e#20595#20596#0" expanded="true" />
+            <element signature="e#21812#21813#0" expanded="true" />
+            <element signature="e#21849#21850#0" expanded="true" />
+            <element signature="e#21897#21898#0" expanded="true" />
+            <element signature="e#21935#21936#0" expanded="true" />
+            <element signature="e#25621#25622#0" expanded="true" />
+            <element signature="e#25674#25675#0" expanded="true" />
+            <element signature="e#25822#25823#0" expanded="true" />
+            <element signature="e#25874#25875#0" expanded="true" />
+            <element signature="e#26721#26722#0" expanded="true" />
+            <element signature="e#26748#26749#0" expanded="true" />
+            <element signature="e#26798#26799#0" expanded="true" />
+            <element signature="e#26825#26826#0" expanded="true" />
+            <element signature="e#26902#26903#0" expanded="true" />
+            <element signature="e#26929#26930#0" expanded="true" />
+            <element signature="e#26972#26973#0" expanded="true" />
+            <element signature="e#27011#27012#0" expanded="true" />
+            <element signature="e#27066#27067#0" expanded="true" />
+            <element signature="e#27110#27111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1876">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#3040#3041#0" expanded="true" />
+            <element signature="e#3090#3091#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/SyntacticObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/structure/syntacticObjects/Terminals/RegexTerminal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#370#371#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/interaction/CommandLineRunner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="104" column="35" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
+        <state relative-caret-position="332">
+          <caret line="115" column="47" lean-forward="true" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

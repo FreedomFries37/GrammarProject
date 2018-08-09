@@ -8,8 +8,10 @@ import structure.Reference;
 import structure.syntacticObjects.Rule;
 import structure.syntacticObjects.SyntacticCategory;
 import structure.syntacticObjects.SyntacticFunction;
+import structure.syntacticObjects.Terminals.RegexTerminal;
 
 import java.io.File;
+import java.util.regex.Pattern;
 
 public class CommandLineRunner {
     
@@ -71,25 +73,29 @@ public class CommandLineRunner {
             math.printExamples(1, 11);
             */
             ExtendedGrammar basic = grammarLoader.loadTokenGrammar(new File("radinBasic.eccfg"));
+            basic.addCategory("all_chars", new Rule(new RegexTerminal(".")));
             basic.addFunction(new SyntacticFunction(
                     "surroundNum",
                     new SyntacticCategory[][]{
-                            {basic.getCategory("char")}
+                            {basic.getCategory("all_chars")}
                     }
                     )
             );
             SyntacticFunction function = basic.getFunction("surroundNum");
             // basic.getCategory("number"), "$0"
             SyntacticFunction.IBooleanNode tree = function.createAndNode(
-                    function.createEqualToNode("hello", "hello"),
+                    function.createNotNode(
+                            function.createGroupExistsNode("test")
+                    ),
                     function.createAndNode(
                             function.createGreaterThanOrEqualToTree(5, 4),
                             function.createTrueNode()
                     )
             );
             
-            SyntacticFunction.RuleNode ruleNode = function.createRuleNode(basic.getCategory("number"), "$0");
-            SyntacticFunction.ControlNode controlNode = function.createControlNode(tree,ruleNode);
+            SyntacticFunction.RuleNode ruleNode1 = function.createRuleNode(basic.getCategory("number"), "$0");
+            SyntacticFunction.RuleNode ruleNode2 = function.createRuleNode(basic.getCategory("number"));
+            SyntacticFunction.ControlNode controlNode = function.createControlNode(tree,ruleNode1,ruleNode2);
             controlNode = function.createControlNode(
                     function.createNotNode(
                             function.createOrNode(
@@ -101,12 +107,24 @@ public class CommandLineRunner {
             );
             function.setTree(controlNode);
             
-            
-            basic.addCategory("surroundCat", new Rule(basic.getFunction("surroundNum")));
+            basic.addFunction(new SyntacticFunction(
+                    "surroundCatFunc",
+                    new SyntacticCategory[0][0]
+            ));
+            function = basic.getFunction("surroundCatFunc");
+            function.setTree(
+                    function.createControlNode(
+                            function.createPatternMatchNode(Pattern.compile("[^\\d]")),
+                            function.createRuleNode(basic.getFunction("surroundNum")),
+                            function.createRuleNode(basic.getCategory("number"))
+                    )
+                    
+            );
+            basic.addCategory("surroundCat", new Rule(basic.getFunction("surroundCatFunc")));
             basic.printGrammar();
             basic.printExamples(5, "boolean_expression", 8);
             TokenParser basicParser = new TokenParser(basic);
-            basicParser.parse("a99a", basic.getCategory("surroundCat"));
+            basicParser.parse("_99_", basic.getCategory("surroundCat"));
             
             
             Reference<Boolean> bool = new Reference<>(false);

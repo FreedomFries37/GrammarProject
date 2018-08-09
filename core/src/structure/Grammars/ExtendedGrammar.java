@@ -136,6 +136,14 @@ public class ExtendedGrammar extends Grammar {
         this.delimiters = delimiters;
     }
     
+    public HashMap<String, SyntacticFunction> getFunctionMap() {
+        return functionMap;
+    }
+    
+    public HashMap<String, ArrayList<String>> getGroups() {
+        return groups;
+    }
+    
     @Override
     public void printGrammar() {
         System.out.println(

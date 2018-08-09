@@ -1,14 +1,23 @@
 package structure.syntacticObjects;
 
+import interaction.TokenParser;
 import misc.Tools;
 import structure.Reference;
+import structure.syntacticObjects.Terminals.tokenBased.Token;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
+import java.util.function.ToLongBiFunction;
+import java.util.regex.Pattern;
 
 public class SyntacticFunction extends SyntacticObject {
     
+    private interface IPrintableTree{
+        String printTree(int indent);
+    }
+    public interface IBooleanNode extends IPrintableTree{
+        boolean getValue();
+    }
     private abstract class FunctionNode implements IPrintableTree{
         private FunctionNode children[];
         
@@ -102,23 +111,23 @@ public class SyntacticFunction extends SyntacticObject {
         }
     }
     
-    public interface IBooleanNode extends IPrintableTree{
-        boolean getValue();
-    }
+   
     
     // TODO: check if references are needed
     private class ConditionalNode<T, K> implements IBooleanNode{
-        private ConditionalType conditionalType;
-        private boolean strictlyNumeric;
-        private T obj1;
-        private K obj2;
+        protected ConditionalType conditionalType;
+        protected boolean strictlyNumeric;
+        protected T obj1;
+        protected K obj2;
     
         public ConditionalNode(ConditionalType conditionalType, T obj1, K obj2) {
             this.conditionalType = conditionalType;
             this.obj1 = obj1;
             this.obj2 = obj2;
-            if(conditionalType == ConditionalType.lessThan || conditionalType == ConditionalType.greaterThan)
+            if(conditionalType == ConditionalType.lessThan || conditionalType == ConditionalType.greaterThan) {
                 strictlyNumeric = true;
+            }
+            
         }
         
         @Override
@@ -133,8 +142,97 @@ public class SyntacticFunction extends SyntacticObject {
         }
     }
     
+    private class HalfMethodConditionalNode<T,K> extends ConditionalNode<IMethodNode<T,K>,T>{
+        private Collection<Object> args;
+        private Reference<K> base;
+        
+        public HalfMethodConditionalNode(ConditionalType conditionalType, IMethodNode<T, K> obj1, Reference<K> base,
+                                         T obj2,
+                                         Collection<Object> args) {
+            super(conditionalType, obj1, obj2);
+            this.args = args;
+            this.base = base;
+        }
     
-    private enum ConditionalType{
+        @Override
+        public boolean getValue() {
+            try {
+                if (strictlyNumeric) return conditionalType.getValue(
+                        (Number) obj1.getValue(base.getRef(), args),
+                        (Number) obj2);
+                return conditionalType.getValue(obj1.getValue(base.getRef(), args), obj2);
+            }catch (IncorrectAmountOfArgumentsException e){
+                e.printStackTrace();
+            }
+            
+            return false;
+        }
+    
+        @Override
+        public String printTree(int indent) {
+            StringBuilder str = new StringBuilder("(");
+            for (int i = 0; i < args.size()-1; i++) {
+                str.append(args.toArray()[i].toString());
+                str.append(",");
+            }
+            str.append(args.toArray()[args.size()-1].toString());
+            str.append(")");
+            return Tools.indent(indent) + obj1.toString() + str.toString() + " " + conditionalType.identifier + " " + obj2.toString() + "\n";
+        }
+    }
+    
+    private class FullMethodConditionalNode<T,K> extends ConditionalNode<IMethodNode<T,K>, IMethodNode<T,K>>{
+        private Collection<Object> args1;
+        private Collection<Object> args2;
+        private Reference<K> base;
+        
+        public FullMethodConditionalNode(ConditionalType type,
+                                         Reference<K> base,
+                                         IMethodNode<T, K> obj1, Collection<Object> args1,
+                                         IMethodNode<T, K> obj2, Collection<Object> args2){
+            super(type,obj1,obj2);
+            this.args1 = args1;
+            this.args2 = args2;
+            this.base =base;
+        }
+    
+        @Override
+        public boolean getValue() {
+            try {
+                if (strictlyNumeric) return conditionalType.getValue(
+                        (Number) obj1.getValue(base.getRef(), args1),
+                        (Number) obj2.getValue(base.getRef(), args2));
+                return conditionalType.getValue(obj1.getValue(base.getRef(), args2), obj2.getValue(base.getRef(), args2));
+            }catch (IncorrectAmountOfArgumentsException e){
+                e.printStackTrace();
+            }
+    
+            return false;
+        }
+    
+        @Override
+        public String printTree(int indent) {
+            StringBuilder str1 = new StringBuilder("(");
+            for (int i = 0; i < args1.size()-1; i++) {
+                str1.append(args1.toArray()[i].toString());
+                str1.append(",");
+            }
+            str1.append(args1.toArray()[args1.size()-1].toString());
+            str1.append(")");
+            StringBuilder str2 = new StringBuilder("(");
+            for (int i = 0; i < args2.size()-1; i++) {
+                str2.append(args2.toArray()[i].toString());
+                str2.append(",");
+            }
+            str2.append(args2.toArray()[args2.size()-1].toString());
+            str2.append(")");
+            return Tools.indent(indent) + obj1.toString() + str1.toString() + " " + conditionalType.identifier + " " + obj2.toString() + str2.toString() + "\n";
+    
+        }
+    }
+    
+    
+    public enum ConditionalType{
         equal("=="){
             @Override
             <T, K> boolean getValue(T obj1, K obj2) {
@@ -201,7 +299,7 @@ public class SyntacticFunction extends SyntacticObject {
         public boolean getValue() {
             try{
                 return type.getValue(first, after);
-            }catch (BooleanTypes.IncorrectAmountOfArgumentsException e){
+            }catch (IncorrectAmountOfArgumentsException e){
                 e.printStackTrace();
             }
             return false;
@@ -266,10 +364,12 @@ public class SyntacticFunction extends SyntacticObject {
                     n2[0].printTree(indent+1);
         }
         
-        public class IncorrectAmountOfArgumentsException extends Exception{
-            IncorrectAmountOfArgumentsException(int correctAmount, int putAmount){
-                super(String.format("Incorrect amount of arguments. Expected: %d Recieved: %d", correctAmount, putAmount));
-            }
+       
+    }
+    
+    public static class IncorrectAmountOfArgumentsException extends Exception{
+        IncorrectAmountOfArgumentsException(int correctAmount, int putAmount){
+            super(String.format("Incorrect amount of arguments. Expected: %d Recieved: %d", correctAmount, putAmount));
         }
     }
     
@@ -312,12 +412,92 @@ public class SyntacticFunction extends SyntacticObject {
             return Tools.indent(indent) + "ref:" + (ref.getRef() ? "TRUE" : "FALSE") + "\n";
         }
     }
-    private interface IPrintableTree{
-        String printTree(int indent);
+    
+    
+    /**
+     * A node that returns a value from an object based on arguments
+     * @param <T> Return type
+     * @param <K> Object Type to check
+     */
+    private interface IMethodNode<T, K> extends IPrintableTree{
+        T getValue(K base, Collection<Object> args) throws IncorrectAmountOfArgumentsException;
+    
+        @Override
+        default String printTree(int indent) {
+            return Tools.indent(indent) + "method\n";
+        }
     }
     
     
+    enum BooleanMethods implements IMethodNode<Boolean,TokenParser>{
+        existsIn{
+            @Override
+            public Boolean getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException{
+               if(args.size() != 2) throw new IncorrectAmountOfArgumentsException(2, args.size());
+               return base.getGroups().get(args.toArray()[0]).contains(args.toArray()[1]);
+            }
+        },
+        groupExists{
+            @Override
+            public Boolean getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+                if(args.size() != 1) throw new IncorrectAmountOfArgumentsException(1, args.size());
+                return base.getGroups().containsKey(args.toArray()[0]);
+            }
+        },
+        varDefined{
+            @Override
+            public Boolean getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+                if(args.size() != 1) throw new IncorrectAmountOfArgumentsException(1, args.size());
+                if(args.toArray()[0].equals(Variable.Scope.global)) {
+                    return base.getGlobalVars().containsKey(args.toArray()[0]);
+                }
+                
+                return false;
+            }
+        },
+        matchPattern{
+            @Override
+            public Boolean getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+                if(args.size() != 1) throw new IncorrectAmountOfArgumentsException(1, args.size());
+                Pattern p = (Pattern) args.toArray()[0];
+                return base.match(p);
+            }
+        }
+    }
     
+    enum NumberValueMethods implements IMethodNode<Number,TokenParser>{
+        groupSize {
+            @Override
+            public Number getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+                if(args.size() != 1) throw new IncorrectAmountOfArgumentsException(1, args.size());
+                return base.getGroups().get(args.toArray()[0]).size();
+            }
+        }
+    }
+    
+    enum StringMethods implements IMethodNode<String,TokenParser>{
+        currentToken{
+           
+            public String getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+                if(args.size() != 0) throw new IncorrectAmountOfArgumentsException(0, args.size());
+                return base.currentToken();
+            }
+        },
+        currentChar{
+            @Override
+            public String getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+                if(args.size() != 0) throw new IncorrectAmountOfArgumentsException(0, args.size());
+                return "" + base.currentChar();
+            }
+        },
+        varValue{
+            @Override
+            public String getValue(TokenParser base, Collection<Object> args) throws IncorrectAmountOfArgumentsException {
+                if(args.size() != 1) throw new IncorrectAmountOfArgumentsException(1, args.size());
+                return base.getGlobalVars().get(args.toArray()[0]).getChildTerminals();
+            }
+        }
+    }
     
     
     
@@ -325,6 +505,28 @@ public class SyntacticFunction extends SyntacticObject {
     private SyntacticCategory[][] parameters;
     private Rule baseRule;
     private FunctionNode tree;
+    private Reference<TokenParser> creator;
+    
+    public SyntacticFunction(String name, SyntacticCategory[][] parameters, Rule baseRule, TokenParser creator) {
+        this(name,parameters,creator,baseRule.getSyntacticObjects().toArray());
+    }
+    
+    public SyntacticFunction(String name, SyntacticCategory[][] parameters, TokenParser creator, Object... obj) {
+        try {
+            this.name = name;
+            this.parameters = parameters;
+            this.baseRule = new Rule(name, obj);
+            this.creator = new Reference<>(creator);
+        }catch (Rule.IncorrectTypeException e){
+            e.printStackTrace();
+        }
+    }
+    
+    public SyntacticFunction(String name, SyntacticCategory[][] parameters) {
+        this.name = name;
+        this.parameters = parameters;
+        this.creator = new Reference<>();
+    }
     
     public SyntacticFunction(String name, SyntacticCategory[][] parameters, Rule baseRule) {
         this(name,parameters,baseRule.getSyntacticObjects().toArray());
@@ -340,9 +542,10 @@ public class SyntacticFunction extends SyntacticObject {
         }
     }
     
-    public SyntacticFunction(String name, SyntacticCategory[][] parameters) {
+    public SyntacticFunction(String name, SyntacticCategory[][] parameters, TokenParser creator) {
         this.name = name;
         this.parameters = parameters;
+        this.creator = new Reference<>(creator);
     }
     
     public void setTree(FunctionNode tree){
@@ -435,7 +638,99 @@ public class SyntacticFunction extends SyntacticObject {
         return new ControlNode(booleanNode, nextNode, elseNode);
     }
     
+    public IBooleanNode createExistsInNode(String group, String str){
+        return new HalfMethodConditionalNode<Boolean,TokenParser>(
+                ConditionalType.equal,
+                BooleanMethods.existsIn,
+                creator,
+                true,
+                Arrays.asList(group, str)
+        );
+    }
     
+    public IBooleanNode createGroupExistsNode(String group){
+        return new HalfMethodConditionalNode<>(
+                ConditionalType.equal,
+                BooleanMethods.groupExists,
+                creator,
+                true,
+                Arrays.asList(group)
+        );
+    }
+    
+    public IBooleanNode createVarDefinedNode(String var){
+        return new HalfMethodConditionalNode<>(
+                ConditionalType.equal,
+                BooleanMethods.varDefined,
+                creator,
+                true,
+                Arrays.asList(var)
+        );
+    }
+    
+    public IBooleanNode createVarEqualsNode(String var, String equal){
+        return new HalfMethodConditionalNode<>(
+                ConditionalType.equal,
+                StringMethods.varValue,
+                creator,
+                equal,
+                Arrays.asList(var)
+        );
+    }
+    
+    public IBooleanNode createGroupSizeNode(String group, ConditionalType type, Number size){
+        return new HalfMethodConditionalNode<>(
+                type,
+                NumberValueMethods.groupSize,
+                creator,
+                size,
+                Arrays.asList(group)
+        );
+    }
+    
+    public IBooleanNode createGroupSizeNode(String group1, ConditionalType type, String group2){
+        return new FullMethodConditionalNode<>(
+                type,
+                creator,
+                NumberValueMethods.groupSize,
+                Arrays.asList(group1),
+                NumberValueMethods.groupSize,
+                Arrays.asList(group2)
+        );
+    }
+    
+    public IBooleanNode createCurrentTokenNode(String str){
+        return new HalfMethodConditionalNode<>(
+                ConditionalType.equal,
+                StringMethods.currentToken,
+                creator,
+                str,
+                new ArrayList<>()
+        );
+    }
+    
+    public IBooleanNode createCurrentCharNode(char str){
+        return new HalfMethodConditionalNode<>(
+                ConditionalType.equal,
+                StringMethods.currentChar,
+                creator,
+                "" + str,
+                new ArrayList<>()
+        );
+    }
+    
+    public IBooleanNode createPatternMatchNode(String s){
+        return createPatternMatchNode(Pattern.compile(s));
+    }
+    public IBooleanNode createPatternMatchNode(Pattern pattern) {
+        return new HalfMethodConditionalNode<>(
+                ConditionalType.equal,
+                BooleanMethods.matchPattern,
+                creator,
+                true,
+                Arrays.asList(pattern)
+        );
+    }
     
     @Override
     public String getRepresentation() {
@@ -444,23 +739,21 @@ public class SyntacticFunction extends SyntacticObject {
     
     @Override
     public String getUpperRepresentation() {
-        if(baseRule != null) {
-            StringBuilder params = new StringBuilder();
-            for (SyntacticCategory[] parameter : parameters) {
-                StringBuilder param = new StringBuilder();
-                for (SyntacticCategory syntacticCategory : parameter) {
-                    param.append(syntacticCategory.getRepresentation());
-                }
-                param.append(",");
-                params.append(param);
+        StringBuilder params = new StringBuilder();
+        for (SyntacticCategory[] parameter : parameters) {
+            StringBuilder param = new StringBuilder();
+            for (SyntacticCategory syntacticCategory : parameter) {
+                param.append(syntacticCategory.getRepresentation());
             }
-            params.deleteCharAt(params.length() - 1);
-        
-        
+            param.append(",");
+            params.append(param);
+        }
+        if(params.length() > 0) params.deleteCharAt(params.length() - 1);
+        if(baseRule != null) {
             return String.format("\t<%s(%s)> -> %s", name, params.toString(), baseRule.toString());
         }
     
-        return tree.printTree(1);
+        return String.format("\t<%s(%s)> ->\n%s", name, params.toString(), tree.printTree(2));
     }
     
     @Override
@@ -478,5 +771,11 @@ public class SyntacticFunction extends SyntacticObject {
         return null;
     }
     
+    public TokenParser getCreator() {
+        return creator.getRef();
+    }
     
+    public void setCreator(TokenParser creator) {
+        this.creator.setRef(creator);
+    }
 }
